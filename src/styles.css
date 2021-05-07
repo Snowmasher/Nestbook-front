@@ -14,7 +14,7 @@ input, input[type="text"]{
   border-width: 2px 2px 2px 2px;
   padding: 10px;
 }
-
+/*Para los botones cuadrados*/
 input, input[type="button"]{
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px ;

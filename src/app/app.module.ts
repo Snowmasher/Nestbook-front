@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
+import { PrincipalComponent } from './principal/principal.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    PrincipalComponent,
+    ErrorPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
