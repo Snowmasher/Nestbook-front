@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InfoBarComponent } from './info-bar/info-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     PrincipalComponent,
     ErrorPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    InfoBarComponent
   ],
   imports: [
     BrowserModule,
