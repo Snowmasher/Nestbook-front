@@ -1,3 +1,11 @@
+:root{
+  --blue: rgb(1, 130, 204);
+  --darkblue: rgb(0, 96, 141);
+  --orange: rgb(219, 80, 0);
+}
+
+/*--blue: rgb(0, 113, 141);*
+
 /*Para la imagen del login*/
 .bg-cover{
   width: 100%;
@@ -32,4 +40,36 @@ input, input[type="button"]{
 .userNavLink{
   position: absolute;
   right: 0px;
+}
+
+.asoc-btn{
+  height: 2.7em;
+  margin-left: 1em;
+}
+
+/*BACKGROUNDS*/
+
+.blue-bg-snowmasher{
+  background-color: var(--blue);
+}
+
+.darkblue-bg-snowmasher{
+  background-color: var(--darkblue);
+}
+
+.orange-bg-snowmasher{
+  background-color: var(--orange);
+}
+
+/*BORDERS*/
+.blue-border-snowmasher{
+  border: 1px solid var(--blue);
+}
+
+.darkblue-border-snowmasher{
+  border: 1px solid var(--darkblue);
+}
+
+.orange-border-snowmasher{
+  border: 1px solid var(--orange);
 }

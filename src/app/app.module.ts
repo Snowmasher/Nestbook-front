@@ -9,6 +9,18 @@ import { PrincipalComponent } from './principal/principal.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InfoBarComponent } from './info-bar/info-bar.component';
+import { PostComponent } from './post/post.component';
+import { FooterComponent } from './footer/footer.component';
+import { MiembrosComponent } from './miembros/miembros.component';
+import { ListaMiembrosComponent } from './lista-miembros/lista-miembros.component';
+import { ItemMiembroComponent } from './item-miembro/item-miembro.component';
+import { InfoBarUserComponent } from './info-bar-user/info-bar-user.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
+import { ActionButtonsModComponent } from './action-buttons-mod/action-buttons-mod.component';
+import { ActionButtonsAdmComponent } from './action-buttons-adm/action-buttons-adm.component';
+import { ListaCanariosComponent } from './lista-canarios/lista-canarios.component';
+import { TablaCanariosComponent } from './tabla-canarios/tabla-canarios.component';
+import { CanarioComponent } from './canario/canario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +29,19 @@ import { InfoBarComponent } from './info-bar/info-bar.component';
     PrincipalComponent,
     ErrorPageComponent,
     NavbarComponent,
-    InfoBarComponent
+    InfoBarComponent,
+    PostComponent,
+    FooterComponent,
+    MiembrosComponent,
+    ListaMiembrosComponent,
+    ItemMiembroComponent,
+    InfoBarUserComponent,
+    UserPanelComponent,
+    ActionButtonsModComponent,
+    ActionButtonsAdmComponent,
+    ListaCanariosComponent,
+    TablaCanariosComponent,
+    CanarioComponent
   ],
   imports: [
     BrowserModule,
