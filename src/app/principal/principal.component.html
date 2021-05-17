@@ -4,12 +4,7 @@
 <div class="row">
   <app-info-bar class="min-vw-100 d-flex justify-content-center"></app-info-bar>
 </div>
-<div class="row">
-  <app-post class="min-vw-100 d-flex justify-content-center"></app-post>
-</div>
-<div class="row">
-  <app-post class="min-vw-100 d-flex justify-content-center"></app-post>
-</div>
+<app-post [posts]="posts" class="min-vw-100 d-flex justify-content-center flex-wrap"></app-post>
 <div class="row">
   <app-footer class="min-vw-100"></app-footer>
 </div>

@@ -1,22 +1,30 @@
-import { AsociacionService } from './../asociacion.service';
-import { Component, OnInit } from '@angular/core';
+import { InfoBarComponent } from './info-bar/info-bar.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { User } from './user';
 
-@Component({
-  selector: 'app-info-bar',
-  templateUrl: './info-bar.component.html',
-  styleUrls: ['./info-bar.component.css']
+export interface Usuario {
+  id_asociacion: number;
+}
+
+@Injectable({
+  providedIn: 'root'
 })
-export class InfoBarComponent implements OnInit {
+export class AsociacionService {
+
   info: any;
   idAsoc!: number;
   asociacion: any;
   url = 'http://localhost:8000/api/asociacion/';
-  constructor(private service: AsociacionService, private http: HttpClient,) { }
 
-  async ngOnInit(){
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-    //this.asociacion = await this.service.getAsocInfoBar();
+  async getAsocInfoBar(): Promise<any> {
+
     let res: any;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -36,16 +44,15 @@ export class InfoBarComponent implements OnInit {
         this.http.get(this.url).toPromise().then(
           (      result: any) => {
             console.log(result);
-            this.asociacion = result;
+            this.info = result;
           },
           (      error: any) => {
             console.log(error);
           }
         ).finally(
-          this.asociacion = this.info
+          () => this.info
         );
       }
     );
   }
-  }
-
+}

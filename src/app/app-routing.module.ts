@@ -7,9 +7,15 @@ import { MiembrosComponent } from './miembros/miembros.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { ListaCanariosComponent } from './lista-canarios/lista-canarios.component';
 import { CanarioComponent } from './canario/canario.component';
+import { SecureComponent } from './secure/secure.component';
+import { LoggedoutComponent } from './loggedout/loggedout.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'loggedout', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'secure', component: SecureComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'principal/miembros', component: MiembrosComponent},
   {path: 'panel', component: UserPanelComponent},

@@ -21,6 +21,11 @@ import { ActionButtonsAdmComponent } from './action-buttons-adm/action-buttons-a
 import { ListaCanariosComponent } from './lista-canarios/lista-canarios.component';
 import { TablaCanariosComponent } from './tabla-canarios/tabla-canarios.component';
 import { CanarioComponent } from './canario/canario.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SecureComponent } from './secure/secure.component';
+import { LoggedoutComponent } from './loggedout/loggedout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +46,18 @@ import { CanarioComponent } from './canario/canario.component';
     ActionButtonsAdmComponent,
     ListaCanariosComponent,
     TablaCanariosComponent,
-    CanarioComponent
+    CanarioComponent,
+    SecureComponent,
+    LoggedoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+<h2>Please, Register</h2>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <input type="text" formControlName="first_name" placeholder="first name"> <br>
+  <input type="text" formControlName="last_name" placeholder="last name"> <br>
+  <input type="email" formControlName="email" placeholder="email"> <br>
+  <input type="password" formControlName="password" placeholder="password"> <br>
+  <input type="password" formControlName="password_confirmation" placeholder="password confirmation"> <br>
+  <button [disabled]="!form.valid">Register</button>
+</form>

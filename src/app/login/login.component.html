@@ -11,16 +11,16 @@
           <h3>Iniciar sesión</h3>
         </div>
         <!--Campos del formulario-->
-        <form class="d-flex flex-column justify-content-center">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
           <div class="mb-3">
-            <input class="form-control" type="text" placeholder="Usuario...">
+            <input class="form-control" formControlName="email" type="text" placeholder="Usuario...">
           </div>
           <div class="mb-3">
-            <input class="form-control" type="text" placeholder="contraseña...">
+            <input class="form-control" formControlName="password" type="password" placeholder="contraseña...">
           </div>
           <div class="mb-3 d-flex justify-content-between">
             <a href="" style="font-size: 0.9em;">Olvidé mi contraseña</a>
-            <input type="button" class="btn btn-primary" value="Entrar">
+            <button type="submit" class="btn btn-primary">Entrar</button>
           </div>
         </form>
       </div>
