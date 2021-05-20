@@ -1,14 +1,5 @@
 <div class="col d-flex justify-content-around flex-wrap">
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
-  <app-item-miembro style="max-width: 45%; min-width: 40%;"></app-item-miembro>
+  <div style="max-width: 45%; min-width: 40%;" *ngFor="let miembro of miembros">
+    <app-item-miembro [miembro]="miembro"></app-item-miembro>
+  </div>
 </div>

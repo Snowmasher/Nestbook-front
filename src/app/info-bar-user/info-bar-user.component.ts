@@ -1,3 +1,5 @@
+import { UserService } from './../user.service';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoBarUserComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+  constructor(
+    private http: HttpClient,
+  ) { }
 
   ngOnInit(): void {
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    });
+    this.http.get('http://localhost:8000/api/user', { headers }).toPromise().then(
+      result => {
+        console.log(result);
+        this.user = result;
+      },
+      error => {
+        console.log(error);
+      }
+    ).finally(
+      () => {
+      }
+    );
+
   }
 
 }

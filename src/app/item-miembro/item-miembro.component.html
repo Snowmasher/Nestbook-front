@@ -1,11 +1,35 @@
 <a class="text-white" href="#">
-  <div class="darkblue-bg-snowmasher mt-3 p-3 d-flex ">
+  <div class="darkblue-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='U'; else noUser">
     <div class="col-9">
-      <p>NOMBRE DE USUARIO</p>
-      <p>Usuario/Moderador</p>
+      <h4>{{ miembro.name }}</h4>
+      <p>Usuario</p>
     </div>
     <div class="col-3">
       <img class="img rounded-circle" style="height: 5rem;" src="../../assets/img/icons/usuario.png" alt="Imagen del usuario">
     </div>
   </div>
+
+  <ng-template #noUser>
+    <div class="orange-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='M'; else Admin">
+      <div class="col-9">
+        <h4>{{ miembro.name }}</h4>
+        <p>Moderador</p>
+      </div>
+      <div class="col-3">
+        <img class="img rounded-circle" style="height: 5rem;" src="../../assets/img/icons/usuario.png" alt="Imagen del usuario">
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #Admin>
+    <div class="red-bg-snowmasher mt-3 p-3 d-flex">
+      <div class="col-9">
+        <h4>{{ miembro.name }}</h4>
+        <p>Aministrador</p>
+      </div>
+      <div class="col-3">
+        <img class="img rounded-circle" style="height: 5rem;" src="../../assets/img/icons/usuario.png" alt="Imagen del usuario">
+      </div>
+    </div>
+  </ng-template>
 </a>

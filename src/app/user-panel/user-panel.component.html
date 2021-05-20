@@ -5,13 +5,25 @@
   <app-info-bar-user class="min-vw-100 d-flex justify-content-center"></app-info-bar-user>
 </div>
 
-<div class="row">
-  <app-action-buttons-mod></app-action-buttons-mod>
+<div class="row" *ngIf="user.rol=='U'; else noUser">
+
 </div>
-<div class="row">
+
+<ng-template #noUser>
+  <div class="row" *ngIf="user.rol=='M'; else Admin">
+    <app-action-buttons-mod></app-action-buttons-mod>
+  </div>
+</ng-template>
+
+<ng-template #Admin>
+  <div class="row">
   <app-action-buttons-adm></app-action-buttons-adm>
-</div>
+  </div>
+</ng-template>
 
 <div class="row">
   <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>
 </div>
+
+
+

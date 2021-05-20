@@ -14,6 +14,8 @@ export class UserService {
   }
 
   logout(): void {
+    localStorage.removeItem('id_user');
+    localStorage.removeItem('id_asociacion');
     localStorage.removeItem('token');
     this.loggedChanged.next(false);
   }

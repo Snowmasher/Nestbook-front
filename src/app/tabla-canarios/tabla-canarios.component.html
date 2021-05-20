@@ -15,8 +15,8 @@
 
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
       <button type="button" class="btn btn-success">Alta</button>
-      <button type="button" class="btn btn-warning">Editar</button>
-      <button type="button" class="btn btn-warning">Intercambiar</button>
+      <button type="button" class="btn btn-table-ee">Editar</button>
+      <button type="button" class="btn btn-table-ee">Intercambiar</button>
       <button type="button" class="btn btn-danger">Baja</button>
     </div>
   </div>
@@ -28,30 +28,21 @@
       <thead class="table-dark">
         <tr>
           <th scope="col">Nº Anilla</th>
+          <th scope="col">Sexo</th>
           <th scope="col">Fª de Nacimiento</th>
           <th scope="col">Nº Anilla Padre</th>
           <th scope="col">Nº Anilla Madre</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">000000000001</th>
-          <td>01/01/2019</td>
-          <td>No registrado/a</td>
-          <td>No registrado/a</td>
+        <tr *ngFor="let canario of canarios">
+          <th style="font-family: monospace;" scope="row">{{ canario.anilla }}</th>
+          <th style="font-family: monospace; text-align: center;" scope="row">{{ canario.sexo }}</th>
+          <td style="font-family: monospace;" scope="row">{{ canario.nacimiento }}</td>
+          <td style="font-family: monospace;" scope="row">{{ canario.anillaPadre }}</td>
+          <td style="font-family: monospace;" scope="row">{{ canario.anillaMadre }}</td>
         </tr>
         <tr>
-          <th scope="row">000000000002</th>
-          <td>02/02/2019</td>
-          <td>No registrado/a</td>
-          <td>No registrado/a</td>
-        </tr>
-        <tr>
-          <th scope="row">000000000003</th>
-          <td>01/02/2020</td>
-          <td>000000000001</td>
-          <td>000000000002</td>
-        </tr>
       </tbody>
     </table>
 

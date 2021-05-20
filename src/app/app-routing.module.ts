@@ -10,6 +10,8 @@ import { CanarioComponent } from './canario/canario.component';
 import { SecureComponent } from './secure/secure.component';
 import { LoggedoutComponent } from './loggedout/loggedout.component';
 import { RegisterComponent } from './register/register.component';
+import { TablaModeradoresComponent } from './administrarModeradores/tabla-moderadores/tabla-moderadores.component';
+import { TablaAsociacionesComponent } from './administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path: 'principal', component: PrincipalComponent},
   {path: 'principal/miembros', component: MiembrosComponent},
   {path: 'panel', component: UserPanelComponent},
+  {path: 'panel/adminMod', component: TablaModeradoresComponent},
+  {path: 'panel/adminAsoc', component: TablaAsociacionesComponent},
   {path: 'canarios', component: ListaCanariosComponent},
   {path: 'canarios/anilla', component: CanarioComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},

@@ -26,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SecureComponent } from './secure/secure.component';
 import { LoggedoutComponent } from './loggedout/loggedout.component';
 import { RegisterComponent } from './register/register.component';
+import { TablaModeradoresComponent } from './administrarModeradores/tabla-moderadores/tabla-moderadores.component';
+import { TablaAsociacionesComponent } from './administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { RegisterComponent } from './register/register.component';
     CanarioComponent,
     SecureComponent,
     LoggedoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    TablaModeradoresComponent,
+    TablaAsociacionesComponent
   ],
   imports: [
     BrowserModule,

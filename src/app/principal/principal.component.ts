@@ -11,7 +11,7 @@ export class PrincipalComponent implements OnInit {
 
   datos = [];
   posts: Array<Post> = [];
-  url = 'http://localhost:8000/api/posts/';
+  url = 'http://localhost:8000/api/posts/' + localStorage.getItem('id_asociacion');
 
   constructor(private http: HttpClient) { }
 

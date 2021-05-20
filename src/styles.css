@@ -1,7 +1,10 @@
 :root{
+  --lightblue: rgb(55, 161, 223);
   --blue: rgb(1, 130, 204);
   --darkblue: rgb(0, 96, 141);
-  --orange: rgb(219, 80, 0);
+  --lightorange: rgb(223, 144, 98);
+  --orange: rgb(219, 108, 44);
+  --red: rgb(165, 52, 23);
 }
 
 /*--blue: rgb(0, 113, 141);*
@@ -22,8 +25,15 @@ input, input[type="text"]{
   border-width: 2px 2px 2px 2px;
   padding: 10px;
 }
+input, input[type="password"]{
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px ;
+  border-radius: 2px ;
+  border-width: 2px 2px 2px 2px;
+  padding: 10px;
+}
 /*Para los botones cuadrados*/
-input, input[type="button"]{
+input, input[type="button"], button[type=submit]{
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px ;
   border-radius: 2px ;
@@ -69,6 +79,10 @@ button, button[type="button"]{
   background-color: var(--orange);
 }
 
+.red-bg-snowmasher{
+  background-color: var(--red);
+}
+
 /*BORDERS*/
 .blue-border-snowmasher{
   border: 1px solid var(--blue);
@@ -80,4 +94,54 @@ button, button[type="button"]{
 
 .orange-border-snowmasher{
   border: 1px solid var(--orange);
+}
+
+/*Para los botones cuadrados de los InfoBar*/
+a, a[routerLink]{
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px ;
+  border-radius: 2px ;
+  border-width: 2px 2px 2px 2px;
+  padding: 10px;
+}
+
+
+.info-btn-adm-mod{
+  background-color: var(--darkblue);
+  border-color: var(--darkblue);
+  color: white;
+  height: 40%;
+}
+
+.info-btn-adm-mod:hover{
+  background-color: var(--blue);
+  color: white;
+}
+
+
+.info-btn-usr{
+  background-color: var(--orange);
+  border-color: var(--orange);
+  color: white;
+  height: 40%;
+}
+
+.info-btn-usr:hover{
+  background-color: var(--lightorange);
+}
+
+.btn-table-ee{
+  background-color: var(--darkblue);
+  border-color: var(--darkblue);
+  color: white;
+}
+
+.btn-table-ee:hover{
+  background-color: var(--blue);
+  color: white;
+}
+
+
+thead tr,thead tr:hover {
+  background-color: #353c41 !important;
 }
