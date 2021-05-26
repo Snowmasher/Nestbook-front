@@ -1,0 +1,74 @@
+<div class="row min-vw-100 d-flex justify-content-center">
+  <app-navbar class="min-vw-100" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+</div>
+<div class="row">
+  <app-info-bar-user class="min-vw-100 d-flex justify-content-center"></app-info-bar-user>
+</div>
+<div class="row d-flex justify-content-center">
+  <div style="min-width: 85%; max-width: 90%;">
+    <div class="container-fluid mt-3">
+      <div class="row mr-3 d-flex justify-content-end">
+        <div class="dropdown mr-5">
+          <a class="btn btn-secondary dropdown-toggle" href="/canarios" role="button" id="dropdownMenuLink"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Ordenar por:
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">ID (descendente)</a></li>
+            <li><a class="dropdown-item" href="#">ID (ascendente)</a></li>
+            <li><a class="dropdown-item" href="#">Fecha de publicación (descendente)</a></li>
+            <li><a class="dropdown-item" href="#">Fecha de publicación (ascendente)</a></li>
+            <li><a class="dropdown-item" href="#">Última edición (descendente)</a></li>
+            <li><a class="dropdown-item" href="#">Última edición (ascendente)</a></li>
+          </ul>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button" class="btn btn-success">Alta</button>
+          <button type="button" class="btn btn-table-ee">Editar</button>
+          <button type="button" class="btn btn-danger">Baja</button>
+        </div>
+      </div>
+
+      <!--TABLA-->
+      <div class="row mt-2 mb-2 min-vw-90">
+
+        <table class="table table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">Título</th>
+              <th scope="col">Fecha de publicación</th>
+              <th scope="col">Última edición</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pub of publicaciones">
+              <th style="font-family: monospace;" scope="row">{{ pub.id }}</th>
+              <th style="font-family: monospace; text-align: center;" scope="row">{{ pub.titulo }}</th>
+              <td style="font-family: monospace;" scope="row">{{ pub.publicado }}</td>
+              <td style="font-family: monospace;" scope="row">{{ pub.editado }}</td>
+            </tr>
+            <tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="row">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary">1</button>
+            <button type="button" class="btn btn-primary">2</button>
+            <button type="button" class="btn btn-primary">3</button>
+            <button type="button" class="btn btn-primary">4</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <app-footer class="min-vw-100"></app-footer>
+</div>
