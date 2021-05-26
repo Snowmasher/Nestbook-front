@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CanarioServiceService } from './canario-service.service';
+import { CanarioService } from './canario.service';
 
 describe('CanarioServiceService', () => {
-  let service: CanarioServiceService;
+  let service: CanarioService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CanarioServiceService);
+    service = TestBed.inject(CanarioService);
   });
 
   it('should be created', () => {

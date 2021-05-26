@@ -9,8 +9,7 @@
   <div class="container mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
     <div class="row darkblue-bg-snowmasher text-light p-2" style="min-height: 5em;">
       <div class="col-6  d-flex flex-column">
-        <h4>Número de Anilla</h4>
-        <h6>DD/MM/YYYY HH:MM:SS</h6>
+        <h4>{{ canario.anilla }}</h4>
       </div>
       <div class="col-6 d-flex justify-content-end">
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -25,22 +24,25 @@
         <table class="table table-hover table-bordered">
           <tbody>
             <tr>
-              <th scope="row">Sexo:</th>
+              <td scope="row"><b>Sexo:</b> {{ canario.sexo }}</td>
             </tr>
             <tr>
-              <th scope="row">Nº anilla del padre:</th>
+              <td scope="row"><b>Nº anilla del padre:</b> {{ canario.anillaPadre }}</td>
             </tr>
             <tr>
-              <th scope="row">Nº anilla de la madre:</th>
+              <td scope="row"><b>Nº anilla de la madre:</b> {{ canario.anillaMadre }}</td>
             </tr>
             <tr>
-              <th scope="row">Fª de nacimiento:</th>
+              <td scope="row"><b>Fª de nacimiento:</b> {{ canario.nacimiento }}</td>
             </tr>
             <tr>
-              <th scope="row">Fª última modificación:</th>
+              <td scope="row"><b>Fª de creación:</b> {{ canario.creacion }}</td>
             </tr>
             <tr>
-              <th scope="row">Fª de baja:</th>
+              <td scope="row"><b>Fª última modificación:</b> {{ canario.modificacion }}</td>
+            </tr>
+            <tr>
+              <td scope="row"><b>Fª de baja:</b> {{ canario.baja }}</td>
             </tr>
 
           </tbody>

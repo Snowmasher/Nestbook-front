@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'panel/adminUser', component: TablaUsuariosComponent},
   {path: 'panel/adminPost', component: TablaPublicacionesComponent},
   {path: 'canarios', component: ListaCanariosComponent},
-  {path: 'canarios/anilla', component: CanarioComponent},
+  {path: 'canarios/:id', component: CanarioComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component: ErrorPageComponent}
 ];

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Canario } from './Canario';
+import { Canario } from '../Canario';
 
 @Component({
   selector: 'app-tabla-canarios',
@@ -12,6 +12,8 @@ export class TablaCanariosComponent implements OnInit, OnChanges {
   user: any;
   canarios: Array<Canario> = [];
   constructor(private http: HttpClient) { }
+
+
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
@@ -25,6 +27,7 @@ export class TablaCanariosComponent implements OnInit, OnChanges {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const c = new Canario();
 
+          c.id = iterator.id;
           c.anilla = iterator.num_anilla;
           c.nacimiento = iterator.fecha_nacimiento;
           c.anillaPadre = iterator.num_anilla_padre;
