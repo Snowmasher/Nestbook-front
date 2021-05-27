@@ -1,3 +1,5 @@
+import { FormularioNuevoModeradorComponent } from './GrupoFormularios/Creates/formulario-nuevo-moderador/formulario-nuevo-moderador.component';
+import { FormularioNuevaAsociacionComponent } from './GrupoFormularios/Creates/formulario-nueva-asociacion/formulario-nueva-asociacion.component';
 import { TablaPublicacionesComponent } from './GrupoPanelUsuario/administrarPublicaciones/tabla-publicaciones/tabla-publicaciones.component';
 import { TablaUsuariosComponent } from './GrupoPanelUsuario/administrarUsuarios/tabla-usuarios/tabla-usuarios.component';
 import { NgModule } from '@angular/core';
@@ -25,7 +27,9 @@ const routes: Routes = [
   {path: 'principal/miembros', component: MiembrosComponent},
   {path: 'panel', component: UserPanelComponent},
   {path: 'panel/adminMod', component: TablaModeradoresComponent},
+  {path: 'panel/adminMod/registerMod', component: FormularioNuevoModeradorComponent},
   {path: 'panel/adminAsoc', component: TablaAsociacionesComponent},
+  {path: 'panel/adminAsoc/registerAsoc', component: FormularioNuevaAsociacionComponent},
   {path: 'panel/adminUser', component: TablaUsuariosComponent},
   {path: 'panel/adminUser/registerUser', component: FormularioNuevoUsuarioComponent},
   {path: 'panel/adminPost', component: TablaPublicacionesComponent},

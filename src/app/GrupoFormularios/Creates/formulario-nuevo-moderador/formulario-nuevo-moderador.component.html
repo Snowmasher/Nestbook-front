@@ -8,18 +8,24 @@
 <div class="row mh-50 h-50 d-flex justify-content-center align-center">
   <div class="col-10 d-flex flex-column justify-content-center">
     <div>
-      <h3>Crear Asociación</h3>
+      <h3>Crear Moderador</h3>
     </div>
     <!--Campos del formulario-->
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
       <div class="mb-3">
-        <input class="form-control" formControlName="nombre" type="text" placeholder="Nombre de asociación...">
+        <input class="form-control" formControlName="name" type="text" placeholder="Nombre de moderador...">
       </div>
       <div class="mb-3">
-        <select  formControlName="id_mod" class="browser-default custom-select">
-          <option selected="selected">ID Moderador</option>
-          <option *ngFor="let mod of moderadores" value="{{ mod.id }}">{{ mod.id }}</option>
-        </select>
+        <input class="form-control" formControlName="real_name" type="text" placeholder="Nombre real...">
+      </div>
+      <div class="mb-3">
+        <input class="form-control" formControlName="email" type="text" placeholder="E-mail...">
+      </div>
+      <div class="mb-3">
+        <input class="form-control" formControlName="password" type="password" placeholder="Confirme la contraseña...">
+      </div>
+      <div class="mb-3">
+        <input class="form-control" formControlName="password_confirmation" type="password" placeholder="Repita la contraseña...">
       </div>
       <div class="mb-3 d-flex justify-content-between">
         <button type="submit" class="btn btn-primary">Añadir</button>

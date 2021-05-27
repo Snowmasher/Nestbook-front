@@ -55,4 +55,8 @@ export class AsociacionService {
       }
     );
   }
+
+  register(data: any) {
+    return this.http.post('http://localhost:8000/api/asociacion/create', data);
+  }
 }

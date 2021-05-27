@@ -33,4 +33,12 @@ export class UserService {
   register(data: any) {
     return this.http.post('http://localhost:8000/api/user/create', data);
   }
+
+  registerMod(data: any) {
+    return this.http.post('http://localhost:8000/api/user/createMod', data);
+  }
+
+  getAllPossibleMods() {
+    return this.http.get('http://localhost:8000/api/getMods');
+  }
 }
