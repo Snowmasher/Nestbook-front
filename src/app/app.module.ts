@@ -30,6 +30,8 @@ import { TablaModeradoresComponent } from './GrupoPanelUsuario/administrarModera
 import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 import { TablaUsuariosComponent } from './GrupoPanelUsuario/administrarUsuarios/tabla-usuarios/tabla-usuarios.component';
 import { TablaPublicacionesComponent } from './GrupoPanelUsuario/administrarPublicaciones/tabla-publicaciones/tabla-publicaciones.component';
+import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
+import { FormularioNuevaAsociacionComponent } from './GrupoFormularios/Creates/formulario-nueva-asociacion/formulario-nueva-asociacion.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { TablaPublicacionesComponent } from './GrupoPanelUsuario/administrarPubl
     TablaModeradoresComponent,
     TablaAsociacionesComponent,
     TablaUsuariosComponent,
-    TablaPublicacionesComponent
+    TablaPublicacionesComponent,
+    FormularioNuevoUsuarioComponent,
+    FormularioNuevaAsociacionComponent
   ],
   imports: [
     BrowserModule,

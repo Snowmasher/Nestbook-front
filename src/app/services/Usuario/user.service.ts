@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -6,7 +8,12 @@ import {Subject} from 'rxjs';
 })
 export class UserService {
   private loggedChanged = new Subject<boolean>();
-  constructor() { }
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+
+  ) { }
 
   login(token: any): void {
     localStorage.setItem('token', token);
@@ -21,5 +28,9 @@ export class UserService {
   }
   isUserLoggedIn(): Subject<boolean> {
     return this.loggedChanged;
+  }
+
+  register(data: any) {
+    return this.http.post('http://localhost:8000/api/user/create', data);
   }
 }

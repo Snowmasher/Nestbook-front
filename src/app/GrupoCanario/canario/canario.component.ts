@@ -25,6 +25,7 @@ export class CanarioComponent implements OnInit {
           if (iterator !== undefined && iterator !== null && iterator) {
             const c = new Canario();
 
+            //Añadimos los valores al objeto
             c.id = iterator.id;
             c.anilla = iterator.num_anilla;
             c.nacimiento = (iterator.fecha_nacimiento).split(' ')[0];
@@ -33,7 +34,9 @@ export class CanarioComponent implements OnInit {
             c.sexo = iterator.sexo;
             c.modificacion = (iterator.updated_at).split(' ')[0];
             c.creacion = (iterator.created_at).split(' ')[0];
-            if(iterator.deleted_at !== undefined && iterator.deleted_at !== null && iterator.deleted_at !== '' && iterator.deleted_at){
+
+            // Comprueba si se ha dado de baja
+            if(iterator.deleted_at !== undefined && iterator.deleted_at !== null && iterator.deleted_at !== ''){
               c.baja = (iterator.deleted_at).split(' ')[0];
             }
             else{

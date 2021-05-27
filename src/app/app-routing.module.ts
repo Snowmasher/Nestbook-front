@@ -14,6 +14,7 @@ import { LoggedoutComponent } from './GrupoLogin/loggedout/loggedout.component';
 import { RegisterComponent } from './register/register.component';
 import { TablaModeradoresComponent } from './GrupoPanelUsuario//administrarModeradores/tabla-moderadores/tabla-moderadores.component';
 import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
+import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'panel/adminMod', component: TablaModeradoresComponent},
   {path: 'panel/adminAsoc', component: TablaAsociacionesComponent},
   {path: 'panel/adminUser', component: TablaUsuariosComponent},
+  {path: 'panel/adminUser/registerUser', component: FormularioNuevoUsuarioComponent},
   {path: 'panel/adminPost', component: TablaPublicacionesComponent},
   {path: 'canarios', component: ListaCanariosComponent},
   {path: 'canarios/:id', component: CanarioComponent},
