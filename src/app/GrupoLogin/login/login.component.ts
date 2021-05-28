@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       password: ''
     });
 
-    localStorage.setItem('url_api', 'http://http://100.25.154.116:8000');
+    localStorage.setItem('url_api', 'http://100.25.154.116:8000');
   }
 
   onSubmit(): void {
