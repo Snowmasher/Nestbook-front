@@ -12,4 +12,8 @@ export class CanarioService {
   getData(id: number){
     return this.http.get('http://localhost:8000/api/canario/' + id);
   }
+
+  register(data: any) {
+    return this.http.post('http://localhost:8000/api/canario/create', data);
+  }
 }

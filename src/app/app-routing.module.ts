@@ -1,3 +1,7 @@
+import { UpdateModComponent } from './GrupoFormularios/Updates/update-mod/update-mod.component';
+import { UserSelectedComponent } from './GrupoPanelUsuario/Info/user-selected/user-selected.component';
+import { FormularioNuevoPostComponent } from './GrupoFormularios/Creates/formulario-nuevo-post/formulario-nuevo-post.component';
+import { FormularioNuevoCanarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-canario/formulario-nuevo-canario.component';
 import { FormularioNuevoModeradorComponent } from './GrupoFormularios/Creates/formulario-nuevo-moderador/formulario-nuevo-moderador.component';
 import { FormularioNuevaAsociacionComponent } from './GrupoFormularios/Creates/formulario-nueva-asociacion/formulario-nueva-asociacion.component';
 import { TablaPublicacionesComponent } from './GrupoPanelUsuario/administrarPublicaciones/tabla-publicaciones/tabla-publicaciones.component';
@@ -19,21 +23,33 @@ import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsoc
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
 
 const routes: Routes = [
+
+  // Login y registro
   {path: 'login', component: LoginComponent},
   {path: 'loggedout', redirectTo: 'login', pathMatch: 'full'},
   {path: 'secure', component: SecureComponent},
   {path: 'register', component: RegisterComponent},
+
+  // Principal
   {path: 'principal', component: PrincipalComponent},
+  {path: 'principal/user/:id', component: UserSelectedComponent},
   {path: 'principal/miembros', component: MiembrosComponent},
+
+  // Paneles
   {path: 'panel', component: UserPanelComponent},
   {path: 'panel/adminMod', component: TablaModeradoresComponent},
   {path: 'panel/adminMod/registerMod', component: FormularioNuevoModeradorComponent},
+  {path: 'panel/adminMod/updateMod/:id', component: UpdateModComponent},
   {path: 'panel/adminAsoc', component: TablaAsociacionesComponent},
   {path: 'panel/adminAsoc/registerAsoc', component: FormularioNuevaAsociacionComponent},
   {path: 'panel/adminUser', component: TablaUsuariosComponent},
   {path: 'panel/adminUser/registerUser', component: FormularioNuevoUsuarioComponent},
   {path: 'panel/adminPost', component: TablaPublicacionesComponent},
+  {path: 'panel/adminPost/create', component: FormularioNuevoPostComponent},
+
+  // Canarios
   {path: 'canarios', component: ListaCanariosComponent},
+  {path: 'canarios/create', component: FormularioNuevoCanarioComponent},
   {path: 'canarios/:id', component: CanarioComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component: ErrorPageComponent}

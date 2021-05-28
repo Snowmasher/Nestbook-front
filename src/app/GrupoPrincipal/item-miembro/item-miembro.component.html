@@ -1,4 +1,4 @@
-<a class="text-white" href="#">
+<a class="text-white" routerLink="../user/{{ miembro.id }}">
   <div class="darkblue-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='U'; else noUser">
     <div class="col-9">
       <h4>{{ miembro.name }}</h4>

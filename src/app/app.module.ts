@@ -33,6 +33,10 @@ import { TablaPublicacionesComponent } from './GrupoPanelUsuario/administrarPubl
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
 import { FormularioNuevaAsociacionComponent } from './GrupoFormularios/Creates/formulario-nueva-asociacion/formulario-nueva-asociacion.component';
 import { FormularioNuevoModeradorComponent } from './GrupoFormularios/Creates/formulario-nuevo-moderador/formulario-nuevo-moderador.component';
+import { FormularioNuevoCanarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-canario/formulario-nuevo-canario.component';
+import { FormularioNuevoPostComponent } from './GrupoFormularios/Creates/formulario-nuevo-post/formulario-nuevo-post.component';
+import { UserSelectedComponent } from './GrupoPanelUsuario/Info/user-selected/user-selected.component';
+import { UpdateModComponent } from './GrupoFormularios/Updates/update-mod/update-mod.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { FormularioNuevoModeradorComponent } from './GrupoFormularios/Creates/fo
     TablaPublicacionesComponent,
     FormularioNuevoUsuarioComponent,
     FormularioNuevaAsociacionComponent,
-    FormularioNuevoModeradorComponent
+    FormularioNuevoModeradorComponent,
+    FormularioNuevoCanarioComponent,
+    FormularioNuevoPostComponent,
+    UserSelectedComponent,
+    UpdateModComponent
   ],
   imports: [
     BrowserModule,

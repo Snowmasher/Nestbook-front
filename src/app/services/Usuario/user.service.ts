@@ -38,7 +38,15 @@ export class UserService {
     return this.http.post('http://localhost:8000/api/user/createMod', data);
   }
 
+  updateMod(data: any) {
+    return this.http.put('http://localhost:8000/api/user/updateMod', data);
+  }
+
   getAllPossibleMods() {
     return this.http.get('http://localhost:8000/api/getMods');
+  }
+
+  getData(id: number){
+    return this.http.get('http://localhost:8000/api/user/' + id);
   }
 }

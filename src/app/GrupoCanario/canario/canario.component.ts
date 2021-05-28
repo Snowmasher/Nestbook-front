@@ -51,7 +51,7 @@ export class CanarioComponent implements OnInit {
       error => {
         console.log('ERROR: ' + error);
       }
-    );;
+    );
   }
 
 }
