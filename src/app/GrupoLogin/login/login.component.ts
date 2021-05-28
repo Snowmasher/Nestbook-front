@@ -1,3 +1,4 @@
+import { Url } from './../../url';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -23,6 +24,8 @@ export class LoginComponent implements OnInit {
       email: '',
       password: ''
     });
+
+    localStorage.setItem('url_api', 'http://http://100.25.154.116:8000');
   }
 
   onSubmit(): void {
@@ -32,11 +35,11 @@ export class LoginComponent implements OnInit {
       password: formData.password,
       grant_type: 'password',
       client_id: 2,
-      client_secret: 'NwsbZNPAl70o6NWO9d2ZNTD9kyxInXkiaVyRSTVs',
+      client_secret: 'lUnUxCkQHJaJjm4ngxNhwYvWF8V6PDY9CdzX1TMQ',
       scope: '*'
     };
 
-    this.http.post('http://localhost:8000/oauth/token', data).subscribe(
+    this.http.post(localStorage.getItem('url_api') + '/oauth/token', data).subscribe(
       (result: any) => {
 
         this.userService.login(result.access_token);

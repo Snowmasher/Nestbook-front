@@ -22,7 +22,7 @@ export class TablaCanariosComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
-    this.http.get('http://localhost:8000/api/canario/user/' + localStorage.getItem('id_user')).subscribe(
+    this.http.get(localStorage.getItem('url_api') + '/api/canario/user/' + localStorage.getItem('id_user')).subscribe(
       result => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const c = new Canario();

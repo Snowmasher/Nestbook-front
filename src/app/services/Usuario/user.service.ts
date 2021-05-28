@@ -31,22 +31,22 @@ export class UserService {
   }
 
   register(data: any) {
-    return this.http.post('http://localhost:8000/api/user/create', data);
+    return this.http.post(localStorage.getItem('url_api') + '/api/user/create', data);
   }
 
   registerMod(data: any) {
-    return this.http.post('http://localhost:8000/api/user/createMod', data);
+    return this.http.post(localStorage.getItem('url_api') + '/api/user/createMod', data);
   }
 
   updateMod(data: any) {
-    return this.http.put('http://localhost:8000/api/user/updateMod', data);
+    return this.http.put(localStorage.getItem('url_api') + '/api/user/updateMod', data);
   }
 
   getAllPossibleMods() {
-    return this.http.get('http://localhost:8000/api/getMods');
+    return this.http.get(localStorage.getItem('url_api') + '/api/getMods');
   }
 
   getData(id: number){
-    return this.http.get('http://localhost:8000/api/user/' + id);
+    return this.http.get(localStorage.getItem('url_api') + '/api/user/' + id);
   }
 }

@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class InfoBarComponent implements OnInit {
   asociacion: any;
-  url = 'http://localhost:8000/api/asociacion/';
+  url = localStorage.getItem('url_api') + '/';
   constructor(
     private service: AsociacionService,
     private http: HttpClient

@@ -14,7 +14,7 @@ export class TablaPublicacionesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('http://localhost:8000/api/posts/' + localStorage.getItem('id_asociacion')).subscribe(
+    this.http.get(localStorage.getItem('url_api') + '/api/posts/' + localStorage.getItem('id_asociacion')).subscribe(
       result => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const p = new Publicacion();

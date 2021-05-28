@@ -22,7 +22,7 @@ export class SecureComponent implements OnInit {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     });
     console.log(localStorage.getItem('token'));
-    this.http.get('http://localhost:8000/api/user', {headers}).subscribe(
+    this.http.get(localStorage.getItem('url_api') + '/api/user', {headers}).subscribe(
       (result: any) => {
         localStorage.setItem('id_user', result.id);
         localStorage.setItem('id_asociacion', result.id_asociacion);

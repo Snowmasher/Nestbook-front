@@ -17,7 +17,7 @@ export class AsociacionService {
   info: any;
   idAsoc!: number;
   asociacion: any;
-  url = 'http://localhost:8000/api/asociacion/';
+  url = localStorage.getItem('url_api') + '/api/asociacion/';
 
   constructor(
     private http: HttpClient,
@@ -29,7 +29,7 @@ export class AsociacionService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`
     });
-    this.http.get('http://localhost:8000/api/user', { headers }).toPromise().then(
+    this.http.get(localStorage.getItem('url_api') + '/api/user', { headers }).toPromise().then(
       result => {
         console.log(result);
         res = result;
@@ -57,6 +57,6 @@ export class AsociacionService {
   }
 
   register(data: any) {
-    return this.http.post('http://localhost:8000/api/asociacion/create', data);
+    return this.http.post(localStorage.getItem('url_api') + '/api/asociacion/create', data);
   }
 }

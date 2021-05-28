@@ -10,6 +10,6 @@ export class PublicacionService {
 
 
   register(data: any) {
-    return this.http.post('http://localhost:8000/api/posts/create', data);
+    return this.http.post(localStorage.getItem('url_api') + '/api/posts/create', data);
   }
 }

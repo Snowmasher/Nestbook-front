@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     const formData = this.form.getRawValue();
-    this.http.post('http://localhost:8000/api/register', formData).subscribe(
+    this.http.post(localStorage.getItem('url_api') + '/api/register', formData).subscribe(
       response => console.log(response),
       error => console.log(error)
     );

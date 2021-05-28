@@ -8,7 +8,7 @@ import { Asociacion } from './Asociacion';
   styleUrls: ['./tabla-asociaciones.component.css']
 })
 export class TablaAsociacionesComponent implements OnInit {
-  url = 'http://localhost:8000/api/asociacion/getAll';
+  url = localStorage.getItem('url_api') + '/api/asociacion/getAll';
 
   asociaciones: Array<Asociacion> = [];
   constructor(private http: HttpClient) { }
