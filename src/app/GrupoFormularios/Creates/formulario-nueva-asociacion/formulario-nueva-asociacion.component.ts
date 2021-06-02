@@ -3,7 +3,7 @@ import { UserService } from 'src/app/services/Usuario/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
-import { User } from 'src/app/user';
+import { User } from 'src/app/Models/user';
 
 @Component({
   selector: 'app-formulario-nueva-asociacion',

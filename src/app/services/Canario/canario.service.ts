@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Canario } from 'src/app/GrupoCanario/Canario';
+import { Canario } from 'src/app/Models/Canario';
 
 @Injectable({
   providedIn: 'root'

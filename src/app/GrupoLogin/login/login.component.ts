@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { UserService } from '../../services/Usuario/user.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from '../../services/Usuario/user.service';
 })
 export class LoginComponent implements OnInit {
   form!: FormGroup;
+  url = environment.baseUrl;
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
       scope: '*'
     };
 
-    this.http.post('http://localhost:8000/oauth/token', data).subscribe(
+    this.http.post(this.url + '/oauth/token', data).subscribe(
       (result: any) => {
 
         this.userService.login(result.access_token);

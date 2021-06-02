@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CanarioService } from '../../services/Canario/canario.service';
-import { Canario } from '../Canario';
+import { Canario } from '../../Models/Canario';
 
 @Component({
   selector: 'app-canario',

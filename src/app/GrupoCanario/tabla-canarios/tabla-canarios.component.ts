@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Canario } from '../Canario';
+import { Canario } from '../../Models/Canario';
 
 @Component({
   selector: 'app-tabla-canarios',

@@ -2,7 +2,10 @@ export class Post {
 
   titulo = '';
   contenido = '';
-  creado = '';
+  id_asociacion = '';
+  created_at = '';
+  updated_at = '';
+  deleted_at = '';
 
   constructor(
 

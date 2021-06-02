@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/user';
+import { User } from 'src/app/Models/user';
 
 @Component({
   selector: 'app-tabla-moderadores',

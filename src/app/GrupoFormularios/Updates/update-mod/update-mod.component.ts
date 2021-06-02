@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/Usuario/user.service';
-import { User } from 'src/app/user';
+import { User } from 'src/app/Models/user';
 
 @Component({
   selector: 'app-update-mod',

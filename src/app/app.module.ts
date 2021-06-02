@@ -37,6 +37,10 @@ import { FormularioNuevoCanarioComponent } from './GrupoFormularios/Creates/form
 import { FormularioNuevoPostComponent } from './GrupoFormularios/Creates/formulario-nuevo-post/formulario-nuevo-post.component';
 import { UserSelectedComponent } from './GrupoPanelUsuario/Info/user-selected/user-selected.component';
 import { UpdateModComponent } from './GrupoFormularios/Updates/update-mod/update-mod.component';
+import { UpdateCanarioComponent } from './GrupoFormularios/Updates/update-canario/update-canario.component';
+import { UpdatePostComponent } from './GrupoFormularios/Updates/update-post/update-post.component';
+import { UpdateAsociacionComponent } from './GrupoFormularios/Updates/update-asociacion/update-asociacion.component';
+import { UpdateUsuarioComponent } from './GrupoFormularios/Updates/update-usuario/update-usuario.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,11 @@ import { UpdateModComponent } from './GrupoFormularios/Updates/update-mod/update
     FormularioNuevoCanarioComponent,
     FormularioNuevoPostComponent,
     UserSelectedComponent,
-    UpdateModComponent
+    UpdateModComponent,
+    UpdateCanarioComponent,
+    UpdatePostComponent,
+    UpdateAsociacionComponent,
+    UpdateUsuarioComponent
   ],
   imports: [
     BrowserModule,

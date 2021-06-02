@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Post } from './Post';
+import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
+import { Post } from '../../Models/Post';
 
 @Component({
   selector: 'app-principal',
@@ -11,18 +12,21 @@ export class PrincipalComponent implements OnInit {
 
   datos = [];
   posts: Array<Post> = [];
-  url = 'http://localhost:8000/api/posts/' + localStorage.getItem('id_asociacion');
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private service: PublicacionService
+    ) { }
 
   ngOnInit(): void {
-    this.http.get(this.url).subscribe(
-      result => {
+    const id: number = +localStorage.getItem('id_asociacion')!;
+
+    this.service.getPosts(id).subscribe(
+      (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           this.posts.push(iterator);
         }
       },
-      error => {
+      (error: any) => {
         console.log('ERROR: ' + error);
       }
     );

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Asociacion } from './Asociacion';
+import { Asociacion } from '../../../Models/Asociacion';
 
 @Component({
   selector: 'app-tabla-asociaciones',

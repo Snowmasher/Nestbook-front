@@ -1,12 +1,12 @@
-<div class="col-10" style="width: 100%; display: block;" *ngFor="let post_actual of posts">
+<div class="col-10" style="width: 100%; display: block; max-width: 85vw;" *ngFor="let post_actual of posts">
   <div class="col-12 container mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
     <div class="row darkblue-bg-snowmasher text-light p-2 d-flex flex-column" style="min-height: 5em;">
       <h4>{{ post_actual.titulo }}</h4>
-      <h6>{{ post_actual.creado }}</h6>
+      <h6>{{ post_actual.created_at }}</h6>
     </div>
     <div class="row">
       <div class="col-6 p-4">
-        <p>{{ post_actual.contenido }}</p>
+        <p style="word-wrap: break-word;">{{ post_actual.contenido }}</p>
       </div>
       <div class="col-6 p-4">
         <div>
