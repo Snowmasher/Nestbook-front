@@ -41,6 +41,8 @@ import { UpdateCanarioComponent } from './GrupoFormularios/Updates/update-canari
 import { UpdatePostComponent } from './GrupoFormularios/Updates/update-post/update-post.component';
 import { UpdateAsociacionComponent } from './GrupoFormularios/Updates/update-asociacion/update-asociacion.component';
 import { UpdateUsuarioComponent } from './GrupoFormularios/Updates/update-usuario/update-usuario.component';
+import { PostSelectedComponent } from './GrupoPanelUsuario/Info/post-selected/post-selected.component';
+import { AsociacionSelectedComponent } from './GrupoPanelUsuario/Info/asociacion-selected/asociacion-selected.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,9 @@ import { UpdateUsuarioComponent } from './GrupoFormularios/Updates/update-usuari
     UpdateCanarioComponent,
     UpdatePostComponent,
     UpdateAsociacionComponent,
-    UpdateUsuarioComponent
+    UpdateUsuarioComponent,
+    PostSelectedComponent,
+    AsociacionSelectedComponent,
   ],
   imports: [
     BrowserModule,

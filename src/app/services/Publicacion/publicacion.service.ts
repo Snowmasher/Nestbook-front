@@ -17,6 +17,10 @@ export class PublicacionService {
   }
 
   getPosts(idAsociacion: number){
-    return this.http.get(this.url + '/api/posts/' + localStorage.getItem('id_asociacion'))
+    return this.http.get(this.url + '/api/posts/' + localStorage.getItem('id_asociacion'));
+  }
+
+  getData(id: number){
+    return this.http.get(this.url + '/api/posts/' + localStorage.getItem('id_asociacion'));
   }
 }

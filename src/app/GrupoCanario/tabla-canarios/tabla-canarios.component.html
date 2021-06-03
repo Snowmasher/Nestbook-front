@@ -1,7 +1,8 @@
 <div class="container-fluid mt-3">
   <div class="row mr-3 d-flex justify-content-end">
     <div class="dropdown mr-5">
-      <a class="btn btn-secondary dropdown-toggle" href="/canarios" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      <a class="btn btn-secondary dropdown-toggle" href="/canarios" role="button" id="dropdownMenuLink"
+        data-bs-toggle="dropdown" aria-expanded="false">
         Ordenar por:
       </a>
 
@@ -15,9 +16,6 @@
 
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
       <button type="button" routerLink="./create" class="btn btn-success">Alta</button>
-      <button type="button" class="btn btn-table-ee">Editar</button>
-      <button type="button" class="btn btn-table-ee">Intercambiar</button>
-      <button type="button" class="btn btn-danger">Baja</button>
     </div>
   </div>
 
@@ -32,15 +30,38 @@
           <th scope="col">Fª de Nacimiento</th>
           <th scope="col">Nº Anilla Padre</th>
           <th scope="col">Nº Anilla Madre</th>
+          <th scope="col" colspan="3">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let canario of canarios">
-          <th style="font-family: monospace;" scope="row"><a routerLink="./{{ canario.id }}">{{ canario.anilla }}</a></th>
+          <th style="font-family: monospace;" scope="row"><a routerLink="./{{ canario.id }}">{{ canario.anilla }}</a>
+          </th>
           <th style="font-family: monospace; text-align: center;" scope="row">{{ canario.sexo }}</th>
           <td style="font-family: monospace;" scope="row">{{ canario.nacimiento }}</td>
           <td style="font-family: monospace;" scope="row">{{ canario.anillaPadre }}</td>
           <td style="font-family: monospace;" scope="row">{{ canario.anillaMadre }}</td>
+          <td>
+            <span class="d-flex justify-content-center">
+              <a title="Editar" routerLink="./update/{{ canario.id }}">
+                <i class="fas fa-edit"></i>
+              </a>
+            </span>
+          </td>
+          <td>
+            <span class="d-flex justify-content-center">
+              <a title="Intercambiar" routerLink="">
+                <i class="fas fa-exchange-alt"></i>
+              </a>
+            </span>
+          </td>
+          <td>
+            <span class="d-flex justify-content-center">
+              <a title="Borrar" routerLink="">
+                <i class="fas fa-trash"></i>
+              </a>
+            </span>
+          </td>
         </tr>
         <tr>
       </tbody>

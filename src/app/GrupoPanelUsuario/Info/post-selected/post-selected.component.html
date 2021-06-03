@@ -1,0 +1,69 @@
+<div class="row min-vw-100 d-flex justify-content-center">
+  <app-navbar
+    class="min-vw-100"
+    style="max-height: 4em; margin-bottom: 1em"
+  ></app-navbar>
+</div>
+<div class="row">
+  <app-info-bar-user
+    class="min-vw-100 d-flex justify-content-center"
+  ></app-info-bar-user>
+</div>
+
+<div class="row">
+  <div
+    class="container mt-4 border darkblue-border-snowmasher"
+    style="min-height: 20em"
+  >
+    <div
+      class="row darkblue-bg-snowmasher text-light p-2"
+      style="min-height: 5em"
+    >
+      <div class="col-6 d-flex flex-column">
+        <h4>{{ post.titulo }}</h4>
+        <h6>{{ post.created_at }}</h6>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic mixed styles example"
+        >
+          <button
+            type="button"
+            routerLink="/panel/adminPost/updatePost/{{ post.id }}"
+            style="border: 1px solid var(--blue)"
+            class="btn btn-table-ee"
+          >
+            Editar
+          </button>
+          <button type="button" class="btn btn-danger">Baja</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 p-4">
+        <p style="word-wrap: break-word">{{ post.contenido }}</p>
+      </div>
+      <div class="col-6 p-4">
+        <div>
+          <div
+            style="
+              background-color: cornsilk;
+              width: 28em;
+              height: 24em;
+              margin: 10px;
+              text-align: center;
+            "
+          >
+            <p>IMAGEN POST</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>
+</div>

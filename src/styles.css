@@ -145,3 +145,15 @@ a, a[routerLink]{
 thead tr,thead tr:hover {
   background-color: #353c41 !important;
 }
+
+
+/*Botones rojos de Delete (Trash) Tablas*/
+.fa-trash{
+  color: var(--red);
+}
+
+/*Botones Editar e Intercambio Tablas*/
+
+.fa-exchange-alt, .fa-edit{
+  color: var(--darkblue);
+}

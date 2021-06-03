@@ -8,26 +8,9 @@
   <div style="min-width: 85%; max-width: 90%;">
     <div class="container-fluid mt-3">
       <div class="row mr-3 d-flex justify-content-end">
-        <div class="dropdown mr-5">
-          <a class="btn btn-secondary dropdown-toggle" href="/canarios" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Ordenar por:
-          </a>
-
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">ID (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">ID (ascendente)</a></li>
-            <li><a class="dropdown-item" href="#">Fecha de publicación (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">Fecha de publicación (ascendente)</a></li>
-            <li><a class="dropdown-item" href="#">Última edición (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">Última edición (ascendente)</a></li>
-          </ul>
-        </div>
 
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button type="button" routerLink="./create" class="btn btn-success">Alta</button>
-          <button type="button" class="btn btn-table-ee">Editar</button>
-          <button type="button" class="btn btn-danger">Baja</button>
         </div>
       </div>
 
@@ -41,14 +24,36 @@
               <th scope="col">Título</th>
               <th scope="col">Fecha de publicación</th>
               <th scope="col">Última edición</th>
+              <th scope="col" colspan="3">Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let pub of publicaciones">
-              <th style="font-family: monospace;" scope="row">{{ pub.id }}</th>
-              <th style="font-family: monospace; text-align: center;" scope="row">{{ pub.titulo }}</th>
+              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.id }}</a></th>
+              <th style="font-family: monospace; text-align: center;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.titulo }}</a></th>
               <td style="font-family: monospace;" scope="row">{{ pub.publicado }}</td>
               <td style="font-family: monospace;" scope="row">{{ pub.editado }}</td>
+              <td>
+                <span class="d-flex justify-content-center">
+                  <a title="Editar" routerLink="/panel/adminPost/updatePost/{{ pub.id }}">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </span>
+              </td>
+              <td>
+                <span class="d-flex justify-content-center">
+                  <a title="Intercambiar" routerLink="">
+                    <i class="fas fa-exchange-alt"></i>
+                  </a>
+                </span>
+              </td>
+              <td>
+                <span class="d-flex justify-content-center">
+                  <a title="Borrar" routerLink="">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </span>
+              </td>
             </tr>
             <tr>
           </tbody>

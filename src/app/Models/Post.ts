@@ -1,5 +1,6 @@
 export class Post {
 
+  id = '';
   titulo = '';
   contenido = '';
   id_asociacion = '';
