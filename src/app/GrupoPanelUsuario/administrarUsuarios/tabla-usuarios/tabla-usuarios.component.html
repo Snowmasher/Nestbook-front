@@ -8,22 +8,6 @@
   <div style="min-width: 85%; max-width: 90%;">
     <div class="container-fluid mt-3">
       <div class="row mr-3 d-flex justify-content-end">
-        <div class="dropdown mr-5">
-          <a class="btn btn-secondary dropdown-toggle" href="/canarios" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Ordenar por:
-          </a>
-
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">ID (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">ID (ascendente)</a></li>
-            <li><a class="dropdown-item" href="#">Nombre (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">Nombre (ascendente)</a></li>
-            <li><a class="dropdown-item" href="#">Email (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">Email (ascendente)</a></li>
-          </ul>
-        </div>
-
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button routerLink="./registerUser" type="button" class="btn btn-success">Alta</button>
         </div>
@@ -44,8 +28,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let m of miembros">
-              <th style="font-family: monospace;" scope="row">{{ m.id }}</th>
-              <th style="font-family: monospace; text-align: center;" scope="row">{{ m.name }}</th>
+              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/user/{{ m.id }}">{{ m.id }}</a></th>
+              <th style="font-family: monospace; text-align: center;" scope="row"><a routerLink="/principal/user/{{ m.id }}">{{ m.name }}</a></th>
               <td style="font-family: monospace;" scope="row">{{ m.real_name }}</td>
               <td style="font-family: monospace;" scope="row">{{ m.email }}</td>
               <td>
@@ -73,22 +57,13 @@
             <tr>
           </tbody>
         </table>
-
       </div>
-
-      <div class="row">
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-          <div class="btn-group me-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-primary">1</button>
-            <button type="button" class="btn btn-primary">2</button>
-            <button type="button" class="btn btn-primary">3</button>
-            <button type="button" class="btn btn-primary">4</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
+  <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
+</div>
+
 <div class="row">
   <app-footer class="min-vw-100"></app-footer>
 </div>

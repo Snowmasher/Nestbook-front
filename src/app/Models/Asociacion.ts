@@ -1,9 +1,11 @@
 export class Asociacion {
 
   id = '';
-  idMod = '';
+  id_mod = '';
   nombre = '';
-  creado = '';
+  created_at = '';
+  updated_at = '';
+  deleted_at = '';
 
   constructor(
 

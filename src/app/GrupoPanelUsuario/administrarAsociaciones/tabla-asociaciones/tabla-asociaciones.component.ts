@@ -21,9 +21,9 @@ export class TablaAsociacionesComponent implements OnInit {
           const a = new Asociacion();
 
           a.id = iterator.id;
-          a.idMod = iterator.id_mod;
+          a.id_mod = iterator.id_mod;
           a.nombre = iterator.nombre;
-          a.creado = iterator.created_at;
+          a.created_at = iterator.created_at;
           this.asociaciones.push(a);
         }
       },

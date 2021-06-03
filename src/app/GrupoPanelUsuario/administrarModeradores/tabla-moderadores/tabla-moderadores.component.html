@@ -8,20 +8,6 @@
   <div style="min-width: 85%; max-width: 90%;">
     <div class="container-fluid mt-3">
       <div class="row mr-3 d-flex justify-content-end">
-        <div class="dropdown mr-5">
-          <a class="btn btn-secondary dropdown-toggle" href="/canarios" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Ordenar por:
-          </a>
-
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#">ID (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">ID (ascendente)</a></li>
-            <li><a class="dropdown-item" href="#">Nombre (descendente)</a></li>
-            <li><a class="dropdown-item" href="#">Nombre (ascendente)</a></li>
-          </ul>
-        </div>
-
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button routerLink="./registerMod" type="button" class="btn btn-success">Alta</button>
         </div>
@@ -43,8 +29,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let mod of moderadores">
-              <th style="font-family: monospace;" scope="row">{{ mod.id }}</th>
-              <th style="font-family: monospace; text-align: center;" scope="row">{{ mod.name }}</th>
+              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/user/{{ mod.id }}">{{ mod.id }}</a></th>
+              <th style="font-family: monospace; text-align: center;" scope="row"><a routerLink="/principal/user/{{ mod.id }}">{{ mod.name }}</a></th>
               <td style="font-family: monospace;" scope="row">{{ mod.real_name }}</td>
               <td style="font-family: monospace;" scope="row">{{ mod.id_asociacion }}</td>
               <td style="font-family: monospace;" scope="row">{{ mod.email }}</td>

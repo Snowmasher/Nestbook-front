@@ -36,7 +36,7 @@ export class UserSelectedComponent implements OnInit {
             u.updated_at = (iterator.updated_at).split(' ')[0];
 
             // Comprueba si se ha dado de baja
-            if(iterator.deleted_at !== undefined && iterator.deleted_at !== null && iterator.deleted_at !== ''){
+            if (iterator.deleted_at !== undefined && iterator.deleted_at !== null && iterator.deleted_at !== ''){
               u.deleted_at = (iterator.deleted_at).split(' ')[0];
             }
             else{
