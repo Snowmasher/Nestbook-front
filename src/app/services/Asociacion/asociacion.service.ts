@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../../Models/user';
+import { environment } from 'src/environments/environment';
 
 export interface Usuario {
   id_asociacion: number;
@@ -17,7 +18,7 @@ export class AsociacionService {
   info: any;
   idAsoc!: number;
   asociacion: any;
-  url = 'http://localhost:8000/api/asociacion/';
+  url = environment.baseUrl;
 
   constructor(
     private http: HttpClient,
@@ -57,10 +58,22 @@ export class AsociacionService {
   }
 
   register(data: any) {
-    return this.http.post('http://localhost:8000/api/asociacion/create', data);
+    return this.http.post(this.url + '/api/asociacion/create', data);
   }
 
   getData(id: number){
-    return this.http.get('http://localhost:8000/api/asociacion/' + id);
+    return this.http.get(this.url + '/api/asociacion/' + id);
+  }
+
+  updateAsociacion(data: any) {
+    return this.http.put(this.url + '/api/asociacion/update', data);
+  }
+
+  getOne(id: number) {
+    return this.http.get(this.url + '/api/asociacion/' + id);
+  }
+
+  getAll() {
+    return this.http.get(this.url + '/api/getMods');
   }
 }

@@ -32,6 +32,7 @@ export class FormularioNuevoModeradorComponent implements OnInit {
     const data = [{
       name: formData.name,
       real_name: formData.real_name,
+      id_asociacion: localStorage.getItem('id_asociacion'),
       email: formData.email,
       password: formData.password
     }];

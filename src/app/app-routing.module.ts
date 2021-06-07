@@ -59,7 +59,7 @@ const routes: Routes = [
   // Usuarios
   {path: 'panel/adminUser', component: TablaUsuariosComponent},
   {path: 'panel/adminUser/registerUser', component: FormularioNuevoUsuarioComponent},
-  {path: 'panel/adminUser/updateUser/:id', component: UpdateUsuarioComponent},
+  {path: 'panel/adminUser/updateUser/:id', component: UpdateModComponent},
 
   // Publicaciones
   {path: 'panel/adminPost', component: TablaPublicacionesComponent},

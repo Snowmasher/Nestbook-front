@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
       username: formData.email,
       password: formData.password,
       grant_type: 'password',
-      client_id: 2,
-      client_secret: 'NwsbZNPAl70o6NWO9d2ZNTD9kyxInXkiaVyRSTVs',
+      client_id: environment.client_id,
+      client_secret: environment.client_secret,
       scope: '*'
     };
 

@@ -19,7 +19,7 @@ export class PostSelectedComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.rutaActiva.snapshot.params.id;
-    this.service.getData(id).subscribe(
+    this.service.getOne(id).subscribe(
       result => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           if (iterator !== undefined && iterator !== null && iterator) {

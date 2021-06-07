@@ -1,1 +1,38 @@
-<p>update-asociacion works!</p>
+<div class="row min-vw-100 d-flex justify-content-center">
+  <app-navbar class="min-vw-100" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+</div>
+<div class="row">
+  <app-info-bar class="min-vw-100 d-flex justify-content-center"></app-info-bar>
+</div>
+<!--Formulario-->
+<div class="row mh-50 h-50 d-flex justify-content-center align-center">
+  <div class="col-10 d-flex flex-column justify-content-center">
+    <div>
+      <h3>Editar Asociacion</h3>
+    </div>
+    <!--Campos del formulario-->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
+      <div class="mb-3">
+        <label for="nombre">Nombre:</label>
+        <input class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="asociacion.nombre" type="text" placeholder="Nombre..." value="{{ asociacion.nombre }}">
+      </div>
+      <div class="mb-3">
+        <label for="id_mod">ID Moderador:</label>
+        <select class="form-control custom-select" id="id_mod" formControlName="id_mod" [(ngModel)]="asociacion.id_mod">
+          <option selected value="{{ asociacion.id_mod }}"> {{ asociacion.id_mod }} {{nombreMod}}</option>
+          <option *ngFor="let mod of mods_disponibles" value="{{ mod.id }}"> {{ mod.id }} {{ mod.name }} </option>
+        </select>
+      </div>
+      <div class="mb-3 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
+  <a routerLink="../../" class="btn info-btn-usr" type="button">Atrás</a>
+</div>
+<div class="row">
+  <app-footer class="min-vw-100"></app-footer>
+</div>

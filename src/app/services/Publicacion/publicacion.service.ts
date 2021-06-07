@@ -21,6 +21,14 @@ export class PublicacionService {
   }
 
   getData(id: number){
-    return this.http.get(this.url + '/api/posts/' + localStorage.getItem('id_asociacion'));
+    return this.http.get(this.url + '/api/posts/' + id);
+  }
+
+  getOne(id: number){
+    return this.http.get(this.url + '/api/posts/show/' + id);
+  }
+
+  updatePost(data: any){
+    return this.http.put(this.url + '/api/posts/update', data);
   }
 }

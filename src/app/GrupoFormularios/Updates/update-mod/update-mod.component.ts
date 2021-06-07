@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/Usuario/user.service';
 import { User } from 'src/app/Models/user';
@@ -23,11 +23,11 @@ export class UpdateModComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.fb.group({
-      name: '',
-      real_name: '',
-      id_asociacion: '',
-      email: '',
-      password: ''
+      name: new FormControl('', [Validators.required]),
+      real_name: new FormControl('', [Validators.required]),
+      id_asociacion: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     });
 
     const id = this.rutaActiva.snapshot.params.id;
@@ -41,7 +41,7 @@ export class UpdateModComponent implements OnInit {
             // Añadimos los valores al objeto
             u.id = iterator.id;
             u.id_asociacion = iterator.id_asociacion;
-            u.name = (iterator.name);
+            u.name = iterator.name;
             u.real_name = iterator.real_name;
             u.rol = iterator.rol;
             u.email = iterator.email;

@@ -1,7 +1,7 @@
 export class Asociacion {
 
-  id = '';
-  id_mod = '';
+  id!: number;
+  id_mod!: number;
   nombre = '';
   created_at = '';
   updated_at = '';

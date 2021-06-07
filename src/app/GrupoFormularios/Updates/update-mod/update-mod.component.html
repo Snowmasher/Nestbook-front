@@ -13,17 +13,17 @@
     <!--Campos del formulario-->
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
       <div class="mb-3">
-        <input class="form-control" formControlName="name" type="text" placeholder="Nombre de moderador..." value="{{ user.name }}">
+        <input class="form-control" formControlName="name" [(ngModel)]="user.name" type="text" placeholder="Nombre de moderador..." value="{{ user.name }}">
       </div>
       <div class="mb-3">
-        <input class="form-control" formControlName="real_name" type="text" placeholder="Nombre real..."  value="{{ user.real_name }}">
+        <input class="form-control" formControlName="real_name" [(ngModel)]="user.real_name" type="text" placeholder="Nombre real..."  value="{{ user.real_name }}">
       </div>
       <div class="mb-3">
-        <input class="form-control" formControlName="email" type="text" placeholder="E-mail..."  value="{{ user.email }}">
+        <input class="form-control" formControlName="email" [(ngModel)]="user.email" type="text" placeholder="E-mail..."  value="{{ user.email }}">
       </div>
       <div class="mb-3">
         <label for="idAs">ID Asociación:</label>
-        <input class="form-control" id="idAs" formControlName="id_asociacion" type="number" value="{{ user.id_asociacion }}">
+        <input class="form-control" id="idAs" formControlName="id_asociacion" [(ngModel)]="user.id_asociacion" type="number" value="{{ user.id_asociacion }}">
       </div>
       <div class="mb-3">
         <input class="form-control" formControlName="password" type="password" placeholder="Contraseña...">

@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'http://localhost:8000',
+  client_id: 2,
+  client_secret: 'ibz1L6Ism9fW10ab8gjNqXp3e8etvyxjSNGAOsz9' 
 };
 
 /*
