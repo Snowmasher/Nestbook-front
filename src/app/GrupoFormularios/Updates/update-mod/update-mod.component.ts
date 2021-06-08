@@ -25,7 +25,6 @@ export class UpdateModComponent implements OnInit {
     this.form = this.fb.group({
       name: new FormControl('', [Validators.required]),
       real_name: new FormControl('', [Validators.required]),
-      id_asociacion: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
@@ -73,7 +72,6 @@ export class UpdateModComponent implements OnInit {
       id: this.user.id,
       name: formData.name,
       real_name: formData.real_name,
-      id_asociacion: formData.id_asociacion,
       email: formData.email,
       password: formData.password
     }];

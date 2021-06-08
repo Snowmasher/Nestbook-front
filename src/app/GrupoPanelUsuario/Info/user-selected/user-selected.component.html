@@ -14,8 +14,8 @@
       </div>
       <div class="col-6 d-flex justify-content-end">
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button type="button" routerLink="/panel/adminUser/updateUser/{{ user.id }}" style="border: 1px solid var(--blue);" class="btn btn-table-ee">Editar</button>
-          <button type="button" class="btn btn-danger">Baja</button>
+          <button type="button" routerLink="/panel/adminUser/updateUser/{{ user.id }}" style="border: 1px solid var(--blue);" class="btn btn-table-ee" *ngIf="user.rol !== 'A'">Editar</button>
+          <button type="button" class="btn btn-danger" *ngIf="user.rol !== 'A'">Baja</button>
         </div>
       </div>
     </div>
@@ -49,8 +49,16 @@
   </div>
 </div>
 
-<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;" *ngIf="user.rol === 'U'">
   <a routerLink="/panel/adminUser" class="btn info-btn-usr" type="button">Atrás</a>
+</div>
+
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;" *ngIf="user.rol === 'M'">
+  <a routerLink="/panel/adminMod" class="btn info-btn-usr" type="button">Atrás</a>
+</div>
+
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;" *ngIf="user.rol === 'A'">
+  <a routerLink="/panel" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
 
 <div class="row">

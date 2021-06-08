@@ -1,6 +1,7 @@
 export class Canario {
 
-  id = '';
+  id!: number;
+  id_usuario!: number;
   anilla = '';
   anillaPadre = '';
   anillaMadre = '';

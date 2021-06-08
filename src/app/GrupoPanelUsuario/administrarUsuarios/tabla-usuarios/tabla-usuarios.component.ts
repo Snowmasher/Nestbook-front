@@ -15,9 +15,14 @@ export class TablaUsuariosComponent implements OnInit {
   constructor(private http: HttpClient, private service: UserService) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8000/api/usersByAsoc/' + localStorage.getItem('id_asociacion')).subscribe(
+    this.service.usersByAsoc().subscribe(
       (result: any) => {
-        this.miembros = result;
+
+        for (const user of result) {
+          if (user.rol !== 'M' && user.rol !== 'A'){
+            this.miembros.push(user);
+          }
+        }
       },
       (error) => {
         console.log('error');
