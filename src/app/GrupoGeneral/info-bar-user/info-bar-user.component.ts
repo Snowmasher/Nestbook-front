@@ -1,6 +1,6 @@
-import { UserService } from '../../services/Usuario/user.service';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/services/Usuario/user.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/Models/user';
 
 @Component({
   selector: 'app-info-bar-user',
@@ -9,26 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoBarUserComponent implements OnInit {
 
-  user: any;
+  user = new User();
   constructor(
-    private http: HttpClient,
+    private service: UserService
   ) { }
 
   ngOnInit(): void {
 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    });
-    this.http.get('http://localhost:8000/api/user', { headers }).toPromise().then(
-      result => {
-        console.log(result);
-        this.user = result;
+    this.service.getUser().subscribe(
+      (result: any) => {
+        // console.log(result);
+        this.user.id = result.id;
+        this.user.name = result.name;
+        this.user.real_name = result.real_name;
+        this.user.rol = result.rol;
       },
       error => {
         console.log(error);
-      }
-    ).finally(
-      () => {
       }
     );
 

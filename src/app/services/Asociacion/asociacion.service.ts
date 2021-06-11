@@ -73,7 +73,11 @@ export class AsociacionService {
     return this.http.get(this.url + '/api/asociacion/' + id);
   }
 
-  getAll() {
+  getAllMods() {
     return this.http.get(this.url + '/api/getMods');
+  }
+
+  getAll() {
+  return this.http.get(this.url + '/api/getAll')
   }
 }

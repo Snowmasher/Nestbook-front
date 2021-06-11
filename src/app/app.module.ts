@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +44,7 @@ import { UpdateAsociacionComponent } from './GrupoFormularios/Updates/update-aso
 import { UpdateUsuarioComponent } from './GrupoFormularios/Updates/update-usuario/update-usuario.component';
 import { PostSelectedComponent } from './GrupoPanelUsuario/Info/post-selected/post-selected.component';
 import { AsociacionSelectedComponent } from './GrupoPanelUsuario/Info/asociacion-selected/asociacion-selected.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -84,13 +86,15 @@ import { AsociacionSelectedComponent } from './GrupoPanelUsuario/Info/asociacion
     UpdateUsuarioComponent,
     PostSelectedComponent,
     AsociacionSelectedComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule,
 
   ],
   providers: [],

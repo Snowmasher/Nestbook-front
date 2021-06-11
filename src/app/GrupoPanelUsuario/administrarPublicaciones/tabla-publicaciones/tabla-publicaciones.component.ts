@@ -1,21 +1,38 @@
+import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Publicacion } from '../Publicacion';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tabla-publicaciones',
   templateUrl: './tabla-publicaciones.component.html',
-  styleUrls: ['./tabla-publicaciones.component.css']
+  styleUrls: ['./tabla-publicaciones.component.css'],
 })
-export class TablaPublicacionesComponent implements OnInit {
+export class TablaPublicacionesComponent implements OnDestroy, OnInit {
+  public dtOptions: DataTables.Settings = {};
+  public dtTrigger: Subject<any> = new Subject<any>();
 
   publicaciones: Array<Publicacion> = [];
-  constructor(private http: HttpClient) { }
+  constructor(private service: PublicacionService) {}
+
+  ngOnDestroy(): void {
+    // Desuscribimos el evento al terminar de cargar los datos y la página
+    this.dtTrigger.unsubscribe();
+  }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      searching: false,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
+      },
+    };
 
-    this.http.get('http://localhost:8000/api/posts/' + localStorage.getItem('id_asociacion')).subscribe(
-      result => {
+    this.service.getPosts().subscribe(
+      (result) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const p = new Publicacion();
 
@@ -23,15 +40,16 @@ export class TablaPublicacionesComponent implements OnInit {
           p.idAsociacion = iterator.id_asociacion;
           p.titulo = iterator.titulo;
           p.contenido = iterator.contenido;
-          p.publicado = (new Date(iterator.created_at)).toUTCString();
-          p.editado = (new Date(iterator.updated_at)).toUTCString();
+          p.publicado = new Date(iterator.created_at).toUTCString();
+          p.editado = new Date(iterator.updated_at).toUTCString();
           this.publicaciones.push(p);
         }
+
+        this.dtTrigger.next();
       },
-      error => {
+      (error) => {
         console.log('ERROR: ' + error);
       }
     );
   }
-
 }

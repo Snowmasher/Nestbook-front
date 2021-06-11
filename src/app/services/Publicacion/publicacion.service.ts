@@ -16,7 +16,7 @@ export class PublicacionService {
     return this.http.post(this.url + '/api/posts/create', data);
   }
 
-  getPosts(idAsociacion: number){
+  getPosts(){
     return this.http.get(this.url + '/api/posts/' + localStorage.getItem('id_asociacion'));
   }
 

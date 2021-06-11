@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/Models/user';
 import { UserService } from '../../services/Usuario/user.service';
 
 @Component({
@@ -9,28 +9,21 @@ import { UserService } from '../../services/Usuario/user.service';
 })
 export class UserPanelComponent implements OnInit {
 
-  user: any;
+  user: User = new User();
   constructor(
-    private http: HttpClient,
     private service: UserService
   ) { }
 
   ngOnInit(): void {
 
-    let res: any;
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    });
-    this.http.get('http://localhost:8000/api/user', { headers }).toPromise().then(
-      result => {
-        console.log(result);
-        this.user = result;
+    this.service.getUser().subscribe(
+      (result: any) => {
+        this.user.id = result.id;
+        this.user.rol = result.rol;
+        this.user.id_asociacion = result.id_asociacion;
       },
       error => {
         console.log(error);
-      }
-    ).finally(
-      () => {
       }
     );
 

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {Subject} from 'rxjs';
@@ -17,6 +17,13 @@ export class UserService {
     private router: Router,
 
   ) { }
+
+  getUser() {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.get('http://localhost:8000/api/user', { headers });
+  }
 
   login(token: any): void {
     localStorage.setItem('token', token);

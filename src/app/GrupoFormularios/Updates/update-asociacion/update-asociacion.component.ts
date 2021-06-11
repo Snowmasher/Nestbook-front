@@ -58,7 +58,7 @@ export class UpdateAsociacionComponent implements OnInit {
       }
     );
 
-    this.asociacionService.getAll().subscribe(
+    this.asociacionService.getAllMods().subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           if (iterator !== undefined && iterator !== null && iterator) {

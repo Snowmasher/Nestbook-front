@@ -1,6 +1,8 @@
+import { UserService } from 'src/app/services/Usuario/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Asociacion } from '../../../Models/Asociacion';
+import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
 
 @Component({
   selector: 'app-tabla-asociaciones',
@@ -11,12 +13,12 @@ export class TablaAsociacionesComponent implements OnInit {
   url = 'http://localhost:8000/api/asociacion/getAll';
 
   asociaciones: Array<Asociacion> = [];
-  constructor(private http: HttpClient) { }
+  constructor(private service: AsociacionService) { }
 
   ngOnInit(): void {
 
-    this.http.get(this.url).subscribe(
-      result => {
+    this.service.getAll().subscribe(
+      (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const a = new Asociacion();
 
@@ -27,7 +29,7 @@ export class TablaAsociacionesComponent implements OnInit {
           this.asociaciones.push(a);
         }
       },
-      error => {
+      (error: any) => {
         console.log('ERROR: ' + error);
       }
     );

@@ -11,19 +11,25 @@ import { Post } from '../../Models/Post';
 export class PrincipalComponent implements OnInit {
 
   datos = [];
-  posts: Array<Post> = [];
+  posts: Array<Post> = new Array<Post>();
 
   constructor(
     private service: PublicacionService
     ) { }
 
   ngOnInit(): void {
-    const id: number = +localStorage.getItem('id_asociacion')!;
 
-    this.service.getPosts(id).subscribe(
+    this.service.getPosts().subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
-          this.posts.push(iterator);
+
+          const p = new Post();
+
+          p.titulo = iterator.titulo;
+          p.contenido = iterator.contenido;
+          p.created_at = iterator.created_at;
+
+          this.posts.push(p);
         }
       },
       (error: any) => {

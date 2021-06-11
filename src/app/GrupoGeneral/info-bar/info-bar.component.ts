@@ -1,3 +1,4 @@
+import { Asociacion } from './../../Models/Asociacion';
 import { AsociacionService } from '../../services/Asociacion/asociacion.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,18 +9,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./info-bar.component.css']
 })
 export class InfoBarComponent implements OnInit {
-  asociacion: any;
-  url = 'http://localhost:8000/api/asociacion/';
+  asociacion: Asociacion = new Asociacion();
   constructor(
     private service: AsociacionService,
     private http: HttpClient
     ) { }
 
   async ngOnInit(){
-        this.http.get(this.url + localStorage.getItem('id_asociacion')).subscribe(
+
+    const id_asociacion:number = +localStorage.getItem('id_asociacion')!;
+
+        this.service.getData(id_asociacion).subscribe(
           (      result: any) => {
             console.log(result);
-            this.asociacion = result[0];
+            this.asociacion.id = result.id;
+            this.asociacion.id_mod = result.id_mod;
+            this.asociacion.nombre = result.nombre;
           },
           (      error: any) => {
             console.log(error);

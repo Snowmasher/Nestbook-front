@@ -1,3 +1,4 @@
+import { TestComponent } from './test/test.component';
 import { UpdateCanarioComponent } from './GrupoFormularios/Updates/update-canario/update-canario.component';
 import { UpdatePostComponent } from './GrupoFormularios/Updates/update-post/update-post.component';
 import { UpdateUsuarioComponent } from './GrupoFormularios/Updates/update-usuario/update-usuario.component';
@@ -29,6 +30,8 @@ import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsoc
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
 
 const routes: Routes = [
+
+  {path: 'test', component: TestComponent},
 
   // Login y registro ----------------
   {path: 'login', component: LoginComponent},
