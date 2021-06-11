@@ -15,7 +15,7 @@
       </div>
 
       <!--TABLA-->
-      <div class="row mt-2 mb-2 min-vw-90">
+      <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
 
         <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
           <thead class="table-dark">
@@ -34,42 +34,6 @@
               <td>{{ pub.titulo }}</td>
               <td>{{ pub.publicado }}</td>
               <td>{{ pub.editado }}</td>
-              <td>
-                <span class="d-flex justify-content-center">
-                  <a title="Editar" routerLink="/panel/adminPost/updatePost/{{ pub.id }}">
-                    <i class="fas fa-edit"></i>
-                  </a>
-                </span>
-              </td>
-              <td>
-                <span class="d-flex justify-content-center">
-                  <a title="Borrar" routerLink="">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover table-bordered">
-          <thead class="table-dark">
-            <tr>
-              <th>#ID</th>
-              <th>Título</th>
-              <th>Fecha de publicación</th>
-              <th>Última edición</th>
-              <th colspan="2">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pub of publicaciones">
-              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.id
-                  }}</a></th>
-              <th style="font-family: monospace; text-align: center;" scope="row"><a
-                  routerLink="/principal/post/{{ pub.id }}">{{ pub.titulo }}</a></th>
-              <td style="font-family: monospace;" scope="row">{{ pub.publicado }}</td>
-              <td style="font-family: monospace;" scope="row">{{ pub.editado }}</td>
               <td>
                 <span class="d-flex justify-content-center">
                   <a title="Editar" routerLink="/panel/adminPost/updatePost/{{ pub.id }}">

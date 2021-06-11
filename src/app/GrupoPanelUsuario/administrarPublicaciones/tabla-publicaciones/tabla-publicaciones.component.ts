@@ -1,5 +1,4 @@
 import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Publicacion } from '../Publicacion';
 import { Subject } from 'rxjs';
@@ -10,14 +9,15 @@ import { Subject } from 'rxjs';
   styleUrls: ['./tabla-publicaciones.component.css'],
 })
 export class TablaPublicacionesComponent implements OnDestroy, OnInit {
+
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject<any>();
 
   publicaciones: Array<Publicacion> = [];
+
   constructor(private service: PublicacionService) {}
 
   ngOnDestroy(): void {
-    // Desuscribimos el evento al terminar de cargar los datos y la página
     this.dtTrigger.unsubscribe();
   }
 
@@ -25,10 +25,11 @@ export class TablaPublicacionesComponent implements OnDestroy, OnInit {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
-      searching: false,
+      searching: true,
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
       },
+      responsive: true
     };
 
     this.service.getPosts().subscribe(

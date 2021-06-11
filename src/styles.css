@@ -157,3 +157,10 @@ thead tr,thead tr:hover {
 .fa-exchange-alt, .fa-edit{
   color: var(--darkblue);
 }
+
+
+/*Tablas*/
+
+table td {
+  padding: 1.5em;
+}

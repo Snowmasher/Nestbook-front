@@ -16,27 +16,28 @@
       </div>
 
       <!--TABLA-->
-      <div class="row mt-2 mb-2 min-vw-90">
+      <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
 
-        <table class="table table-hover table-bordered">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
           <thead class="table-dark">
             <tr>
               <th scope="col">#ID</th>
               <th scope="col">Name</th>
               <th scope="col">Nombre real</th>
               <th scope="col">Email</th>
-              <th scope="col" colspan="2">Acciones</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Borrar</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let m of miembros">
-              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/user/{{ m.id }}">{{ m.id }}</a></th>
-              <th style="font-family: monospace; text-align: center;" scope="row"><a routerLink="/principal/user/{{ m.id }}">{{ m.name }}</a></th>
-              <td style="font-family: monospace;" scope="row">{{ m.real_name }}</td>
-              <td style="font-family: monospace;" scope="row">{{ m.email }}</td>
+            <tr *ngFor="let miembro of miembros">
+              <td>{{ miembro.id }}</td>
+              <td>{{ miembro.name }}</td>
+              <td>{{ miembro.real_name }}</td>
+              <td>{{ miembro.email }}</td>
               <td>
                 <span class="d-flex justify-content-center">
-                  <a title="Editar" routerLink="./updateUser/{{ m.id }}">
+                  <a title="Editar" routerLink="/panel/adminPost/updatePost/{{ miembro.id }}">
                     <i class="fas fa-edit"></i>
                   </a>
                 </span>
@@ -49,7 +50,6 @@
                 </span>
               </td>
             </tr>
-            <tr>
           </tbody>
         </table>
       </div>
