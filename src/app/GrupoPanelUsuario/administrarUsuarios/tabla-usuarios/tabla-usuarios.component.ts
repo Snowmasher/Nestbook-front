@@ -30,14 +30,15 @@ export class TablaUsuariosComponent implements OnInit, OnDestroy {
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
       },
-      responsive: true
+      responsive: true,
+      destroy: true
     };
 
     this.service.usersByAsoc().subscribe(
       (result: any) => {
 
         for (const user of result) {
-          if (user.rol !== 'M' && user.rol !== 'A'){
+          if (user.rol !== 'M' && user.rol !== 'A' && user.rol == 'U'){
             const u = new User();
 
             u.id = user.id;

@@ -1,21 +1,40 @@
 import { UserService } from 'src/app/services/Usuario/user.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Asociacion } from '../../../Models/Asociacion';
 import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tabla-asociaciones',
   templateUrl: './tabla-asociaciones.component.html',
   styleUrls: ['./tabla-asociaciones.component.css']
 })
-export class TablaAsociacionesComponent implements OnInit {
-  url = 'http://localhost:8000/api/asociacion/getAll';
+export class TablaAsociacionesComponent implements OnInit, OnDestroy {
+
+  public dtOptions: DataTables.Settings = {};
+  public dtTrigger: Subject<any> = new Subject<any>();
 
   asociaciones: Array<Asociacion> = [];
+
   constructor(private service: AsociacionService) { }
 
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
+
   ngOnInit(): void {
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      searching: true,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
+      },
+      responsive: true,
+      destroy: true
+    };
 
     this.service.getAll().subscribe(
       (result: any) => {
@@ -27,6 +46,7 @@ export class TablaAsociacionesComponent implements OnInit {
           a.nombre = iterator.nombre;
           a.created_at = iterator.created_at;
           this.asociaciones.push(a);
+          this.dtTrigger.next();
         }
       },
       (error: any) => {

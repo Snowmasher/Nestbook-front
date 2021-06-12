@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Subject } from 'rxjs';
+import { CanarioService } from 'src/app/services/Canario/canario.service';
 import { Canario } from '../../Models/Canario';
 
 @Component({
@@ -7,23 +9,25 @@ import { Canario } from '../../Models/Canario';
   templateUrl: './tabla-canarios.component.html',
   styleUrls: ['./tabla-canarios.component.css']
 })
-export class TablaCanariosComponent implements OnInit, OnChanges {
+export class TablaCanariosComponent implements OnInit, OnDestroy {
+
+  public dtOptions: DataTables.Settings = {};
+  public dtTrigger: Subject<any> = new Subject<any>();
 
   user: any;
   canarios: Array<Canario> = [];
-  constructor(private http: HttpClient) { }
 
+  constructor(private service: CanarioService) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
-
 
 
   ngOnInit() {
 
-    this.http.get('http://localhost:8000/api/canario/user/' + localStorage.getItem('id_user')).subscribe(
-      result => {
+    this.service.getByUser(+localStorage.getItem('id_user')!).subscribe(
+      (      result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const c = new Canario();
 
@@ -34,9 +38,10 @@ export class TablaCanariosComponent implements OnInit, OnChanges {
           c.anillaMadre = iterator.num_anilla_madre;
           c.sexo = iterator.sexo;
           this.canarios.push(c);
+          this.dtTrigger.next();
         }
       },
-      error => {
+      (      error: string) => {
         console.log('ERROR: ' + error);
       }
     );

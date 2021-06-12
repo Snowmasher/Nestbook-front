@@ -78,6 +78,6 @@ export class AsociacionService {
   }
 
   getAll() {
-  return this.http.get(this.url + '/api/getAll')
+  return this.http.get(this.url + '/api/asociacion/getAll')
   }
 }

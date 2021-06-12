@@ -29,7 +29,8 @@ export class TablaPublicacionesComponent implements OnDestroy, OnInit {
       language: {
         url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
       },
-      responsive: true
+      responsive: true,
+      destroy: true
     };
 
     this.service.getPosts().subscribe(

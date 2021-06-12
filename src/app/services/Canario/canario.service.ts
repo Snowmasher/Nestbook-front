@@ -16,6 +16,10 @@ export class CanarioService {
     return this.http.get(this.url + '/api/canario/' + id);
   }
 
+  getByUser(id: number){
+    return this.http.get(this.url + '/api/canario/user/' + id);
+  }
+
   register(data: any) {
     return this.http.post(this.url + '/api/canario/create', data);
   }
