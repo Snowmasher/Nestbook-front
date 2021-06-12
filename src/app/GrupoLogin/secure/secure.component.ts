@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { UserService } from '../../services/Usuario/user.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { UserService } from '../../services/Usuario/user.service';
   styleUrls: ['./secure.component.css']
 })
 export class SecureComponent implements OnInit {
-  user: any;
+
+  url = environment.baseUrl;
 
   constructor(
     private http: HttpClient,
@@ -21,8 +23,7 @@ export class SecureComponent implements OnInit {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`
     });
-    console.log(localStorage.getItem('token'));
-    this.http.get('http://localhost:8000/api/user', {headers}).subscribe(
+    this.http.get(this.url + '/api/user', {headers}).subscribe(
       (result: any) => {
         localStorage.setItem('id_user', result.id);
         localStorage.setItem('id_asociacion', result.id_asociacion);

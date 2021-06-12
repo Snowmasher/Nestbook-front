@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from 'src/app/Models/user';
 import { UserService } from 'src/app/services/Usuario/user.service';
@@ -12,9 +13,12 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject<any>();
 
-  moderadores: Array<User> = [];
+  moderadores: Array<User> = new Array<User>();
 
-  constructor(private service: UserService) {}
+  constructor(
+    private service: UserService,
+    private router: Router
+    ) {}
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -52,6 +56,19 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
       (error) => {
         console.log('error');
         console.log(error);
+      }
+    );
+  }
+
+  borrar(id: number){
+    this.service.delete(id).subscribe(
+      (result: any) => {
+        console.log(result);
+        this.router.navigate(['']);
+      },
+      (error: any) => {
+        console.log(error);
+
       }
     );
   }

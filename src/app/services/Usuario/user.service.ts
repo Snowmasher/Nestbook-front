@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-  private loggedChanged = new Subject<boolean>();
+  private loggedChanged!: boolean;
 
   url = environment.baseUrl;
 
@@ -22,22 +22,25 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('token')}`
     });
-    return this.http.get('http://localhost:8000/api/user', { headers });
+    return this.http.get(this.url + '/api/user', { headers });
   }
 
   login(token: any): void {
     localStorage.setItem('token', token);
-    this.loggedChanged.next(true);
   }
 
   logout(): void {
     localStorage.removeItem('id_user');
     localStorage.removeItem('id_asociacion');
     localStorage.removeItem('token');
-    this.loggedChanged.next(false);
   }
-  isUserLoggedIn(): Subject<boolean> {
-    return this.loggedChanged;
+  isUserLoggedIn(): boolean {
+    if (localStorage.getItem("token")) {
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   register(data: any) {
@@ -70,5 +73,9 @@ export class UserService {
 
   differents(id: number){
     return this.http.get(this.url + '/api/user/getDifferents/' + id);
+  }
+
+  delete(data: any){
+    return this.http.get(this.url + '/api/user/deleteMod/' + data);
   }
 }

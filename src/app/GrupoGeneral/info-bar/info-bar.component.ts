@@ -21,10 +21,9 @@ export class InfoBarComponent implements OnInit {
 
         this.service.getData(id_asociacion).subscribe(
           (      result: any) => {
-            console.log(result);
-            this.asociacion.id = result.id;
-            this.asociacion.id_mod = result.id_mod;
-            this.asociacion.nombre = result.nombre;
+            this.asociacion.id = result[0].id;
+            this.asociacion.id_mod = result[0].id_mod;
+            this.asociacion.nombre = result[0].nombre;
           },
           (      error: any) => {
             console.log(error);

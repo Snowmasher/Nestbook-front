@@ -11,14 +11,12 @@ import { UserService } from '../../services/Usuario/user.service';
 export class NavbarComponent implements OnInit {
   user = new User();
   title = 'nestbook';
-  loggedIn: any;
+  loggedIn: Boolean | undefined;
   constructor(private userService: UserService) {
 
   }
   ngOnInit(): void {
-    this.userService.isUserLoggedIn().subscribe(
-      status => this.loggedIn = status
-    );
+    this.loggedIn = this.userService.isUserLoggedIn();
     console.log('isLogged', this.loggedIn);
 
     const id: number = +localStorage.getItem('id_user')!;
