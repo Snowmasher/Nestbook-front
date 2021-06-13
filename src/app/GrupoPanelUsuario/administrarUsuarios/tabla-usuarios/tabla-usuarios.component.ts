@@ -24,6 +24,9 @@ export class TablaUsuariosComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    $("#tabla").hide();
+    $("#loader").show();
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -58,6 +61,15 @@ export class TablaUsuariosComponent implements OnInit, OnDestroy {
         console.log(error);
       }
     );
+
+
+    $("#loader").fadeOut('500');
+
+    setTimeout(
+      () => $("#tabla").fadeIn(),
+      800
+    );
+
   }
 
   borrar(id: number) {

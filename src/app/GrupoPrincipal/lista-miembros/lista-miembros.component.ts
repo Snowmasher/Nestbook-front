@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { UserService } from '../../services/Usuario/user.service';
 
 @Component({
@@ -11,14 +12,16 @@ export class ListaMiembrosComponent implements OnInit {
 
   miembros = [];
 
-  constructor(private http: HttpClient, private service: UserService) { }
+  url = environment.baseUrl;
+
+  constructor(private service: UserService) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8000/api/usersByAsoc/' + localStorage.getItem('id_asociacion')).subscribe(
+    this.service.usersByAsoc().subscribe(
       (result: any) => {
         this.miembros = result;
       },
-      (error) => {
+      (error: any) => {
         console.log('error');
         console.log(error);
       }

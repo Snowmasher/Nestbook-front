@@ -163,4 +163,9 @@ thead tr,thead tr:hover {
 
 table td {
   padding: 1.5em;
+  text-align: center;
+}
+
+.dataTables_wrapper{
+  width: 100%;
 }

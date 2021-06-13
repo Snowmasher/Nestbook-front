@@ -19,7 +19,7 @@
       <!--TABLA-->
       <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
 
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <table id="tabla" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover w-100">
           <thead class="table-dark">
             <tr>
               <th scope="col">#ID</th>
@@ -76,6 +76,9 @@
             </tr>
           </tbody>
         </table>
+
+        <app-loader id="loader"></app-loader>
+
       </div>
     </div>
 

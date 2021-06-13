@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -43,7 +43,14 @@ export class UserService {
     }
   }
 
-  register(data: any) {
+  /**
+   * Registra usuarios
+   *
+   * @param {*} data Datos del nuevo usuario
+   * @return {*}  {Observable<any>}
+   * @memberof UserService
+   */
+  register(data: any): Observable<any> {
     return this.http.post(this.url + '/api/user/create', data);
   }
 

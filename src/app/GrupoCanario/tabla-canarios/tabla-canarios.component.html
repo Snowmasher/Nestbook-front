@@ -9,7 +9,7 @@
   <!--TABLA-->
   <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
 
-    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <table id="tabla" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover w-100">
       <thead class="table-dark">
         <tr>
           <th scope="col">Nº Anilla</th>
@@ -22,7 +22,7 @@
           <th scope="col">Borrar</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="canarios" else="#noData">
         <tr *ngFor="let canario of canarios">
           <th style="font-family: monospace;" scope="row"><a routerLink="./{{ canario.id }}">{{ canario.anilla }}</a>
           </th>
@@ -76,6 +76,19 @@
           </td>
         </tr>
       </tbody>
+      <tbody id="#noData">
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+        <th scope="col">Sin datos</th>
+      </tbody>
     </table>
+
+    <app-loader id="loader"></app-loader>
+
   </div>
 </div>

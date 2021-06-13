@@ -27,6 +27,9 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    $("#tabla").hide();
+    $("#loader").show();
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -57,6 +60,13 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
         console.log('ERROR: ' + error);
       }
     );
+
+    $("#loader").fadeOut('500');
+
+    setTimeout(
+      () => $("#tabla").fadeIn(),
+      800
+    );
   }
 
   borrar(id: number) {
@@ -73,8 +83,6 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
           .then(() => {
             this.router.navigate([currentUrl]);
           });
-
-
       },
       (error: any) => {
         console.log(error);

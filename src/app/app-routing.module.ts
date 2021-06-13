@@ -23,8 +23,6 @@ import { UserPanelComponent } from './GrupoPanelUsuario/user-panel/user-panel.co
 import { ListaCanariosComponent } from './GrupoCanario/lista-canarios/lista-canarios.component';
 import { CanarioComponent } from './GrupoCanario/canario/canario.component';
 import { SecureComponent } from './GrupoLogin/secure/secure.component';
-import { LoggedoutComponent } from './GrupoLogin/loggedout/loggedout.component';
-import { RegisterComponent } from './register/register.component';
 import { TablaModeradoresComponent } from './GrupoPanelUsuario//administrarModeradores/tabla-moderadores/tabla-moderadores.component';
 import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
@@ -37,7 +35,6 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'loggedout', redirectTo: 'login', pathMatch: 'full'},
   {path: 'secure', component: SecureComponent},
-  {path: 'register', component: RegisterComponent},
 
   // Principal ----------------
   {path: 'principal', component: PrincipalComponent},

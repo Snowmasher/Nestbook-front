@@ -22,6 +22,10 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
+    $('*[id^="tabla"]').hide();
+    $("#loader").show();
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -55,6 +59,17 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
         console.log(error);
       }
     );
+
+
+    $("#loader").fadeOut('500');
+
+    setTimeout(
+      () => {
+        $('*[id^="tabla"]').fadeIn();
+      },
+      800
+    );
+
   }
 
   borrar(id: number) {

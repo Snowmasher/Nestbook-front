@@ -26,7 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SecureComponent } from './GrupoLogin/secure/secure.component';
 import { LoggedoutComponent } from './GrupoLogin/loggedout/loggedout.component';
-import { RegisterComponent } from './register/register.component';
 import { TablaModeradoresComponent } from './GrupoPanelUsuario/administrarModeradores/tabla-moderadores/tabla-moderadores.component';
 import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 import { TablaUsuariosComponent } from './GrupoPanelUsuario/administrarUsuarios/tabla-usuarios/tabla-usuarios.component';
@@ -45,6 +44,7 @@ import { UpdateUsuarioComponent } from './GrupoFormularios/Updates/update-usuari
 import { PostSelectedComponent } from './GrupoPanelUsuario/Info/post-selected/post-selected.component';
 import { AsociacionSelectedComponent } from './GrupoPanelUsuario/Info/asociacion-selected/asociacion-selected.component';
 import { TestComponent } from './test/test.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,6 @@ import { TestComponent } from './test/test.component';
     CanarioComponent,
     SecureComponent,
     LoggedoutComponent,
-    RegisterComponent,
     TablaModeradoresComponent,
     TablaAsociacionesComponent,
     TablaUsuariosComponent,
@@ -87,6 +86,7 @@ import { TestComponent } from './test/test.component';
     PostSelectedComponent,
     AsociacionSelectedComponent,
     TestComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
