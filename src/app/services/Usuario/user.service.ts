@@ -74,6 +74,10 @@ export class UserService {
     return this.http.get(this.url + '/api/user/' + id);
   }
 
+  searchUsers(){
+    return this.http.get(this.url + '/api/user/searchAll');
+  }
+
   usersByAsoc(){
     return this.http.get(this.url + '/api/usersByAsoc/' + localStorage.getItem('id_asociacion'));
   }
