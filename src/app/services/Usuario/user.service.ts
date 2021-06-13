@@ -76,6 +76,10 @@ export class UserService {
   }
 
   delete(data: any){
-    return this.http.get(this.url + '/api/user/deleteMod/' + data);
+    return this.http.delete(this.url + '/api/user/delete/' + data);
+  }
+
+  deleteMod(data: any){
+    return this.http.delete(this.url + '/api/user/deleteMod/' + data);
   }
 }

@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Asociacion } from '../../../Models/Asociacion';
 import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-asociaciones',
@@ -17,7 +18,7 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
 
   asociaciones: Array<Asociacion> = [];
 
-  constructor(private service: AsociacionService) { }
+  constructor(private service: AsociacionService, private router: Router) { }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -55,4 +56,26 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
     );
   }
 
+  borrar(id: number) {
+    this.service.delete(id).subscribe(
+      (result: any) => {
+
+        console.log(result);
+
+        $(".modal-backdrop").hide();
+
+        let currentUrl = this.router.url;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate([currentUrl]);
+          });
+
+
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 }

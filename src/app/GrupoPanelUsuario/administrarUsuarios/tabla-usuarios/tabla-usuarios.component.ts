@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from 'src/app/Models/user';
 import { UserService } from 'src/app/services/Usuario/user.service';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-usuarios',
@@ -15,7 +16,7 @@ export class TablaUsuariosComponent implements OnInit, OnDestroy {
 
   miembros: Array<User> = [];
 
-  constructor(private service: UserService) { }
+  constructor(private service: UserService, private router: Router) { }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -59,4 +60,26 @@ export class TablaUsuariosComponent implements OnInit, OnDestroy {
     );
   }
 
+  borrar(id: number) {
+    this.service.delete(id).subscribe(
+      (result: any) => {
+
+        console.log(result);
+
+        $(".modal-backdrop").hide();
+
+        let currentUrl = this.router.url;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate([currentUrl]);
+          });
+
+
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 }

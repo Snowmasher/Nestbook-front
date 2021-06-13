@@ -15,10 +15,7 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
 
   moderadores: Array<User> = new Array<User>();
 
-  constructor(
-    private service: UserService,
-    private router: Router
-    ) {}
+  constructor(private service: UserService, private router: Router) {}
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -60,15 +57,25 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
     );
   }
 
-  borrar(id: number){
-    this.service.delete(id).subscribe(
+  borrar(id: number) {
+    this.service.deleteMod(id).subscribe(
       (result: any) => {
+
         console.log(result);
-        this.router.navigate(['']);
+
+        $(".modal-backdrop").hide();
+
+        let currentUrl = this.router.url;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate([currentUrl]);
+          });
+
+
       },
       (error: any) => {
         console.log(error);
-
       }
     );
   }

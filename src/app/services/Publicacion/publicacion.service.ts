@@ -31,4 +31,8 @@ export class PublicacionService {
   updatePost(data: any){
     return this.http.put(this.url + '/api/posts/update', data);
   }
+
+  delete(data: any){
+    return this.http.delete(this.url + '/api/posts/delete/' + data);
+  }
 }

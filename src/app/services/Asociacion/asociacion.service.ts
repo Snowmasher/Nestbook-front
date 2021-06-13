@@ -47,4 +47,8 @@ export class AsociacionService {
   getAll() {
   return this.http.get(this.url + '/api/asociacion/getAll')
   }
+
+  delete(data: any){
+    return this.http.delete(this.url + '/api/asociacion/delete/' + data);
+  }
 }

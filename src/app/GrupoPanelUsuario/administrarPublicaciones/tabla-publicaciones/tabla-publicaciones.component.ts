@@ -2,6 +2,8 @@ import { PublicacionService } from 'src/app/services/Publicacion/publicacion.ser
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Publicacion } from '../Publicacion';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Post } from 'src/app/Models/Post';
 
 @Component({
   selector: 'app-tabla-publicaciones',
@@ -13,9 +15,9 @@ export class TablaPublicacionesComponent implements OnDestroy, OnInit {
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject<any>();
 
-  publicaciones: Array<Publicacion> = [];
+  publicaciones: Array<Post> = [];
 
-  constructor(private service: PublicacionService) {}
+  constructor(private service: PublicacionService, private router: Router) {}
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -36,14 +38,14 @@ export class TablaPublicacionesComponent implements OnDestroy, OnInit {
     this.service.getPosts().subscribe(
       (result) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
-          const p = new Publicacion();
+          const p = new Post();
 
           p.id = iterator.id;
-          p.idAsociacion = iterator.id_asociacion;
+          p.id_asociacion = iterator.id_asociacion;
           p.titulo = iterator.titulo;
           p.contenido = iterator.contenido;
-          p.publicado = new Date(iterator.created_at).toUTCString();
-          p.editado = new Date(iterator.updated_at).toUTCString();
+          p.created_at = new Date(iterator.created_at).toUTCString();
+          p.updated_at = new Date(iterator.updated_at).toUTCString();
           this.publicaciones.push(p);
         }
 
@@ -51,6 +53,29 @@ export class TablaPublicacionesComponent implements OnDestroy, OnInit {
       },
       (error) => {
         console.log('ERROR: ' + error);
+      }
+    );
+  }
+
+  borrar(id: number) {
+    this.service.delete(id).subscribe(
+      (result: any) => {
+
+        console.log(result);
+
+        $(".modal-backdrop").hide();
+
+        let currentUrl = this.router.url;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate([currentUrl]);
+          });
+
+
+      },
+      (error: any) => {
+        console.log(error);
       }
     );
   }

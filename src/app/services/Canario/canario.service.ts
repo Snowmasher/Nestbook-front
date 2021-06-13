@@ -27,4 +27,8 @@ export class CanarioService {
   update(data: any){
     return this.http.put(this.url + '/api/canario/update', data);
   }
+
+  delete(data: any){
+    return this.http.delete(this.url + '/api/canario/delete/' + data);
+  }
 }

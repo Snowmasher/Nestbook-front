@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { CanarioService } from 'src/app/services/Canario/canario.service';
 import { Canario } from '../../Models/Canario';
@@ -17,7 +18,7 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
   user: any;
   canarios: Array<Canario> = [];
 
-  constructor(private service: CanarioService) { }
+  constructor(private service: CanarioService, private router: Router) { }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
@@ -25,6 +26,17 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      searching: true,
+      language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json',
+      },
+      responsive: true,
+      destroy: true
+    };
 
     this.service.getByUser(+localStorage.getItem('id_user')!).subscribe(
       (      result: any) => {
@@ -47,4 +59,26 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
     );
   }
 
+  borrar(id: number) {
+    this.service.delete(id).subscribe(
+      (result: any) => {
+
+        console.log(result);
+
+        $(".modal-backdrop").hide();
+
+        let currentUrl = this.router.url;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate([currentUrl]);
+          });
+
+
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 }
