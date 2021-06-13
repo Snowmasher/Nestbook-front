@@ -166,6 +166,10 @@ table td {
   text-align: center;
 }
 
+.info-t td{
+  text-align: start;
+}
+
 .dataTables_wrapper{
   width: 100%;
 }

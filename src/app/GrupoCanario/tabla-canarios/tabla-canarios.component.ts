@@ -27,7 +27,7 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    $("#tabla").hide();
+    $('*[id^="tabla"]').hide();
     $("#loader").show();
 
     this.dtOptions = {
@@ -64,7 +64,9 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
     $("#loader").fadeOut('500');
 
     setTimeout(
-      () => $("#tabla").fadeIn(),
+      () => {
+        $('*[id^="tabla"]').fadeIn();
+      },
       800
     );
   }

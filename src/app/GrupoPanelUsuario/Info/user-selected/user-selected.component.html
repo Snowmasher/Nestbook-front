@@ -21,13 +21,16 @@
     </div>
     <div class="row">
       <div class="col p-4">
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered info-t">
           <tbody>
             <tr>
               <td scope="row"><b>Nombre real:</b> {{ user.real_name }}</td>
             </tr>
             <tr>
               <td scope="row"><b>Rol:</b> {{ user.rol }}</td>
+            </tr>
+            <tr>
+              <td scope="row" *ngIf="user.rol !== 'A'"><b>ID Asociación:</b> {{ user.id_asociacion }}</td>
             </tr>
             <tr>
               <td scope="row"><b>Email:</b> {{ user.email }}</td>

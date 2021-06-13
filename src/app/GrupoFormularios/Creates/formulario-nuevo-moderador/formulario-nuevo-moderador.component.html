@@ -4,12 +4,21 @@
 <div class="row">
   <app-info-bar class="min-vw-100 d-flex justify-content-center"></app-info-bar>
 </div>
+
 <!--Formulario-->
 <div class="row mh-50 h-50 d-flex justify-content-center align-center">
   <div class="col-10 d-flex flex-column justify-content-center">
+
+    <div class="alert alert-success" style="display: none;" role="alert">
+      Moderador creado con exito
+    </div>
+    <div class="alert alert-danger" style="display: none;" role="alert">
+      ¡Ha ocurrido un error!
+    </div>
     <div>
       <h3>Crear Moderador</h3>
     </div>
+
     <!--Campos del formulario-->
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
       <div class="mb-3">

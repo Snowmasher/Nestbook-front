@@ -26,7 +26,7 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    $("#tabla").hide();
+    $('*[id^="tabla"]').hide();
     $("#loader").show();
 
     this.dtOptions = {
@@ -61,7 +61,9 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
     $("#loader").fadeOut('500');
 
     setTimeout(
-      () => $("#tabla").fadeIn(),
+      () => {
+        $('*[id^="tabla"]').fadeIn();
+      },
       800
     );
 

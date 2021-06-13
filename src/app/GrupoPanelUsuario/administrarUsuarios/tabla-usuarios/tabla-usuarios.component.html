@@ -32,8 +32,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let miembro of miembros">
-              <td>{{ miembro.id }}</td>
-              <td>{{ miembro.name }}</td>
+              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/user/{{ miembro.id }}">{{ miembro.id }}</a></th>
+              <td style="font-family: monospace;" scope="row"><a routerLink="/principal/user/{{ miembro.id }}">{{ miembro.name }}</a></td>
               <td>{{ miembro.real_name }}</td>
               <td>{{ miembro.email }}</td>
               <td>

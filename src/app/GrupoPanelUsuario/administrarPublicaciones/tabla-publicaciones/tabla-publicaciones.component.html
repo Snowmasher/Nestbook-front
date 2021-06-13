@@ -30,8 +30,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let pub of publicaciones">
-              <td>{{ pub.id }}</td>
-              <td>{{ pub.titulo }}</td>
+              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.id }}</a></th>
+              <td style="font-family: monospace;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.titulo }}</a></td>
               <td>{{ pub.created_at}}</td>
               <td>{{ pub.updated_at}}</td>
               <td>
