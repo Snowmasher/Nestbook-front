@@ -22,7 +22,7 @@
           <th scope="col">Borrar</th>
         </tr>
       </thead>
-      <tbody *ngIf="canarios" else="#noData">
+      <tbody *ngIf="canarios">
         <tr *ngFor="let canario of canarios">
           <th style="font-family: monospace;" scope="row"><a routerLink="./{{ canario.id }}">{{ canario.anilla }}</a>
           </th>
@@ -76,7 +76,7 @@
           </td>
         </tr>
       </tbody>
-      <tbody id="#noData">
+      <tbody *ngIf="!canarios">
         <th scope="col">Sin datos</th>
         <th scope="col">Sin datos</th>
         <th scope="col">Sin datos</th>

@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
     this.userService.searchUsers().subscribe(
       (result: any) => {
         for (const iterator of result) {
-          this.users.push(iterator.name);
+          this.users.push(iterator.name + "#" + iterator.id);
         }
       },
       (error: any) => {

@@ -65,9 +65,9 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
 
     setTimeout(
       () => {
-        $('*[id^="tabla"]').fadeIn();
+        $('*[id^="tabla"]').fadeIn(500);
       },
-      800
+      500
     );
 
   }
