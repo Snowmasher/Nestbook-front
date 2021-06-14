@@ -33,6 +33,7 @@ export class FormularioNuevoModeradorComponent implements OnInit {
       name: formData.name,
       real_name: formData.real_name,
       id_asociacion: localStorage.getItem('id_asociacion'),
+      avatar: 2,
       email: formData.email,
       password: formData.password
     }];

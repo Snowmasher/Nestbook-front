@@ -7,6 +7,14 @@
 <!--Formulario-->
 <div class="row mh-50 h-50 d-flex justify-content-center align-center">
   <div class="col-10 d-flex flex-column justify-content-center">
+
+    <div class="alert alert-success" style="display: none;" role="alert">
+      Post editado con exito
+    </div>
+    <div class="alert alert-danger" style="display: none;" role="alert">
+      ¡Ha ocurrido un error!
+    </div>
+
     <div>
       <h3>Editar Publicación</h3>
     </div>
@@ -15,6 +23,9 @@
       <div class="mb-3">
         <label for="titulo">Título:</label>
         <input class="form-control" id="titulo" formControlName="titulo" [(ngModel)]="post.titulo" type="text" placeholder="Título..." value="{{ post.titulo }}">
+      </div>
+      <div class="mb-3">
+        <input class="form-control" formControlName="url_img" [(ngModel)]="post.url_img" type="text" placeholder="URL de imagen"  value="{{ post.url_img }}">
       </div>
       <div class="mb-3">
         <label for="contenido">Contenido:</label>

@@ -14,9 +14,6 @@
     <div class="alert alert-danger" style="display: none;" role="alert">
       ¡Ha ocurrido un error!
     </div>
-    <div>
-      <h3>Crear Moderador</h3>
-    </div>
 
     <div>
       <h3>Crear Canario</h3>
@@ -24,23 +21,32 @@
     <!--Campos del formulario-->
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
       <div class="mb-3">
-        <input class="form-control" formControlName="num_anilla" type="text" placeholder="Nº de anilla">
+        <label for="num_anilla">Nº de anilla</label>
+        <input class="form-control" id="num_anilla" formControlName="num_anilla" type="text" placeholder="Nº de anilla">
       </div>
       <div class="mb-3">
-        <input class="form-control" formControlName="num_anilla_padre" type="text" placeholder="Nº de anilla padre">
+        <label for="num_anilla_padre">Nº de anilla padre</label>
+        <input class="form-control" id="num_anilla_padre" formControlName="num_anilla_padre" type="text" placeholder="Nº de anilla padre">
       </div>
       <div class="mb-3">
-        <input class="form-control" formControlName="num_anilla_madre" type="text" placeholder="Nº de anilla madre">
+        <label for="num_anilla">Nº de anilla madre</label>
+        <input class="form-control" id="num_anilla_madre" formControlName="num_anilla_madre" type="text" placeholder="Nº de anilla madre">
       </div>
       <div class="mb-3">
-        <select class="form-control custom-select" formControlName="sexo">
+        <label for="url_img">URL de imagen</label>
+        <input class="form-control" id="url_img" formControlName="url_img" type="text" placeholder="URL de imagen">
+      </div>
+      <div class="mb-3">
+        <label for="sexo">Sexo</label>
+        <select id="sexo" class="form-control custom-select" formControlName="sexo">
           <option selected>Sexo:</option>
           <option value="H">Hembra</option>
           <option value="M">Macho</option>
         </select>
       </div>
       <div class="mb-3">
-        <input class="form-control" formControlName="fecha_nacimiento" type="datetime-local">
+        <label for="fecha_nacimiento">Fª de Nacimiento</label>
+        <input class="form-control" id="fecha_nacimiento" formControlName="fecha_nacimiento" type="date">
       </div>
       <div class="mb-3 d-flex justify-content-between">
         <button type="submit" class="btn btn-primary">Añadir</button>

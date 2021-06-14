@@ -33,6 +33,7 @@ export class UpdateAsociacionComponent implements OnInit {
     this.form = this.fb.group({
       nombre: new FormControl('', [Validators.required]),
       id_mod: new FormControl('', [Validators.required]),
+      url_img: new FormControl('', [Validators.required])
     });
 
     const id = this.rutaActiva.snapshot.params.id;
@@ -47,6 +48,7 @@ export class UpdateAsociacionComponent implements OnInit {
             a.id = iterator.id;
             a.nombre = iterator.nombre;
             a.id_mod = iterator.id_mod;
+            a.url_img = iterator.url_img;
 
             this.asociacion = a;
           }
@@ -118,10 +120,24 @@ export class UpdateAsociacionComponent implements OnInit {
     this.asociacionService.updateAsociacion(data).subscribe(
       (result: any) => {
         console.log(result);
+
+        $('.alert-success').fadeIn();
+
+        setTimeout(
+          () => $('.alert-success').fadeOut(),
+          4000
+        );
       },
       (error: any) => {
         console.log('error');
         console.log(error);
+
+        $('.alert-danger').fadeIn();
+
+        setTimeout(
+          () => $('.alert-danger').fadeOut(),
+          4000
+        );
       }
     );
   }

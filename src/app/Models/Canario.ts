@@ -10,6 +10,7 @@ export class Canario {
   modificacion = '';
   baja = '';
   sexo = '';
+  url_img = '';
 
   constructor(
 

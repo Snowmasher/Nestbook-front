@@ -24,7 +24,8 @@ export class FormularioNuevoCanarioComponent implements OnInit {
       num_anilla_madre: '',
       id_usuario: '',
       sexo: '',
-      fecha_nacimiento: ''
+      fecha_nacimiento: '',
+      url_img: '',
     });
   }
 
@@ -36,7 +37,8 @@ export class FormularioNuevoCanarioComponent implements OnInit {
       num_anilla_madre: formData.num_anilla_madre,
       id_usuario: localStorage.getItem('id_user'),
       sexo: formData.sexo,
-      fecha_nacimiento: formData.fecha_nacimiento
+      fecha_nacimiento: formData.fecha_nacimiento,
+      url_img: formData.fecha_nacimiento,
 
     }];
 

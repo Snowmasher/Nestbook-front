@@ -7,6 +7,7 @@ export class User {
   id_asociacion!: number;
   name!: String;
   real_name!: String;
+  avatar!: number;
   rol!: String;
   updated_at!: String;
 }

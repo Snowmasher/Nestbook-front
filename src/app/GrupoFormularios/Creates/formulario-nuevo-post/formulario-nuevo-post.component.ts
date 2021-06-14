@@ -22,6 +22,7 @@ export class FormularioNuevoPostComponent implements OnInit {
     this.form = this.fb.group({
       id_asociacion: '',
       titulo: '',
+      url_img: '',
       contenido: ''
     });
   }
@@ -31,6 +32,7 @@ export class FormularioNuevoPostComponent implements OnInit {
     const data = [{
       id_asociacion: localStorage.getItem('id_asociacion'),
       titulo: formData.titulo,
+      url_img: formData.url_img,
       contenido: formData.contenido
     }];
 

@@ -173,3 +173,8 @@ table td {
 .dataTables_wrapper{
   width: 100%;
 }
+
+/*Alerts*/
+.alert{
+  margin-top: 2em;
+}

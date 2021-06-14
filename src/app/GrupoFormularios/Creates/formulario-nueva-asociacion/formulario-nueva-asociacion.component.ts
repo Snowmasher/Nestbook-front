@@ -24,7 +24,8 @@ export class FormularioNuevaAsociacionComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       nombre: '',
-      id_mod: ''
+      id_mod: '',
+      url_img: '',
     });
 
     this.userService.getAllPossibleMods().subscribe(
@@ -42,7 +43,8 @@ export class FormularioNuevaAsociacionComponent implements OnInit {
     const formData = this.form.getRawValue();
     const data = [{
       nombre: formData.nombre,
-      id_mod: formData.id_mod
+      id_mod: formData.id_mod,
+      url_img: formData.url_img
     }];
 
     this.asocService.register(data).subscribe(

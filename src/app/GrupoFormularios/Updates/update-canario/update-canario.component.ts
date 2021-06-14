@@ -34,6 +34,7 @@ export class UpdateCanarioComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       id_usuario: new FormControl('', [Validators.required]),
       sexo: new FormControl('', [Validators.required]),
+      url_img: new FormControl('', [Validators.required]),
     });
 
     const id = this.rutaActiva.snapshot.params.id;
@@ -48,6 +49,7 @@ export class UpdateCanarioComponent implements OnInit {
             c.id = iterator.id;
             c.id_usuario = iterator.id_usuario;
             c.sexo = iterator.sexo;
+            c.url_img = iterator.url_img;
 
             this.canario = c;
 
@@ -95,16 +97,31 @@ export class UpdateCanarioComponent implements OnInit {
         id: this.canario.id,
         sexo: formData.sexo,
         id_usuario: formData.id_usuario,
+        url_img: formData.url_img,
       },
     ];
 
     this.canarioService.update(data).subscribe(
       (result: any) => {
         console.log(result);
+
+        $('.alert-success').fadeIn();
+
+        setTimeout(
+          () => $('.alert-success').fadeOut(),
+          4000
+        );
       },
       (error) => {
         console.log('error');
         console.log(error);
+
+        $('.alert-danger').fadeIn();
+
+        setTimeout(
+          () => $('.alert-danger').fadeOut(),
+          4000
+        );
       }
     );
   }

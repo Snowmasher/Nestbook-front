@@ -24,7 +24,8 @@ export class UpdatePostComponent implements OnInit {
 
     this.form = this.fb.group({
       titulo: new FormControl('', [Validators.required]),
-      contenido: new FormControl('', [Validators.required])
+      contenido: new FormControl('', [Validators.required]),
+      url_img: new FormControl('', [Validators.required])
     });
 
     const id = this.rutaActiva.snapshot.params.id;
@@ -40,6 +41,7 @@ export class UpdatePostComponent implements OnInit {
             p.id_asociacion = iterator.id_asociacion;
             p.titulo = iterator.titulo;
             p.contenido = iterator.contenido;
+            p.url_img = iterator.url_img;
 
             this.post = p;
           }
@@ -57,6 +59,7 @@ export class UpdatePostComponent implements OnInit {
     const data = [{
       id: this.post.id,
       titulo: formData.titulo,
+      url_img: formData.url_img,
       contenido: formData.contenido,
       id_asociacion: this.post.id_asociacion
     }];
@@ -64,10 +67,24 @@ export class UpdatePostComponent implements OnInit {
     this.postService.updatePost(data).subscribe(
       (result: any) => {
         console.log(result);
+
+        $('.alert-success').fadeIn();
+
+        setTimeout(
+          () => $('.alert-success').fadeOut(),
+          4000
+        );
       },
       (error: any) => {
         console.log('error');
         console.log(error);
+
+        $('.alert-danger').fadeIn();
+
+        setTimeout(
+          () => $('.alert-danger').fadeOut(),
+          4000
+        );
       }
     );
   }

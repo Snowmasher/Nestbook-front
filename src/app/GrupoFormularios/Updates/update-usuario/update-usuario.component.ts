@@ -81,10 +81,24 @@ export class UpdateUsuarioComponent implements OnInit {
     this.userService.update(data).subscribe(
       (result: any) => {
         console.log(result);
+
+        $('.alert-success').fadeIn();
+
+        setTimeout(
+          () => $('.alert-success').fadeOut(),
+          4000
+        );
       },
       (error) => {
         console.log('error');
         console.log(error);
+
+        $('.alert-danger').fadeIn();
+
+        setTimeout(
+          () => $('.alert-danger').fadeOut(),
+          4000
+        );
       }
     );
   }

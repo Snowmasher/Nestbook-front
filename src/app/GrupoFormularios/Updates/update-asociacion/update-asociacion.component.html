@@ -7,6 +7,14 @@
 <!--Formulario-->
 <div class="row mh-50 h-50 d-flex justify-content-center align-center">
   <div class="col-10 d-flex flex-column justify-content-center">
+
+    <div class="alert alert-success" style="display: none;" role="alert">
+      Post editado con exito
+    </div>
+    <div class="alert alert-danger" style="display: none;" role="alert">
+      ¡Ha ocurrido un error!
+    </div>
+
     <div>
       <h3>Editar Asociacion</h3>
     </div>
@@ -14,7 +22,11 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
       <div class="mb-3">
         <label for="nombre">Nombre:</label>
-        <input class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="asociacion.nombre" type="text" placeholder="Nombre..." value="{{ asociacion.nombre }}">
+        <input class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="asociacion.nombre" type="text" placeholder="Nombre" value="{{ asociacion.nombre }}">
+      </div>
+      <div class="mb-3">
+        <label for="nombre">URL de Imagen:</label>
+        <input class="form-control" id="nombre" formControlName="url_img" [(ngModel)]="asociacion.url_img" type="text" placeholder="URL de Imagen" value="{{ asociacion.url_img }}">
       </div>
       <div class="mb-3">
         <label for="id_mod">ID Moderador:</label>
