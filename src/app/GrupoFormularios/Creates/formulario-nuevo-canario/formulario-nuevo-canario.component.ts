@@ -38,7 +38,7 @@ export class FormularioNuevoCanarioComponent implements OnInit {
       id_usuario: localStorage.getItem('id_user'),
       sexo: formData.sexo,
       fecha_nacimiento: formData.fecha_nacimiento,
-      url_img: formData.fecha_nacimiento,
+      url_img: formData.url_img,
 
     }];
 

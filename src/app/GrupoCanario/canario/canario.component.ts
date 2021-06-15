@@ -31,6 +31,7 @@ export class CanarioComponent implements OnInit {
             c.nacimiento = (iterator.fecha_nacimiento).split(' ')[0];
             c.anillaPadre = iterator.num_anilla_padre;
             c.anillaMadre = iterator.num_anilla_madre;
+            c.url_img = iterator.url_img;
             c.sexo = iterator.sexo;
             c.modificacion = (iterator.updated_at).split(' ')[0];
             c.creacion = (iterator.created_at).split(' ')[0];
