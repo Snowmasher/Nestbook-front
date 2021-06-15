@@ -1,6 +1,10 @@
 <div class="container-fluid blue-bg-snowmasher d-flex" *ngIf="user.rol=='U'; else noUser">
-  <div style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
+  <!-- <div style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
     <p>IMAGEN Usuario</p>
+  </div> -->
+  <div style="width: 28em; height: 24em; margin: 10px; text-align: center;">
+    <img *ngIf="user.rol === 'U'" class="img img-responsive"  style="max-height: 20em; margin: 10px; text-align: center; margin-left: 3em;"
+      src="../../assets/img/icons/UsersAvatar/user.png" alt="Imagen del usuario">
   </div>
   <div class="col" style="margin: 10px;">
     <h4 class="text-white">{{ user.name }}</h4>
@@ -15,8 +19,13 @@
 
 <ng-template #noUser>
   <div class="container-fluid orange-bg-snowmasher d-flex" *ngIf="user.rol=='M'; else Admin">
-    <div style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
+    <!-- <div
+      style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
       <p>IMAGEN Usuario</p>
+    </div> -->
+    <div style="">
+      <img *ngIf="user.rol === 'M'" class="img img-responsive" style="max-height: 20em; margin: 10px; text-align: center; margin-left: 3em;"
+        src="../../assets/img/icons/UsersAvatar/mod.png" alt="Imagen del usuario">
     </div>
     <div class="col" style="margin: 10px;">
       <h4 class="text-white">{{ user.name }} (Moderador)</h4>
@@ -27,19 +36,24 @@
       <a routerLink="/principal" class="btn info-btn-adm-mod" type="button">Ir a Asociación</a>
     </div>
   </div>
-    <ng-template #Admin>
-      <div class="container-fluid red-bg-snowmasher d-flex">
-        <div style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
-          <p>IMAGEN Usuario</p>
-        </div>
-        <div class="col" style="margin: 10px;">
-          <h4 class="text-white">{{ user.name }} (Administrador)</h4>
-          <h6 class="text-white">Asociacion: {{ user.id_asociacion }}</h6>
-          <h6 class="text-white">Ejemplares: </h6>
-        </div>
-        <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
-          <a routerLink="/principal" class="btn info-btn-adm-mod" type="button">Ir a Asociación</a>
-        </div>
+  <ng-template #Admin>
+    <div class="container-fluid red-bg-snowmasher d-flex">
+      <!-- <div
+        style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
+        <p>IMAGEN Usuario</p>
+      </div> -->
+      <div style="width: 28em; height: 24em; margin: 10px; text-align: center;">
+        <img *ngIf="user.rol === 'A'" class="img img-responsive" style="max-height: 20em; margin: 10px; text-align: center; margin-left: 3em;"
+          src="../../assets/img/icons/UsersAvatar/admin.png" alt="Imagen del usuario">
       </div>
-    </ng-template>
+      <div class="col" style="margin: 10px;">
+        <h4 class="text-white">{{ user.name }} (Administrador)</h4>
+        <h6 class="text-white">Asociacion: {{ user.id_asociacion }}</h6>
+        <h6 class="text-white">Ejemplares: </h6>
+      </div>
+      <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
+        <a routerLink="/principal" class="btn info-btn-adm-mod" type="button">Ir a Asociación</a>
+      </div>
+    </div>
+  </ng-template>
 </ng-template>

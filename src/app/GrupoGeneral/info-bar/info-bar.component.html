@@ -3,12 +3,11 @@
     <p>IMAGEN ASOCIACION</p>
   </div> -->
   <div style="width: 28em; height: 24em; margin: 10px; text-align: center;">
-    <img class="img img-responsive img-thumbnail" style="max-height: 100%;" src="{{ asociacion.url_img }}">
+    <img class="img img-responsive img-thumbnail" style="max-height: 20em; margin: 10px; text-align: center; margin-left: 3em;" src="{{ asociacion.url_img }}">
   </div>
   <div class="col" style="margin: 10px;">
     <h4 class="text-white">{{ asociacion.nombre }}</h4>
     <h6 class="text-white">ID Moderador: {{ asociacion.id_mod }}</h6>
-    <h6 class="text-white">Miembros: </h6>
   </div>
   <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
     <a class="btn info-btn-usr asoc-btn" routerLink="/principal">Publicaciones</a>

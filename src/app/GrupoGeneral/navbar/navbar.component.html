@@ -21,13 +21,12 @@
       -->
 
       <form class="ml-4">
-          <input type="text" placeholder="Usuario" [formControl]="myControl"
-            [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let u of filteredOptions | async" [value]="u">
-              <a routerLink="/principal/user/{{ u.split('#')[1] }}" >{{ u.split('#')[0] }}</a>
-            </mat-option>
-          </mat-autocomplete>
+        <input type="text" placeholder="Usuario" [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let u of filteredOptions | async" [value]="u">
+            <a routerLink="/principal/user/{{ u.split('#')[1] }}">{{ u.split('#')[0] }}</a>
+          </mat-option>
+        </mat-autocomplete>
       </form>
 
 
@@ -36,7 +35,11 @@
           <a class="text-white mr-5" style="font-size: smaller;" routerLink="/loggedout" (click)="logout()">Cerrar
             sesión</a>
           {{ user.name }}
-          <img class="img rounded-circle" style="height: 3rem;" src="../../assets/img/icons/usuario.png"
+          <img *ngIf="user.rol === 'U'" class="img rounded-circle" style="height: 3rem;" src="../../assets/img/icons/UsersAvatar/user.png"
+            alt="Imagen del usuario">
+          <img *ngIf="user.rol === 'M'" class="img rounded-circle" style="height: 3rem;" src="../../assets/img/icons/UsersAvatar/mod.png"
+            alt="Imagen del usuario">
+          <img *ngIf="user.rol === 'A'" class="img rounded-circle" style="height: 3rem;" src="../../assets/img/icons/UsersAvatar/admin.png"
             alt="Imagen del usuario">
         </span>
       </a>
