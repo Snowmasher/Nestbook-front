@@ -114,6 +114,7 @@ export class UpdateAsociacionComponent implements OnInit {
         id: this.asociacion.id,
         nombre: formData.nombre,
         id_mod: formData.id_mod,
+        url_img: formData.url_img
       },
     ];
 

@@ -24,6 +24,7 @@ export class InfoBarComponent implements OnInit {
             this.asociacion.id = result[0].id;
             this.asociacion.id_mod = result[0].id_mod;
             this.asociacion.nombre = result[0].nombre;
+            this.asociacion.url_img = result[0].url_img;
           },
           (      error: any) => {
             console.log(error);
