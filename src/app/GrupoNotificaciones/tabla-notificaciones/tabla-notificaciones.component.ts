@@ -1,22 +1,23 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Asociacion } from '../../../Models/Asociacion';
-import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
-import { Subject } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { Notificacion } from 'src/app/Models/Notificacion';
+import { NotificacionService } from 'src/app/services/Notificacion/notificacion.service';
 
 @Component({
-  selector: 'app-tabla-asociaciones',
-  templateUrl: './tabla-asociaciones.component.html',
-  styleUrls: ['./tabla-asociaciones.component.css'],
+  selector: 'app-tabla-notificaciones',
+  templateUrl: './tabla-notificaciones.component.html',
+  styleUrls: ['./tabla-notificaciones.component.css']
 })
-export class TablaAsociacionesComponent implements OnInit, OnDestroy {
+export class TablaNotificacionesComponent implements OnInit, OnDestroy {
+
   //Datatable
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject<any>();
 
-  asociaciones: Array<Asociacion> = [];
+  notificaciones: Array<Notificacion> = [];
 
-  constructor(private service: AsociacionService, private router: Router) {}
+  constructor(private service: NotificacionService, private router: Router) { }
 
   ngOnDestroy(): void {
     // Desuscribe el datatable cuando se destruye el componente
@@ -41,13 +42,19 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
     this.service.getAll().subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
-          const a = new Asociacion();
+          const n = new Notificacion();
 
-          a.id = iterator.id;
-          a.id_mod = iterator.id_mod;
-          a.nombre = iterator.nombre;
-          a.created_at = iterator.created_at;
-          this.asociaciones.push(a);
+          n.id = iterator.id;
+          n.id_from = iterator.id_from;
+          n.id_to = iterator.id_to;
+          n.tipo = iterator.tipo;
+          n.contenido = iterator.contenido;
+          n.aceptada = iterator.aceptada;
+          n.created_at = iterator.created_at;
+          n.updated_at = iterator.updated_at;
+          n.deleted_at = iterator.deleted_at;
+
+          this.notificaciones.push(n);
           this.dtTrigger.next();
         }
       },
@@ -82,4 +89,5 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
       }
     );
   }
+
 }

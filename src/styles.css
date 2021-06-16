@@ -110,7 +110,7 @@ a, a[routerLink]{
   background-color: var(--darkblue);
   border-color: var(--darkblue);
   color: white;
-  height: 40%;
+  height: fit-content;
 }
 
 .info-btn-adm-mod:hover{
@@ -123,7 +123,7 @@ a, a[routerLink]{
   background-color: var(--orange);
   border-color: var(--orange);
   color: white;
-  height: 40%;
+  height: fit-content;
 }
 
 .info-btn-usr:hover{

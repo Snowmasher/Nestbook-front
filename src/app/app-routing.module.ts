@@ -26,6 +26,7 @@ import { SecureComponent } from './GrupoLogin/secure/secure.component';
 import { TablaModeradoresComponent } from './GrupoPanelUsuario//administrarModeradores/tabla-moderadores/tabla-moderadores.component';
 import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
+import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
 
 const routes: Routes = [
 
@@ -71,8 +72,13 @@ const routes: Routes = [
   {path: 'canarios/create', component: FormularioNuevoCanarioComponent},
   {path: 'canarios/update/:id', component: UpdateCanarioComponent},
   {path: 'canarios/:id', component: CanarioComponent},
+
+  //Notificaciones
+  {path: 'notificaciones', component: TablaNotificacionesComponent},
+
+  //404 y Redirect
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: '**', component: ErrorPageComponent}
+  {path: '**', component: ErrorPageComponent},
 ];
 
 @NgModule({

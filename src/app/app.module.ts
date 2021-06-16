@@ -88,6 +88,7 @@ import { PostSelectedComponent } from './GrupoPanelUsuario/Info/post-selected/po
 import { AsociacionSelectedComponent } from './GrupoPanelUsuario/Info/asociacion-selected/asociacion-selected.component';
 import { TestComponent } from './test/test.component';
 import { LoaderComponent } from './loader/loader.component';
+import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { LoaderComponent } from './loader/loader.component';
     PostSelectedComponent,
     AsociacionSelectedComponent,
     TestComponent,
-    LoaderComponent
+    LoaderComponent,
+    TablaNotificacionesComponent
   ],
   imports: [
     BrowserModule,

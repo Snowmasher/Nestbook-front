@@ -1,9 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class NotificacionServiceService {
+export class NotificacionService {
+  url = environment.baseUrl;
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
+
+  getAll() {
+    return this.http.get(this.url + '/api/notificacion/getAll');
+  }
+
+  delete(data: any) {
+    return this.http.delete(this.url + '/api/notificacion/delete/' + data);
+  }
 }
