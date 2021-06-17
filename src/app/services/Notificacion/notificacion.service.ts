@@ -17,4 +17,8 @@ export class NotificacionService {
   delete(data: any) {
     return this.http.delete(this.url + '/api/notificacion/delete/' + data);
   }
+
+  sendRegisterUser(data: any) {
+    return this.http.post(this.url + '/api/notificacion/create', data);
+  }
 }

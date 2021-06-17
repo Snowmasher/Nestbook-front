@@ -1,16 +1,16 @@
-<div class="col-10" style="width: 100%; display: block; max-width: 85vw;" *ngFor="let post_actual of posts">
-  <div class="col-12 container mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
+<div class="col-10" style="width: 85%; max-width: 85vw; align-self: center;" *ngFor="let post_actual of posts">
+  <div class="col-12 container mt-4 border darkblue-border-snowmasher" style="min-height: 20em; width: 100%;">
     <div class="row darkblue-bg-snowmasher text-light p-2 d-flex flex-column" style="min-height: 5em;">
       <h4>{{ post_actual.titulo }}</h4>
       <h6>{{ post_actual.created_at }}</h6>
     </div>
     <div class="row">
-      <div class="col-6 p-4">
+      <div class="col col-sm-6 p-4">
         <p style="word-wrap: break-word;">{{ post_actual.contenido }}</p>
       </div>
-      <div class="col-6 p-4">
+      <div class="col col-sm-6 p-4">
         <div>
-          <div style="background-color: cornsilk; width: 28em; height: 24em; margin: 10px; text-align: center;">
+          <div style="background-color: cornsilk; max-width: 9em; min-width: 8em; margin: 10px; text-align: center;">
             <p>IMAGEN POST</p>
           </div>
         </div>

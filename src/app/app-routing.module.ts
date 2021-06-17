@@ -27,6 +27,7 @@ import { TablaModeradoresComponent } from './GrupoPanelUsuario//administrarModer
 import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsociaciones/tabla-asociaciones/tabla-asociaciones.component';
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
 import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
+import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tabla-canario-user.component';
 
 const routes: Routes = [
 
@@ -34,6 +35,7 @@ const routes: Routes = [
 
   // Login y registro ----------------
   {path: 'login', component: LoginComponent},
+  {path: 'registerUser', component: FormularioNuevoUsuarioComponent},
   {path: 'loggedout', redirectTo: 'login', pathMatch: 'full'},
   {path: 'secure', component: SecureComponent},
 
@@ -59,7 +61,6 @@ const routes: Routes = [
 
   // Usuarios
   {path: 'panel/adminUser', component: TablaUsuariosComponent},
-  {path: 'panel/adminUser/registerUser', component: FormularioNuevoUsuarioComponent},
   {path: 'panel/adminUser/updateUser/:id', component: UpdateUsuarioComponent},
 
   // Publicaciones
@@ -69,6 +70,7 @@ const routes: Routes = [
 
   // Canarios
   {path: 'canarios', component: ListaCanariosComponent},
+  {path: 'canarios/user/:id', component: TablaCanarioUserComponent},
   {path: 'canarios/create', component: FormularioNuevoCanarioComponent},
   {path: 'canarios/update/:id', component: UpdateCanarioComponent},
   {path: 'canarios/:id', component: CanarioComponent},

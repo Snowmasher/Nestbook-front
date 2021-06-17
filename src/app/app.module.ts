@@ -89,6 +89,7 @@ import { AsociacionSelectedComponent } from './GrupoPanelUsuario/Info/asociacion
 import { TestComponent } from './test/test.component';
 import { LoaderComponent } from './loader/loader.component';
 import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
+import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tabla-canario-user.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +132,8 @@ import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notifi
     AsociacionSelectedComponent,
     TestComponent,
     LoaderComponent,
-    TablaNotificacionesComponent
+    TablaNotificacionesComponent,
+    TablaCanarioUserComponent
   ],
   imports: [
     BrowserModule,

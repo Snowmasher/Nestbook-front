@@ -1,51 +1,55 @@
-<div class="row min-vw-100 d-flex justify-content-center">
-  <app-navbar class="min-vw-100" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
-</div>
-<div class="row">
-  <app-info-bar class="min-vw-100 d-flex justify-content-center"></app-info-bar>
-</div>
-<!--Formulario-->
-<div class="row mh-50 h-50 d-flex justify-content-center align-center">
-  <div class="col-10 d-flex flex-column justify-content-center">
+<div class="row min-vw-100 h-100 mt-5 d-flex justify-content-center">
+  <div class="col-md-6 m-0 h-100">
+    <!--Formulario-->
+    <div class="row d-flex justify-content-center align-center">
+      <div class="col-10 d-flex flex-column justify-content-center">
 
-    <div class="alert alert-success" style="display: none;" role="alert">
-      Usuario creado con exito
-    </div>
-    <div class="alert alert-danger" style="display: none;" role="alert">
-      ¡Ha ocurrido un error!
+        <div class="alert alert-success" style="display: none;" role="alert">
+          Usuario enviado con éxito, espere la confirmación de su moderador.
+        </div>
+        <div class="alert alert-danger" style="display: none;" role="alert">
+          ¡Ha ocurrido un error!
+        </div>
+
+        <div>
+          <h3>Crear Usuario</h3>
+        </div>
+        <!--Campos del formulario-->
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
+          <div class="mb-3">
+            <input class="form-control" formControlName="name" type="text" placeholder="Nombre de usuario...">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" formControlName="real_name" type="text" placeholder="Nombre real...">
+          </div>
+          <div class="mb-3">
+            <label for="id_usuario">ID asociación</label>
+            <select class="form-control custom-select" id="id_asociacion" formControlName="id_asociacion"
+              [(ngModel)]="user.id">
+              <option *ngFor="let usr of asociaciones" value="{{ usr.id }}"> {{ usr.id }} {{ usr.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input class="form-control" formControlName="email" type="text" placeholder="E-mail...">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" formControlName="password" type="password"
+              placeholder="Confirme la contraseña...">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" formControlName="password_confirmation" type="password"
+              placeholder="Repita la contraseña...">
+          </div>
+          <div class="mb-3 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Añadir</button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div>
-      <h3>Crear Usuario</h3>
+    <div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
+      <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
     </div>
-    <!--Campos del formulario-->
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
-      <div class="mb-3">
-        <input class="form-control" formControlName="name" type="text" placeholder="Nombre de usuario...">
-      </div>
-      <div class="mb-3">
-        <input class="form-control" formControlName="real_name" type="text" placeholder="Nombre real...">
-      </div>
-      <div class="mb-3">
-        <input class="form-control" formControlName="email" type="text" placeholder="E-mail...">
-      </div>
-      <div class="mb-3">
-        <input class="form-control" formControlName="password" type="password" placeholder="Confirme la contraseña...">
-      </div>
-      <div class="mb-3">
-        <input class="form-control" formControlName="password_confirmation" type="password" placeholder="Repita la contraseña...">
-      </div>
-      <div class="mb-3 d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Añadir</button>
-      </div>
-    </form>
   </div>
-</div>
-
-<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
-  <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
-</div>
-
-<div class="row">
-  <app-footer class="min-vw-100"></app-footer>
 </div>

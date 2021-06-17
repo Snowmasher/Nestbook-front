@@ -49,6 +49,7 @@ button, button[type="button"]{
   border-width: 2px 2px 2px 2px;
   padding: 10px;
 }
+
 /*Ampliar tamaño de letra navbar*/
 .nav-link{
   font-size: large;
@@ -97,7 +98,7 @@ button, button[type="button"]{
 }
 
 /*Para los botones cuadrados de los InfoBar*/
-a, a[routerLink]{
+a, a[routerLink], a[class="btn"]{
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px ;
   border-radius: 2px ;
@@ -178,3 +179,4 @@ table td {
 .alert{
   margin-top: 2em;
 }
+

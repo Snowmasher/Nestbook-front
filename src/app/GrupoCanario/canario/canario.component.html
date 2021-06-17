@@ -94,7 +94,8 @@
 </div>
 
 <div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
-  <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
+  <a routerLink="../" class="btn info-btn-usr" type="button" *ngIf="canario.id_usuario === myUser">Atrás</a>
+  <a routerLink="../user/{{ canario.id_usuario }}" class="btn info-btn-usr" type="button" *ngIf="canario.id_usuario !== myUser">Atrás</a>
 </div>
 
 <div class="row">

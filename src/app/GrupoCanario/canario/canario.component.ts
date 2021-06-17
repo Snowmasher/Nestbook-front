@@ -11,6 +11,8 @@ import { Canario } from '../../Models/Canario';
 export class CanarioComponent implements OnInit {
   canario: Canario = new Canario();
 
+  myUser: number = +localStorage.getItem('id_user')!;
+
   constructor(
     private rutaActiva: ActivatedRoute,
     private service: CanarioService,
@@ -29,6 +31,7 @@ export class CanarioComponent implements OnInit {
             c.id = iterator.id;
             c.anilla = iterator.num_anilla;
             c.nacimiento = iterator.fecha_nacimiento.split(' ')[0];
+            c.id_usuario = iterator.id_usuario;
             c.anillaPadre = iterator.num_anilla_padre;
             c.anillaMadre = iterator.num_anilla_madre;
             c.url_img = iterator.url_img;

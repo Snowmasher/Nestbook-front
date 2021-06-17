@@ -74,6 +74,10 @@ export class UserService {
     return this.http.get(this.url + '/api/user/' + id);
   }
 
+  getDataByName(name: string){
+    return this.http.get(this.url + '/api/userByName/' + name);
+  }
+
   searchUsers(){
     return this.http.get(this.url + '/api/user/searchAll');
   }
