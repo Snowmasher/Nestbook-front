@@ -16,7 +16,6 @@
             <tr>
               <th scope="col">#ID</th>
               <th scope="col">Desde:</th>
-              <th scope="col">Hacia:</th>
               <th scope="col">Tipo:</th>
               <th scope="col">Fª Creación</th>
               <th scope="col">Borrar</th>
@@ -24,11 +23,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let not of notificaciones">
-              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/notificación/{{ not.id }}">{{ not.id }}</a></th>
-              <td style="font-family: monospace;" scope="row">{{ not.id_from }}</td>
-              <td style="font-family: monospace;" scope="row">{{ not.id_to }}</td>
-              <td>{{ not.created_at }}</td>
+              <th style="font-family: monospace;" scope="row"><a routerLink="/principal/notificacion/{{ not.id }}">{{ not.id }}</a></th>
+              <td *ngIf="not.id_from === 1" style="font-family: monospace;" scope="row">Admin</td>
+              <td *ngIf="not.id_from !== 1" style="font-family: monospace;" scope="row">{{ not.id_from }}</td>
               <td>{{ not.tipo }}</td>
+              <td>{{ not.created_at | date: 'dd-MM-YYYY | HH:mm'}}</td>
               <td>
                 <span class="d-flex justify-content-center">
                   <!-- Button trigger modal -->
@@ -73,6 +72,8 @@
     </div>
   </div>
 </div>
+
+<!-- Footer -->
 <div class="row">
   <app-footer class="min-vw-100"></app-footer>
 </div>

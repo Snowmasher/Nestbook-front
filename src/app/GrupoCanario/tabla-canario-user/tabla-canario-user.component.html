@@ -8,16 +8,10 @@
 <div class="row d-flex justify-content-center">
   <div style="min-width: 85%; max-width: 90%;">
     <div class="container-fluid mt-3">
-      <div class="row mr-3 d-flex justify-content-end">
-
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button type="button" routerLink="./create" class="btn btn-success" style="padding: 0.2em 4em;">Alta</button>
-        </div>
-      </div>
 
       <!--TABLA-->
       <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
-
+        <h3>Canarios de <b>{{ this.user.name }}</b></h3>
         <table id="tabla" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover w-100">
           <thead class="table-dark">
             <tr>
@@ -40,10 +34,33 @@
               <td style="font-family: monospace;" scope="row">{{ canario.anillaMadre }}</td>
               <td>
                 <span class="d-flex justify-content-center">
-                  <a title="Intercambiar" routerLink="">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn" data-toggle="modal" [attr.data-target]="'#modalIntercambio'+canario.id">
                     <i class="fas fa-exchange-alt"></i>
-                  </a>
+                  </button>
                 </span>
+
+                <!-- Modal -->
+            <div class="modal fade" id="modalIntercambio{{ canario.id }}" tabindex="-1" role="dialog"
+            aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Intercambio</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Está seguro de solicitar el intercambio de <b>{{ canario.anilla }}?</b>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn blue-bg-snowmasher text-white" (click)="intercambiar(canario.id, canario.id_usuario)">Solicitar</button>
+                </div>
+              </div>
+            </div>
+          </div>
               </td>
             </tr>
           </tbody>

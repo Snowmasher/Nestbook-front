@@ -14,6 +14,7 @@ export class TablaNotificacionesComponent implements OnInit, OnDestroy {
   //Datatable
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject<any>();
+  myUser: number = +localStorage.getItem('id_user')!;
 
   notificaciones: Array<Notificacion> = [];
 
@@ -39,7 +40,7 @@ export class TablaNotificacionesComponent implements OnInit, OnDestroy {
       destroy: true,
     };
 
-    this.service.getAll().subscribe(
+    this.service.getAllByUser(this.myUser).subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
           const n = new Notificacion();

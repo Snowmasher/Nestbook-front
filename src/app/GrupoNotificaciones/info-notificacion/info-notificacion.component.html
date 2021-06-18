@@ -1,0 +1,123 @@
+<div class="row min-vw-100 d-flex justify-content-center">
+  <app-navbar class="min-vw-100" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+</div>
+<div class="row">
+  <app-info-bar-user class="min-vw-100 d-flex justify-content-center"></app-info-bar-user>
+</div>
+
+<div class="row">
+  <div class="container mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
+    <div class="row darkblue-bg-snowmasher text-light p-2" style="min-height: 5em;">
+      <div class="col-6  d-flex flex-column">
+        <h5 *ngIf="notificacion.tipo === 'U'">Nombre: {{ notificacion.contenido.name }}</h5>
+        <h5>ID notificación: {{ notificacion.id }}</h5>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button" class="btn btn-danger" *ngIf="!notificacion.deleted_at">Baja</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col p-4" style="overflow-x:auto;">
+        <table class="table table-hover table-bordered info-t">
+          <tbody>
+            <tr>
+              <td scope="row"><b>Desde:</b> {{ notificacion.id_from }}</td>
+            </tr>
+            <tr>
+              <td scope="row"><b>Hacia:</b> {{ notificacion.id_to }}</td>
+            </tr>
+            <tr>
+              <td scope="row"><b>Tipo:</b> {{ notificacion.tipo }}</td>
+            </tr>
+            <tr>
+              <td *ngIf="notificacion.tipo === 'U'" scope="row"><b>Contenido:</b>
+                <button type="button" class="btn btn-primary ml-2 p-1" data-toggle="modal" data-target="#ModalUser">
+                  Abrir
+                </button>
+              </td>
+              <td *ngIf="notificacion.tipo === 'I'" scope="row"><b>Contenido:</b>
+                <button type="button" class="btn btn-primary ml-2 p-1" data-toggle="modal" data-target="#ModalIntercambio">
+                  Abrir
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row"><b>Creada:</b> {{ notificacion.created_at | date: 'dd-MM-YYYY | HH:mm' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Tipo Usuario -->
+<div *ngIf="notificacion.tipo === 'U'" class="modal fade" id="ModalUser" tabindex="-1" role="dialog" aria-labelledby="ModalUser" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalUserTitle">{{notificacion.contenido.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-bordered info-t">
+          <tbody>
+            <tr>
+              <td scope="row"><b>Nombre real:</b> {{ notificacion.contenido.real_name }}</td>
+            </tr>
+            <tr>
+              <td scope="row" ><b>ID Asociación:</b> {{ notificacion.contenido.id_asociacion }}</td>
+            </tr>
+            <tr>
+              <td scope="row"><b>Email:</b> {{ notificacion.contenido.email }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" (click)="aceptarUser()" class="btn btn-success">Aceptar</button>
+        <button type="button" (click)="rechazaUser()" class="btn btn-danger">Rechazar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Tipo Intercambio -->
+<div *ngIf="notificacion.tipo === 'I'" class="modal fade" id="ModalIntercambio" tabindex="-1" role="dialog" aria-labelledby="ModalIntercambio" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalIntercambioTitle">Intercambio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-bordered info-t">
+          <tbody>
+            <tr>
+              <td scope="row">El usuario "TAL" quiere intercambiar a: <b>{{ notificacion.contenido }}</b></td>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" (click)="aceptarIntercambio()" class="btn btn-success">Aceptar</button>
+        <button type="button" (click)="rechazarIntercambio()" class="btn btn-danger">Rechazar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
+  <a routerLink="/panel" class="btn info-btn-usr" type="button">Atrás</a>
+</div>
+
+<div class="row">
+  <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>

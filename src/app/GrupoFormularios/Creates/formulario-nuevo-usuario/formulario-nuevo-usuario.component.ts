@@ -1,3 +1,4 @@
+import { NotificacionService } from 'src/app/services/Notificacion/notificacion.service';
 import { Asociacion } from './../../../Models/Asociacion';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -23,6 +24,7 @@ export class FormularioNuevoUsuarioComponent implements OnInit {
   constructor(
     private userService: UserService,
     private asociacionService: AsociacionService,
+    private notificacionService: NotificacionService,
     private fb: FormBuilder
   ) {}
 
@@ -80,7 +82,7 @@ export class FormularioNuevoUsuarioComponent implements OnInit {
     //   password_confirmation: formData.password_confirmation,
     // }];
 
-    this.userService.register(data).subscribe(
+    this.notificacionService.enviarRegistroUser(data).subscribe(
       (result: any) => {
         console.log(result);
         $('.alert-success').fadeIn();

@@ -72,6 +72,11 @@ button, button[type="button"]{
   background-color: var(--blue);
 }
 
+button[class*="blue-bg-snowmasher"]:hover{
+  background-color: var(--darkblue);
+  border: 1px white solid;
+}
+
 .darkblue-bg-snowmasher{
   background-color: var(--darkblue);
 }

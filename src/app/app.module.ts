@@ -90,6 +90,7 @@ import { TestComponent } from './test/test.component';
 import { LoaderComponent } from './loader/loader.component';
 import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
 import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tabla-canario-user.component';
+import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificacion/info-notificacion.component';
 
 @NgModule({
   declarations: [
@@ -133,7 +134,8 @@ import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tab
     TestComponent,
     LoaderComponent,
     TablaNotificacionesComponent,
-    TablaCanarioUserComponent
+    TablaCanarioUserComponent,
+    InfoNotificacionComponent
   ],
   imports: [
     BrowserModule,

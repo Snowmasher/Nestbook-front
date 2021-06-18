@@ -1,10 +1,12 @@
+import { User } from "./user";
+
 export class Notificacion {
 
   id!: number;
   id_from!: number;
   id_to!: number;
   tipo = '';
-  contenido = '';
+  contenido = new User() || '';
   aceptada = '';
   created_at = '';
   updated_at = '';

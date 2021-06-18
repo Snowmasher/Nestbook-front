@@ -28,6 +28,7 @@ import { TablaAsociacionesComponent } from './GrupoPanelUsuario//administrarAsoc
 import { FormularioNuevoUsuarioComponent } from './GrupoFormularios/Creates/formulario-nuevo-usuario/formulario-nuevo-usuario.component';
 import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
 import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tabla-canario-user.component';
+import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificacion/info-notificacion.component';
 
 const routes: Routes = [
 
@@ -77,6 +78,7 @@ const routes: Routes = [
 
   //Notificaciones
   {path: 'notificaciones', component: TablaNotificacionesComponent},
+  {path: 'principal/notificacion/:id', component: InfoNotificacionComponent},
 
   //404 y Redirect
   {path: '', redirectTo: 'login', pathMatch: 'full'},
