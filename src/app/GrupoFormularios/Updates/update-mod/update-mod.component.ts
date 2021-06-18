@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/Usuario/user.service';
 import { User } from 'src/app/Models/user';
 
@@ -16,6 +16,7 @@ export class UpdateModComponent implements OnInit {
 
   constructor(
     private rutaActiva: ActivatedRoute,
+    private router: Router,
     private userService: UserService,
     private fb: FormBuilder,
   ) { }
@@ -30,7 +31,23 @@ export class UpdateModComponent implements OnInit {
     });
 
     const id = this.rutaActiva.snapshot.params.id;
+    const myId: number = +localStorage.getItem('id_user')!;
 
+    //Subscribe para restringir la entrada
+    this.userService.getData(myId).subscribe((result: any) => {
+      for (const iterator of JSON.parse(JSON.stringify(result))) {
+        if (iterator.rol !== 'A') {
+          this.router.navigate(["/panel"]);
+        }
+    }
+  },
+    (error) => {
+      console.log('error');
+      console.log(error);
+    }
+  );
+
+    // Subscribe del usuario a editar
     this.userService.getData(id).subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
@@ -46,14 +63,6 @@ export class UpdateModComponent implements OnInit {
             u.email = iterator.email;
             u.created_at = (iterator.created_at).split(' ')[0];
             u.updated_at = (iterator.updated_at).split(' ')[0];
-
-            // Comprueba si se ha dado de baja
-            if(iterator.deleted_at !== undefined && iterator.deleted_at !== null && iterator.deleted_at !== ''){
-              u.deleted_at = (iterator.deleted_at).split(' ')[0];
-            }
-            else{
-              u.deleted_at = '---';
-            }
 
             this.user = u;
           }

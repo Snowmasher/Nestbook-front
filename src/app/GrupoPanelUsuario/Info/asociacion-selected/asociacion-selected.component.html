@@ -15,7 +15,10 @@
       <div class="col-6 d-flex justify-content-end">
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
           <button type="button" routerLink="/panel/adminAsoc/updateAsoc/{{ asoc.id }}" style="border: 1px solid var(--blue);" class="btn btn-table-ee">Editar</button>
-          <button type="button" class="btn btn-danger">Baja</button>
+          <button type="button" class="btn btn-danger"
+            data-toggle="modal" [attr.data-target]="'#modalBorrar'+asoc.id">
+            Borrar
+          </button>
         </div>
       </div>
     </div>
@@ -27,13 +30,10 @@
               <td scope="row"><b>ID Moderador:</b> {{ asoc.id_mod }}</td>
             </tr>
             <tr>
-              <td scope="row"><b>Creada:</b> {{ asoc.created_at }}</td>
+              <td scope="row"><b>Creada:</b> {{ asoc.created_at | date: 'yyyy-MM-dd | HH:mm' }}</td>
             </tr>
             <tr>
-              <td scope="row"><b>Modificado:</b> {{ asoc.updated_at }}</td>
-            </tr>
-            <tr>
-              <td scope="row"><b>Baja:</b> {{ asoc.deleted_at }}</td>
+              <td scope="row"><b>Modificado:</b> {{ asoc.updated_at  | date: 'yyyy-MM-dd | HH:mm' }}</td>
             </tr>
 
           </tbody>
@@ -41,6 +41,28 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalBorrar{{ asoc.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="ModalLabel">Dar de baja</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      ¿Está seguro de dar de baja a {{ asoc.nombre }}?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-danger" (click)="borrar(asoc.id)">Borrar</button>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">

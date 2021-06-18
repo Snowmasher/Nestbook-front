@@ -53,7 +53,6 @@ import { PrincipalComponent } from './GrupoPrincipal/principal/principal.compone
 import { ErrorPageComponent } from './GrupoGeneral/error-page/error-page.component';
 import { NavbarComponent } from './GrupoGeneral/navbar/navbar.component';
 import { InfoBarComponent } from './GrupoGeneral/info-bar/info-bar.component';
-import { PostComponent } from './GrupoPrincipal/post/post.component';
 import { FooterComponent } from './GrupoGeneral/footer/footer.component';
 import { MiembrosComponent } from './GrupoPrincipal/miembros/miembros.component';
 import { ListaMiembrosComponent } from './GrupoPrincipal/lista-miembros/lista-miembros.component';
@@ -100,7 +99,6 @@ import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificaci
     ErrorPageComponent,
     NavbarComponent,
     InfoBarComponent,
-    PostComponent,
     FooterComponent,
     MiembrosComponent,
     ListaMiembrosComponent,

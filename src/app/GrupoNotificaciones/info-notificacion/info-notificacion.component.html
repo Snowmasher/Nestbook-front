@@ -13,9 +13,6 @@
         <h5>ID notificación: {{ notificacion.id }}</h5>
       </div>
       <div class="col-6 d-flex justify-content-end">
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button type="button" class="btn btn-danger" *ngIf="!notificacion.deleted_at">Baja</button>
-        </div>
       </div>
     </div>
     <div class="row">
@@ -23,13 +20,11 @@
         <table class="table table-hover table-bordered info-t">
           <tbody>
             <tr>
-              <td scope="row"><b>Desde:</b> {{ notificacion.id_from }}</td>
+              <td scope="row"><b>Desde:</b> {{ desde }} - ID: {{ notificacion.id_from }}</td>
             </tr>
             <tr>
-              <td scope="row"><b>Hacia:</b> {{ notificacion.id_to }}</td>
-            </tr>
-            <tr>
-              <td scope="row"><b>Tipo:</b> {{ notificacion.tipo }}</td>
+              <td *ngIf="notificacion.tipo === 'U'"><b>Tipo:</b> Nuevo Usuario</td>
+              <td *ngIf="notificacion.tipo === 'I'"><b>Tipo:</b> Intercambio</td>
             </tr>
             <tr>
               <td *ngIf="notificacion.tipo === 'U'" scope="row"><b>Contenido:</b>
@@ -102,7 +97,7 @@
         <table class="table table-hover table-bordered info-t">
           <tbody>
             <tr>
-              <td scope="row">El usuario "TAL" quiere intercambiar a: <b>{{ notificacion.contenido }}</b></td>
+              <td scope="row">El usuario "{{ desde }}" quiere intercambiar a: <b>{{ notificacion.contenido }}</b></td>
           </tbody>
         </table>
       </div>
@@ -116,7 +111,7 @@
 </div>
 
 <div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
-  <a routerLink="/panel" class="btn info-btn-usr" type="button">Atrás</a>
+  <a routerLink="/notificaciones" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
 
 <div class="row">

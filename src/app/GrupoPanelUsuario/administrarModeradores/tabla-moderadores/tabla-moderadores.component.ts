@@ -37,6 +37,24 @@ export class TablaModeradoresComponent implements OnInit, OnDestroy {
       destroy: true,
     };
 
+    const myId: number = +localStorage.getItem('id_user')!;
+
+    //Subscribe para restringir la entrada
+    this.service.getData(myId).subscribe(
+      (result: any) => {
+        for (const iterator of JSON.parse(JSON.stringify(result))) {
+          if (iterator.rol !== 'A') {
+            this.router.navigate(['/panel']);
+          }
+        }
+      },
+      (error) => {
+        console.log('error');
+        console.log(error);
+      }
+    );
+
+    //Subscribe para recoger los moderadores
     this.service.getAllPossibleMods().subscribe(
       (result: any) => {
         for (const user of result) {

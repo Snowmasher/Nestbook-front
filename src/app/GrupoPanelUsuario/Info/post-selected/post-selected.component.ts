@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/Models/Post';
 import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
 
@@ -14,7 +14,8 @@ export class PostSelectedComponent implements OnInit {
 
   constructor(
     private rutaActiva: ActivatedRoute,
-    private service: PublicacionService
+    private service: PublicacionService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -52,5 +53,27 @@ export class PostSelectedComponent implements OnInit {
     );
   }
 
+  borrar(id: number) {
+    this.service.delete(id).subscribe(
+      (result: any) => {
+
+        console.log(result);
+
+        $(".modal-backdrop").hide();
+
+        let currentUrl = this.router.url;
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/panel/adminPost']);
+          });
+
+
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 
 }

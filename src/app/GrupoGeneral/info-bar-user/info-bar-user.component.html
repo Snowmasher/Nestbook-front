@@ -8,8 +8,6 @@
   </div>
   <div class="col" style="margin: 10px;">
     <h4 class="text-white">{{ user.name }}</h4>
-    <h6 class="text-white">Asociacion: {{ user.id_asociacion }}</h6>
-    <h6 class="text-white">Ejemplares: </h6>
   </div>
   <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
     <a routerLink="/notificaciones" class="btn info-btn-usr mr-1" type="button">Notificaciones</a>
@@ -31,14 +29,12 @@
     </div>
     <div class="col" style="margin: 10px;">
       <h4 class="text-white">{{ user.name }} (Moderador)</h4>
-      <h6 class="text-white">Asociacion: {{ user.id_asociacion }}</h6>
-      <h6 class="text-white">Ejemplares: </h6>
     </div>
     <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
       <div class="col-4">
       </div>
-      <div class="col-8 d-flex justify-content-between">
-        <a routerLink="/notificaciones" class="btn info-btn-adm-mod" type="button">Notificaciones</a>
+      <div class="col-8 d-flex justify-content-end">
+        <a routerLink="/notificaciones" class="btn info-btn-adm-mod mr-1" type="button">Notificaciones</a>
 
         <a routerLink="/principal" class="btn info-btn-adm-mod" type="button">Ir a Asociación</a>
       </div>
@@ -56,15 +52,11 @@
       </div>
       <div class="col" style="margin: 10px;">
         <h4 class="text-white">{{ user.name }} (Administrador)</h4>
-        <h6 class="text-white">Asociacion: {{ user.id_asociacion }}</h6>
-        <h6 class="text-white">Ejemplares: </h6>
       </div>
       <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
-        <div class="col-4">
+        <div class="col-4 r-0">
         </div>
-        <div class="col-8 d-flex justify-content-between">
-          <a routerLink="/notificaciones" class="btn info-btn-adm-mod" type="button">Notificaciones</a>
-
+        <div class="col-8 d-flex justify-content-end">
           <a routerLink="/principal" class="btn info-btn-adm-mod" type="button">Ir a Asociación</a>
         </div>
       </div>

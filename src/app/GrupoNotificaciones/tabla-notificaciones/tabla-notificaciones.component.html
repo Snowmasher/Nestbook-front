@@ -26,7 +26,8 @@
               <th style="font-family: monospace;" scope="row"><a routerLink="/principal/notificacion/{{ not.id }}">{{ not.id }}</a></th>
               <td *ngIf="not.id_from === 1" style="font-family: monospace;" scope="row">Admin</td>
               <td *ngIf="not.id_from !== 1" style="font-family: monospace;" scope="row">{{ not.id_from }}</td>
-              <td>{{ not.tipo }}</td>
+              <td *ngIf="not.tipo === 'U'">Nuevo Usuario</td>
+              <td *ngIf="not.tipo === 'I'">Intercambio</td>
               <td>{{ not.created_at | date: 'dd-MM-YYYY | HH:mm'}}</td>
               <td>
                 <span class="d-flex justify-content-center">

@@ -1,6 +1,6 @@
 export class User {
-  created_at!: String;
-  deleted_at: any;
+  created_at!: '';
+  deleted_at!: '';
   email!: String;
   email_verified_at!: String;
   id!: number;
@@ -9,5 +9,5 @@ export class User {
   real_name!: String;
   avatar!: number;
   rol!: String;
-  updated_at!: String;
+  updated_at!: '';
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CanarioService } from '../../services/Canario/canario.service';
 import { Canario } from '../../Models/Canario';
+import { NotificacionService } from 'src/app/services/Notificacion/notificacion.service';
 
 @Component({
   selector: 'app-canario',
@@ -15,6 +16,7 @@ export class CanarioComponent implements OnInit {
 
   constructor(
     private rutaActiva: ActivatedRoute,
+    private notificacionService: NotificacionService,
     private service: CanarioService,
     private router: Router
   ) {}
@@ -68,6 +70,35 @@ export class CanarioComponent implements OnInit {
         $('.modal-backdrop').hide();
 
         this.router.navigate(['/canarios']);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  /**
+   * Crea la notificación del intercambio
+   *
+   * @param {number} id ID del canario
+   * @param {number} id_user ID del usuario
+   * @memberof TablaCanarioUserComponent
+   */
+   intercambiar(id_canario: number, id_user: number) {
+    const data = [{
+      "id_from": localStorage.getItem('id_user'),
+      "id_to": id_user,
+      "contenido": id_canario
+    }];
+
+    this.notificacionService.enviarIntercambio(data).subscribe(
+      (result: any) => {
+        console.log(result);
+
+        $('.modal-backdrop').hide();
+
+        let currentUrl = this.router.url;
+        this.router.navigate(["/canarios/user/" + this.canario.id_usuario])
       },
       (error: any) => {
         console.log(error);

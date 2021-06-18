@@ -32,8 +32,8 @@
             <tr *ngFor="let pub of publicaciones">
               <th style="font-family: monospace;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.id }}</a></th>
               <td style="font-family: monospace;" scope="row"><a routerLink="/principal/post/{{ pub.id }}">{{ pub.titulo }}</a></td>
-              <td>{{ pub.created_at}}</td>
-              <td>{{ pub.updated_at}}</td>
+              <td>{{ pub.created_at | date: 'yyyy-MM-dd  HH:mm'}}</td>
+              <td>{{ pub.updated_at | date: 'yyyy-MM-dd  HH:mm'}}</td>
               <td>
                 <span class="d-flex justify-content-center">
                   <a title="Editar" routerLink="/panel/adminPost/updatePost/{{ pub.id }}">

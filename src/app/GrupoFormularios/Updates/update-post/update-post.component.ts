@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/Models/Post';
 import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
+import { UserService } from 'src/app/services/Usuario/user.service';
 
 @Component({
   selector: 'app-update-post',
@@ -16,7 +17,9 @@ export class UpdatePostComponent implements OnInit {
 
   constructor(
     private rutaActiva: ActivatedRoute,
+    private router: Router,
     private postService: PublicacionService,
+    private userService: UserService,
     private fb: FormBuilder,
   ) {}
 
@@ -29,7 +32,9 @@ export class UpdatePostComponent implements OnInit {
     });
 
     const id = this.rutaActiva.snapshot.params.id;
+    const myId: number = +localStorage.getItem('id_user')!;
 
+    // Subscribe para regocer la publicacion
     this.postService.getOne(id).subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
@@ -44,6 +49,24 @@ export class UpdatePostComponent implements OnInit {
             p.url_img = iterator.url_img;
 
             this.post = p;
+
+            //Subscribe para restringir la entrada
+            this.userService.getData(myId).subscribe(
+              (result: any) => {
+                for (const i of JSON.parse(JSON.stringify(result))) {
+                  if (
+                    i.rol !== 'M' ||
+                    i.id_asociacion !== p.id_asociacion
+                  ) {
+                    this.router.navigate(['/panel']);
+                  }
+                }
+              },
+              (error) => {
+                console.log('error');
+                console.log(error);
+              }
+            );
           }
       }
     },

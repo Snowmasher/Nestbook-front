@@ -14,10 +14,20 @@
       </div>
       <div class="col-6 d-flex justify-content-end">
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button type="button" routerLink="/canarios/user/{{ user.id }}" style="border: 1px solid var(--blue);" class="btn btn-table-ee" *ngIf="user.rol === 'U' || user.rol === 'M'">Canarios</button>
-          <button type="button" routerLink="/panel/adminUser/updateUser/{{ user.id }}" style="border: 1px solid var(--blue);" class="btn btn-table-ee" *ngIf="user.rol === 'U'">Editar</button>
-          <button type="button" routerLink="/panel/adminMod/updateMod/{{ user.id }}" style="border: 1px solid var(--blue);" class="btn btn-table-ee" *ngIf="user.rol === 'M'">Editar</button>
-          <button type="button" class="btn btn-danger" *ngIf="user.rol !== 'A'">Baja</button>
+          <button type="button" routerLink="/canarios/user/{{ user.id }}" style="border: 1px solid var(--blue);"
+            class="btn btn-table-ee" *ngIf="user.rol === 'U' || user.rol === 'M'">Canarios</button>
+          <button type="button" routerLink="/panel/adminUser/updateUser/{{ user.id }}"
+            style="border: 1px solid var(--blue);" class="btn btn-table-ee"
+            *ngIf="user.rol === 'U' && user.id_asociacion === myAsoc">Editar</button>
+          <button type="button" routerLink="/panel/adminMod/updateMod/{{ user.id }}"
+            style="border: 1px solid var(--blue);" class="btn btn-table-ee"
+            *ngIf="user.rol === 'M' && myUser === 1">Editar</button>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger"
+            *ngIf="(user.rol !== 'A' && myUser === 1) || (user.id_asociacion === myAsoc && user.rol !== 'M')"
+            data-toggle="modal" [attr.data-target]="'#modalBorrar'+user.id">
+            Borrar
+          </button>
         </div>
       </div>
     </div>
@@ -38,17 +48,36 @@
               <td scope="row"><b>Email:</b> {{ user.email }}</td>
             </tr>
             <tr>
-              <td scope="row"><b>Creado:</b> {{ user.created_at }}</td>
+              <td scope="row"><b>Creado:</b> {{ user.created_at | date: 'yyyy-MM-dd | HH:mm' }}</td>
             </tr>
             <tr>
-              <td scope="row"><b>Modificado:</b> {{ user.updated_at }}</td>
-            </tr>
-            <tr>
-              <td scope="row"><b>Baja:</b> {{ user.deleted_at }}</td>
+              <td scope="row"><b>Modificado:</b> {{ user.updated_at | date: 'yyyy-MM-dd | HH:mm' }}</td>
             </tr>
 
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalBorrar{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Dar de baja</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de dar de baja a {{ user.name }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="borrar(user.id)">Borrar</button>
       </div>
     </div>
   </div>

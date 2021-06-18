@@ -1,3 +1,4 @@
+import { UserService } from './../../services/Usuario/user.service';
 import { CanarioService } from './../../services/Canario/canario.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,12 +14,14 @@ import { NotificacionService } from 'src/app/services/Notificacion/notificacion.
 export class InfoNotificacionComponent implements OnInit {
 
   notificacion: Notificacion = new Notificacion();
+  desde!: string;
 
   constructor(
     private rutaActiva: ActivatedRoute,
     private router: Router,
     private service: NotificacionService,
-    private canarioService: CanarioService
+    private canarioService: CanarioService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +41,10 @@ export class InfoNotificacionComponent implements OnInit {
             n.created_at = iterator.created_at;
             n.updated_at = iterator.updated_at;
 
+            this.userService.getData(n.id_from).subscribe(
+              (result: any) => {this.desde = result[0].name}
+            );
+
             //Comprueba el tipo de notificacion
             if(n.tipo === 'U'){
               var u: User = new User();
@@ -48,7 +55,9 @@ export class InfoNotificacionComponent implements OnInit {
               n.contenido = u;
             }
             else if(n.tipo === 'I'){
-              n.contenido = iterator.contenido;
+              this.canarioService.getData(iterator.contenido).subscribe(
+                (result: any) => n.contenido = result[0].num_anilla
+              );
             }
 
             this.notificacion = n;
@@ -96,9 +105,9 @@ export class InfoNotificacionComponent implements OnInit {
 
   aceptarIntercambio() {
     const data = [{
-      "id" : this.notificacion.id,
+      "id_notificacion" : this.notificacion.id,
       "id_canario" : this.notificacion.contenido,
-      "id_user": localStorage.getItem('id_user')
+      "id_user": this.notificacion.id_from
     }];
     this.service.aceptaIntercambio(data).subscribe(
       (result: any) => {

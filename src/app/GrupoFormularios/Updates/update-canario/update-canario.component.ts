@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CanarioService } from 'src/app/services/Canario/canario.service';
 import { UserService } from 'src/app/services/Usuario/user.service';
 import { User } from 'src/app/Models/user';
@@ -24,6 +24,7 @@ export class UpdateCanarioComponent implements OnInit {
 
   constructor(
     private rutaActiva: ActivatedRoute,
+    private router: Router,
     private canarioService: CanarioService,
     private userService: UserService,
     private fb: FormBuilder
@@ -38,6 +39,7 @@ export class UpdateCanarioComponent implements OnInit {
     });
 
     const id = this.rutaActiva.snapshot.params.id;
+    const myId: number = +localStorage.getItem('id_user')!;
 
     this.canarioService.getData(id).subscribe(
       (result: any) => {
@@ -52,6 +54,21 @@ export class UpdateCanarioComponent implements OnInit {
             c.url_img = iterator.url_img;
 
             this.canario = c;
+
+            //Subscribe para restringir la entrada
+            this.userService.getData(myId).subscribe(
+              (result: any) => {
+                for (const i of JSON.parse(JSON.stringify(result))) {
+                  if (i.id !== c.id_usuario) {
+                    this.router.navigate(['/principal']);
+                  }
+                }
+              },
+              (error) => {
+                console.log('error');
+                console.log(error);
+              }
+            );
 
 
             this.userService.differents(this.canario.id_usuario).subscribe(

@@ -4,7 +4,31 @@
 <div class="row">
   <app-info-bar class="min-vw-100 d-flex justify-content-center"></app-info-bar>
 </div>
-<app-post [posts]="posts" class="min-vw-100 d-flex flex-column justify-content-center"></app-post>
+
+<div class="row d-flex justify-content-center">
+  <div class="col-10" style="width: 85%; max-width: 85vw; align-self: center;" *ngFor="let post_actual of posts">
+    <div class="col-12 container mt-4 border darkblue-border-snowmasher" style="min-height: 20em; width: 100%;">
+      <div class="row darkblue-bg-snowmasher text-light p-2 d-flex flex-column" style="min-height: 5em;">
+        <h4>{{ post_actual.titulo }}</h4>
+        <h6>{{ post_actual.created_at | date: 'yyyy-MM-dd  HH:mm' }}</h6>
+      </div>
+      <div class="row">
+        <div class="col col-sm-6 p-4">
+          <p style="word-wrap: break-word;">{{ post_actual.contenido }}</p>
+        </div>
+        <div class="col col-sm-6 p-4" *ngIf="post_actual.url_img">
+          <div>
+            <div style="width: auto; height: 20rem; margin: 1rem; display: flex; justify-content: center; align-content: center; flex-direction: column;">
+              <img class="img img-fluid img-thumbnail" style="max-width: 70%; max-height: 70%; width: auto; height: auto; align-self: center;" src="{{ post_actual.url_img }}">
+              <button class="btn orange-bg-snowmasher text-white mt-1" style="max-width: 50%; align-self: center;" (click)="abrirImagen(post_actual.url_img)">Ver imagen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
   <app-footer class="min-vw-100"></app-footer>
 </div>

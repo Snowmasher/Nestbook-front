@@ -28,6 +28,7 @@ export class PrincipalComponent implements OnInit {
           p.titulo = iterator.titulo;
           p.contenido = iterator.contenido;
           p.created_at = iterator.created_at;
+          p.url_img = iterator.url_img;
 
           this.posts.push(p);
         }
@@ -38,4 +39,8 @@ export class PrincipalComponent implements OnInit {
     );
   }
 
+  abrirImagen(url: string){
+    window.open(url, '_blank');
+    return false;
+  }
 }

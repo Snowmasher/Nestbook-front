@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
 import { User } from 'src/app/Models/user';
 import { UserService } from 'src/app/services/Usuario/user.service';
@@ -24,6 +24,7 @@ export class UpdateAsociacionComponent implements OnInit {
 
   constructor(
     private rutaActiva: ActivatedRoute,
+    private router: Router,
     private asociacionService: AsociacionService,
     private userService: UserService,
     private fb: FormBuilder
@@ -37,6 +38,21 @@ export class UpdateAsociacionComponent implements OnInit {
     });
 
     const id = this.rutaActiva.snapshot.params.id;
+    const myId: number = +localStorage.getItem('id_user')!;
+
+    //Subscribe para restringir la entrada
+    this.userService.getData(myId).subscribe((result: any) => {
+      for (const iterator of JSON.parse(JSON.stringify(result))) {
+        if (iterator.rol !== 'A') {
+          this.router.navigate(["/panel"]);
+        }
+    }
+  },
+    (error) => {
+      console.log('error');
+      console.log(error);
+    }
+  );
 
     this.asociacionService.getOne(id).subscribe(
       (result: any) => {
@@ -60,6 +76,7 @@ export class UpdateAsociacionComponent implements OnInit {
       }
     );
 
+    // Subscribe para coger los moderadores
     this.asociacionService.getAllMods().subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
@@ -118,6 +135,7 @@ export class UpdateAsociacionComponent implements OnInit {
       },
     ];
 
+    // Subscribe de edición de asociación
     this.asociacionService.updateAsociacion(data).subscribe(
       (result: any) => {
         console.log(result);

@@ -29,7 +29,7 @@
       <div class="mb-3">
         <select  formControlName="id_mod" class="browser-default custom-select">
           <option selected="selected">ID Moderador</option>
-          <option *ngFor="let mod of moderadores" value="{{ mod.id }}">{{ mod.id }}</option>
+          <option *ngFor="let mod of moderadores" value="{{ mod.id }}">{{ mod.id }} {{mod.name}}</option>
         </select>
       </div>
       <div class="mb-3 d-flex justify-content-between">

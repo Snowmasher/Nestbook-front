@@ -3,6 +3,7 @@ import { Asociacion } from '../../../Models/Asociacion';
 import { AsociacionService } from 'src/app/services/Asociacion/asociacion.service';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/Usuario/user.service';
 
 @Component({
   selector: 'app-tabla-asociaciones',
@@ -16,7 +17,11 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
 
   asociaciones: Array<Asociacion> = [];
 
-  constructor(private service: AsociacionService, private router: Router) {}
+  constructor(
+    private service: AsociacionService,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnDestroy(): void {
     // Desuscribe el datatable cuando se destruye el componente
@@ -38,6 +43,24 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
       destroy: true,
     };
 
+    const myId: number = +localStorage.getItem('id_user')!;
+
+    //Subscribe para restringir la entrada
+    this.userService.getData(myId).subscribe(
+      (result: any) => {
+        for (const iterator of JSON.parse(JSON.stringify(result))) {
+          if (iterator.rol !== 'A') {
+            this.router.navigate(['/panel']);
+          }
+        }
+      },
+      (error) => {
+        console.log('error');
+        console.log(error);
+      }
+    );
+
+    //subscribe para recoger todas las asociaciones
     this.service.getAll().subscribe(
       (result: any) => {
         for (const iterator of JSON.parse(JSON.stringify(result))) {
@@ -63,7 +86,10 @@ export class TablaAsociacionesComponent implements OnInit, OnDestroy {
     }, 800);
   }
 
+
   borrar(id: number) {
+
+    // Subscribe para borrar una asociacion
     this.service.delete(id).subscribe(
       (result: any) => {
         console.log(result);
