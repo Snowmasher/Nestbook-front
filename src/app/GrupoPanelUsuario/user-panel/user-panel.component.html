@@ -1,29 +1,33 @@
-<div class="row min-vw-100 d-flex justify-content-center">
-  <app-navbar class="col p-0" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
-</div>
-<div class="row">
-  <app-info-bar-user class="col"></app-info-bar-user>
+<!-- Navbar -->
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
 </div>
 
-<div class="row" *ngIf="user.rol=='U'; else noUser">
+<!-- Info bar -->
+<div class="container-fluid p-0">
+  <app-info-bar-user class="col p-0"></app-info-bar-user>
+</div>
+
+<!-- Botones usuario -->
+<div class="container-fluid p-0" *ngIf="user.rol=='U'; else noUser">
 
 </div>
 
+<!-- Botones moderador -->
 <ng-template #noUser>
-  <div class="row" *ngIf="user.rol=='M'; else Admin">
-    <app-action-buttons-mod  class="col"></app-action-buttons-mod>
+  <div class="container-fluid p-0" *ngIf="user.rol=='M'; else Admin">
+    <app-action-buttons-mod class="col p-0"></app-action-buttons-mod>
   </div>
 </ng-template>
 
+<!-- Botones de moderador -->
 <ng-template #Admin>
-  <div class="row">
-  <app-action-buttons-adm class="col"></app-action-buttons-adm>
+  <div class="container-fluid p-0">
+    <app-action-buttons-adm class="col p-0"></app-action-buttons-adm>
   </div>
 </ng-template>
 
-<div class="row">
+<!-- footer -->
+<div class="container-fluid p-0">
   <app-footer class="col p-0"></app-footer>
 </div>
-
-
-

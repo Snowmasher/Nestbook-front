@@ -1,56 +1,55 @@
-<div class="row">
-  <app-navbar class="col p-0" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
 </div>
-<div class="row">
+<div class="container-fluid p-0">
   <app-info-bar class="col p-0"></app-info-bar>
 </div>
-<div class="row">
-  <div class="col d-flex justify-content-around">
-    <div class="row">
-      <div class="col-12 col-sm-6" *ngFor="let miembro of miembros">
-        <a class="text-white" routerLink="../user/{{ miembro.id }}">
-          <div class="darkblue-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='U'; else noUser">
-            <div class="col-8">
-              <h4>{{ miembro.name }}</h4>
-              <p>Usuario</p>
-            </div>
-            <div class="col-3">
-              <img class="img rounded-5" style="height: 5rem;" src="../../assets/img/icons/UsersAvatar/user.png"
-                alt="Imagen del usuario">
-            </div>
-          </div>
 
-          <ng-template #noUser>
-            <div class="orange-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='M'; else Admin">
-              <div class="col-8">
-                <h4>{{ miembro.name }}</h4>
-                <p>Moderador</p>
-              </div>
-              <div class="col-3">
-                <img class="img rounded-5" style="height: 5rem;" src="../../assets/img/icons/UsersAvatar/mod.png"
-                  alt="Imagen del usuario">
-              </div>
-            </div>
-          </ng-template>
+<div class="container-fluid p-0 d-sm-flex justify-content-around flex-wrap">
 
-          <ng-template #Admin>
-            <div class="red-bg-snowmasher mt-3 p-3 d-flex">
-              <div class="col-8">
-                <h4>{{ miembro.name }}</h4>
-                <p>Aministrador</p>
-              </div>
-              <div class="col-3">
-                <img class="img rounded-5" style="height: 5rem;" src="../../assets/img/icons/UsersAvatar/admin.png"
-                  alt="Imagen del usuario">
-              </div>
-            </div>
-          </ng-template>
-        </a>
+  <div class="col-12  col-md-6" *ngFor="let miembro of miembros">
+    <a class="text-white" routerLink="../user/{{ miembro.id }}">
+
+      <div class="darkblue-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='U'; else noUser">
+        <div class="col-8">
+          <h4>{{ miembro.name }}</h4>
+          <p>Usuario</p>
+        </div>
+        <div class="col-3">
+          <img class="img rounded-5" style="height: 5rem;" src="../../assets/img/icons/UsersAvatar/user.png"
+            alt="Imagen del usuario">
+        </div>
       </div>
-    </div>
 
+      <ng-template #noUser>
+        <div class="orange-bg-snowmasher mt-3 p-3 d-flex" *ngIf="miembro.rol=='M'; else Admin">
+          <div class="col-8">
+            <h4>{{ miembro.name }}</h4>
+            <p>Moderador</p>
+          </div>
+          <div class="col-3">
+            <img class="img rounded-5" style="height: 5rem;" src="../../assets/img/icons/UsersAvatar/mod.png"
+              alt="Imagen del usuario">
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #Admin>
+        <div class="red-bg-snowmasher mt-3 p-3 d-flex">
+          <div class="col-8">
+            <h4>{{ miembro.name }}</h4>
+            <p>Aministrador</p>
+          </div>
+          <div class="col-3">
+            <img class="img rounded-5" style="height: 5rem;" src="../../assets/img/icons/UsersAvatar/admin.png"
+              alt="Imagen del usuario">
+          </div>
+        </div>
+      </ng-template>
+    </a>
   </div>
 </div>
-<div class="row">
+
+<div class="container-fluid p-0">
   <app-footer class="col p-0"></app-footer>
 </div>

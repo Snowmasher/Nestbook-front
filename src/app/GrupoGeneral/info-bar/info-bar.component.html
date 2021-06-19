@@ -1,17 +1,20 @@
-<div class="row blue-bg-snowmasher" style="max-width: inherit;">
+<div class="container-fluid pt-1 pb-1 blue-bg-snowmasher d-flex flex-row">
 
-  <div class="col-sm-2 d-none d-sm-block" style="width: 16rem; height: 9rem; margin: 10px; text-align: center;">
+  <!-- Imagen -->
+  <div class="col col-sm-2 d-none d-sm-block">
     <img *ngIf="asociacion.url_img" class="img img-responsive img-thumbnail"
       style="max-height: 10rem; min-height: 8rem; margin: 1rem; margin-left: 3rem;" src="{{ asociacion.url_img }}">
   </div>
 
-  <div class="col-12 col-sm-3" style="margin: 10px;">
-    <h4 class="text-white ml-4 ml-sm-1">{{ asociacion.nombre }}</h4>
-  </div>
+  <!-- Cuerpo principal -->
+  <div class="col col-sm-10 pt-2 pb-2 d-flex flex-column justify-content-between">
+    <div class="container-fluid">
+      <h4 class="text-white ml-sm-1">{{ asociacion.nombre }}</h4>
+    </div>
 
-  <div class="col-12 col-sm-12 d-flex justify-content-end" style="margin: 10px;">
-    <a class="btn info-btn-usr asoc-btn" routerLink="/principal">Publicaciones</a>
-    <a class="btn info-btn-usr asoc-btn" routerLink="/principal/miembros">Miembros</a>
+    <div class="container.fluid d-flex justify-content-end">
+      <a class="btn info-btn-usr asoc-btn" routerLink="/principal">Publicaciones</a>
+      <a class="btn info-btn-usr asoc-btn" routerLink="/principal/miembros">Miembros</a>
+    </div>
   </div>
-
 </div>
