@@ -117,7 +117,7 @@ export class TablaCanarioUserComponent implements OnInit {
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {
-            this.router.navigate([currentUrl]);
+            this.router.navigate(["/panel"]);
           });
       },
       (error: any) => {

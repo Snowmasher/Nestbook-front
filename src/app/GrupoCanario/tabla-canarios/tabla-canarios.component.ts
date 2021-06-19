@@ -103,7 +103,7 @@ export class TablaCanariosComponent implements OnInit, OnDestroy {
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {
-            this.router.navigate([currentUrl]);
+            this.router.navigate(["/panel"]);
           });
       },
       (error: any) => {

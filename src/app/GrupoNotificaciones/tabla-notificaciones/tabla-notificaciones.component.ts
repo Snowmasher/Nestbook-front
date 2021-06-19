@@ -64,11 +64,12 @@ export class TablaNotificacionesComponent implements OnInit, OnDestroy {
       }
     );
 
-    $('#loader').fadeOut('500');
+    $('#loader').fadeOut(500);
+    $('.spinner-border').fadeOut(500);
 
     setTimeout(() => {
       $('*[id^="tabla"]').fadeIn();
-    }, 800);
+    }, 600);
   }
 
   borrar(id: number) {
@@ -77,12 +78,14 @@ export class TablaNotificacionesComponent implements OnInit, OnDestroy {
         console.log(result);
 
         $('.modal-backdrop').hide();
+        $('body').attr('class', '');
+        $('#loader').fadeOut(500);
 
         let currentUrl = this.router.url;
         this.router
-          .navigateByUrl('/', { skipLocationChange: true })
+          .navigateByUrl('/')
           .then(() => {
-            this.router.navigate([currentUrl]);
+            this.router.navigate(["/panel"]);
           });
       },
       (error: any) => {

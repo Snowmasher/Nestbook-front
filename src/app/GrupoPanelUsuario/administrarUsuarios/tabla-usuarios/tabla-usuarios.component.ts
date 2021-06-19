@@ -86,7 +86,7 @@ export class TablaUsuariosComponent implements OnInit, OnDestroy {
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {
-            this.router.navigate([currentUrl]);
+            this.router.navigate(["/panel"]);
           });
 
 

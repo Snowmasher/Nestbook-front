@@ -83,7 +83,7 @@ export class TablaPublicacionesComponent implements OnDestroy, OnInit {
         this.router
           .navigateByUrl('/', { skipLocationChange: true })
           .then(() => {
-            this.router.navigate([currentUrl]);
+            this.router.navigate(["/panel"]);
           });
 
 
