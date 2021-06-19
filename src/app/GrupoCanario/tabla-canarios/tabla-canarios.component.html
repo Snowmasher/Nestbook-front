@@ -1,86 +1,100 @@
-<div class="container-fluid mt-3">
-  <div class="row mr-3 d-flex justify-content-end">
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
+</div>
+<div class="container-fluid p-0">
+  <app-info-bar-user class="col p-0"></app-info-bar-user>
+</div>
 
-    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-      <button type="button" routerLink="./create" class="btn btn-success" style="padding: 0.2em 4em;">Alta</button>
+<div class="container-fluid p-0">
+  <div class="container-fluid mt-3">
+
+    <!-- Boton de alta -->
+    <div class="container-fluid mb-3 mb-lg-0 d-lg-flex justify-content-end">
+      <div class="col col-lg-2 btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" routerLink="./create" class="btn btn-success" style="padding: 0.2em 4em;">Alta</button>
+      </div>
     </div>
-  </div>
 
-  <!--TABLA-->
-  <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
+    <!--TABLA-->
+    <div class="container-fluid mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive">
 
-    <table id="tabla" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover w-100">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">Nº Anilla</th>
-          <th scope="col">Sexo</th>
-          <th scope="col">Fª de Nacimiento</th>
-          <th scope="col">Nº Anilla Padre</th>
-          <th scope="col">Nº Anilla Madre</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Borrar</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="canarios">
-        <tr *ngFor="let canario of canarios">
-          <th style="font-family: monospace;" scope="row"><a routerLink="./{{ canario.id }}">{{ canario.anilla }}</a>
-          </th>
-          <th style="font-family: monospace; text-align: center;" scope="row">{{ canario.sexo }}</th>
-          <td style="font-family: monospace;" scope="row">{{ canario.nacimiento }}</td>
-          <td style="font-family: monospace;" scope="row">{{ canario.anillaPadre }}</td>
-          <td style="font-family: monospace;" scope="row">{{ canario.anillaMadre }}</td>
-          <td>
-            <span class="d-flex justify-content-center">
-              <a title="Editar" routerLink="./update/{{ canario.id }}">
-                <i class="fas fa-edit"></i>
-              </a>
-            </span>
-          </td>
-          <td>
-            <span class="d-flex justify-content-center">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn" data-toggle="modal" [attr.data-target]="'#modalBorrar'+canario.id">
-                <i class="fas fa-trash"></i>
-              </button>
-            </span>
+      <table id="tabla" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover w-100">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Nº Anilla</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Fª de Nacimiento</th>
+            <th scope="col">Nº Anilla Padre</th>
+            <th scope="col">Nº Anilla Madre</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="canarios">
+          <tr *ngFor="let canario of canarios">
+            <th style="font-family: monospace;" scope="row"><a routerLink="./{{ canario.id }}">{{ canario.anilla }}</a>
+            </th>
+            <th style="font-family: monospace; text-align: center;" scope="row">{{ canario.sexo }}</th>
+            <td style="font-family: monospace;" scope="row">{{ canario.nacimiento }}</td>
+            <td style="font-family: monospace;" scope="row">{{ canario.anillaPadre }}</td>
+            <td style="font-family: monospace;" scope="row">{{ canario.anillaMadre }}</td>
+            <td>
+              <span class="d-flex justify-content-center">
+                <a title="Editar" routerLink="./update/{{ canario.id }}">
+                  <i class="fas fa-edit"></i>
+                </a>
+              </span>
+            </td>
+            <td>
+              <span class="d-flex justify-content-center">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn" data-toggle="modal" [attr.data-target]="'#modalBorrar'+canario.id">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </span>
 
-            <!-- Modal -->
-            <div class="modal fade" id="modalBorrar{{ canario.id }}" tabindex="-1" role="dialog"
-              aria-labelledby="ModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel">Dar de baja</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    ¿Está seguro de dar de baja a {{ canario.anilla }}?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" (click)="borrar(canario.id)">Borrar</button>
+              <!-- Modal -->
+              <div class="modal fade" id="modalBorrar{{ canario.id }}" tabindex="-1" role="dialog"
+                aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="ModalLabel">Dar de baja</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ¿Está seguro de dar de baja a {{ canario.anilla }}?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-danger" (click)="borrar(canario.id)">Borrar</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-          </td>
-        </tr>
-      </tbody>
-      <tbody *ngIf="!canarios">
-        <th scope="col">Sin datos</th>
-        <th scope="col">Sin datos</th>
-        <th scope="col">Sin datos</th>
-        <th scope="col">Sin datos</th>
-        <th scope="col">Sin datos</th>
-        <th scope="col">Sin datos</th>
-        <th scope="col">Sin datos</th>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="!canarios">
+          <th scope="col">Sin datos</th>
+          <th scope="col">Sin datos</th>
+          <th scope="col">Sin datos</th>
+          <th scope="col">Sin datos</th>
+          <th scope="col">Sin datos</th>
+          <th scope="col">Sin datos</th>
+          <th scope="col">Sin datos</th>
+        </tbody>
+      </table>
 
-    <app-loader id="loader"></app-loader>
+      <app-loader id="loader"></app-loader>
 
+    </div>
   </div>
+</div>
+
+<div class="container-fluid p-0">
+  <app-footer class="col p-0"></app-footer>
 </div>

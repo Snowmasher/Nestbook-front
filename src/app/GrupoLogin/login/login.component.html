@@ -1,11 +1,11 @@
-<div class="row min-vw-100 d-flex justify-content-center" style="height: 100vh;">
+<div class="container-fluid d-flex flex-row p-0" style="height: 100vh;">
   <!--Imagen del login-->
-  <div class="col-md-6 m-0 h-100 min-vw-50 mw-50 bg-cover d-none d-md-block"></div>
+  <div class="col-md-6 m-0 h-100 bg-cover d-none d-md-block"></div>
 
   <!--Login-->
   <div class="col-md-6 m-0 h-100">
     <!--Formulario-->
-    <div class="row mh-50 h-50 d-flex justify-content-center align-center">
+    <div class="container-fluid mh-50 h-50 d-flex justify-content-center align-center">
       <div class="col-10 d-flex flex-column justify-content-center">
         <div>
           <h3>Iniciar sesión</h3>
@@ -18,10 +18,13 @@
           <div class="mb-3">
             <input class="form-control" formControlName="password" type="password" placeholder="contraseña...">
           </div>
+
+          <!-- Botones inferiores -->
           <div class="mb-3 d-flex justify-content-between">
             <a href="" style="font-size: 0.9em;">Olvidé mi contraseña</a>
-            <div class="d-flex flex-row">
-              <a routerLink="/registerUser">Registrarse</a>
+
+            <div class="d-flex flex-column-reverse flex-lg-row">
+              <a class="mt-3 mt-lg-0 mr-lg-4" routerLink="/registerUser">Registrarse</a>
               <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
           </div>
@@ -30,7 +33,7 @@
     </div>
 
     <!--Advertencia inferior-->
-    <div class="row mh-50 h-50  d-flex justify-content-center align-items-end">
+    <div class="container-fluid mh-50 h-50  d-flex justify-content-center align-items-end">
       <div class="col-8 text-center">
         <p style="font-size: 0.8em; color: grey;">Si no posee un usuario regístrese y espere la aceptacón del moderador de su asociación</p>
       </div>

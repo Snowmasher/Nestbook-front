@@ -163,6 +163,12 @@ thead tr,thead tr:hover {
 
 
 /*Tablas*/
+@media (max-width: 768px) {
+  table, *[id^="tabl"] {
+    font-size: 0.85rem;
+  }
+}
+
 
 table td {
   padding: 1.5em;

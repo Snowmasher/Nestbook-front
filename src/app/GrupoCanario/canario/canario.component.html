@@ -1,14 +1,14 @@
-<div class="row min-vw-100 d-flex justify-content-center">
-  <app-navbar class="min-vw-100" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
 </div>
-<div class="row">
-  <app-info-bar-user class="col"></app-info-bar-user>
+<div class="container-fluid p-0">
+  <app-info-bar-user class="col p-0"></app-info-bar-user>
 </div>
 
-<div class="row">
+<div class="container-fluid p-0">
 
-  <div class="container mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
-    <div class="row darkblue-bg-snowmasher text-light p-2" style="min-height: 5em;">
+  <div class="container p-0 mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
+    <div class="container-fluid darkblue-bg-snowmasher text-light p-2 d-flex" style="min-height: 5em;">
       <div class="col-6  d-flex flex-column">
         <h4>Nº de anilla: {{ canario.anilla }}</h4>
       </div>
@@ -31,8 +31,9 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6 p-4">
+    <div class="container-fluid p-0 d-lg-flex flex-row">
+
+      <div class="col col-lg-6 p-4">
         <table class="table table-hover table-bordered">
           <tbody>
             <tr>
@@ -65,7 +66,7 @@
       <!-- Modal -->
       <div class="modal fade" id="modalBorrar{{ canario.id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="ModalLabel">Dar de baja</h5>
@@ -84,16 +85,12 @@
         </div>
       </div>
 
-      <div class="col-6 p-4">
+      <div class="col col-lg-6 p-4 d-none d-lg-flex" *ngIf="canario.url_img">
         <div>
 
-          <div style="width: 28em; height: 24em; margin: 10px; text-align: center;">
-            <img class="img img-responsive img-thumbnail" style="max-height: 100%;" src="{{ canario.url_img }}">
+          <div style="margin: 10px; text-align: center;">
+            <img class="img img-responsive img-thumbnail" src="{{ canario.url_img }}">
           </div>
-
-          <!-- <div style="background-color: cornsilk; width: 28em; height: 24em; margin: 10px; text-align: center;">
-            <p>IMAGEN CANARIO</p>
-          </div> -->
         </div>
       </div>
     </div>
@@ -109,7 +106,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modalIntercambio{{ canario.id }}" tabindex="-1" role="dialog"
 aria-labelledby="ModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-dialog-centered" role="document">
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title" id="ModalLabel">Intercambio</h5>
@@ -129,6 +126,6 @@ aria-labelledby="ModalLabel" aria-hidden="true">
 </div>
 </div>
 
-<div class="row">
-  <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>
+<div class="container-fluid p-0">
+  <app-footer class="col p-0"></app-footer>
 </div>

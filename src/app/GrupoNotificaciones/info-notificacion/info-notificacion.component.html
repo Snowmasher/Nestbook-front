@@ -1,13 +1,13 @@
-<div class="row min-vw-100 d-flex justify-content-center">
-  <app-navbar class="col p-0" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
 </div>
-<div class="row">
+<div class="container-fluid p-0">
   <app-info-bar-user class="col p-0"></app-info-bar-user>
 </div>
 
-<div class="row">
-  <div class="container mt-4 border darkblue-border-snowmasher" style="min-height: 20em;">
-    <div class="row darkblue-bg-snowmasher text-light p-2" style="min-height: 5em;">
+<div class="container-fluid">
+  <div class="container mt-4 border darkblue-border-snowmasher p-0" style="min-height: 20em;">
+    <div class="container-fluid darkblue-bg-snowmasher text-light p-2" style="min-height: 5em;">
       <div class="col-6  d-flex flex-column">
         <h5 *ngIf="notificacion.tipo === 'U'">Nombre: {{ notificacion.contenido.name }}</h5>
         <h5>ID notificación: {{ notificacion.id }}</h5>
@@ -15,7 +15,7 @@
       <div class="col-6 d-flex justify-content-end">
       </div>
     </div>
-    <div class="row">
+    <div class="container-fluid">
       <div class="col p-4" style="overflow-x:auto;">
         <table class="table table-hover table-bordered info-t">
           <tbody>
@@ -85,7 +85,7 @@
 
 <!-- Modal Tipo Intercambio -->
 <div *ngIf="notificacion.tipo === 'I'" class="modal fade" id="ModalIntercambio" tabindex="-1" role="dialog" aria-labelledby="ModalIntercambio" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-dialog modal-dialog-centered-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="ModalIntercambioTitle">Intercambio</h5>
@@ -114,6 +114,6 @@
   <a routerLink="/notificaciones" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
 
-<div class="row">
-  <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>
+<div class="container-fluid p-0">
+  <app-footer class="col p-0"></app-footer>
 </div>

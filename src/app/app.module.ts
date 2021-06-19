@@ -59,7 +59,6 @@ import { InfoBarUserComponent } from './GrupoGeneral/info-bar-user/info-bar-user
 import { UserPanelComponent } from './GrupoPanelUsuario/user-panel/user-panel.component';
 import { ActionButtonsModComponent } from './GrupoPanelUsuario/action-buttons-mod/action-buttons-mod.component';
 import { ActionButtonsAdmComponent } from './GrupoPanelUsuario/action-buttons-adm/action-buttons-adm.component';
-import { ListaCanariosComponent } from './GrupoCanario/lista-canarios/lista-canarios.component';
 import { TablaCanariosComponent } from './GrupoCanario/tabla-canarios/tabla-canarios.component';
 import { CanarioComponent } from './GrupoCanario/canario/canario.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -103,7 +102,6 @@ import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificaci
     UserPanelComponent,
     ActionButtonsModComponent,
     ActionButtonsAdmComponent,
-    ListaCanariosComponent,
     TablaCanariosComponent,
     CanarioComponent,
     SecureComponent,

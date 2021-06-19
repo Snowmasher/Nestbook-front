@@ -1,6 +1,5 @@
 import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Publicacion } from '../Publicacion';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/Models/Post';

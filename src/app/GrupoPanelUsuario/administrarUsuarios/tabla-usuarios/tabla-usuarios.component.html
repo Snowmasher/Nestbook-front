@@ -1,23 +1,15 @@
-<div class="row min-vw-100 d-flex justify-content-center">
-  <app-navbar class="col p-0" style="max-height: 4em; margin-bottom: 1em;"></app-navbar>
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
 </div>
-
-<div class="row">
+<div class="container-fluid p-0">
   <app-info-bar-user class="col p-0"></app-info-bar-user>
 </div>
 
-<div class="row d-flex justify-content-center">
-  <div style="min-width: 85%; max-width: 90%;">
-    <div class="container-fluid mt-3">
-      <div class="row mr-3 d-flex justify-content-end">
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button routerLink="./registerUser" type="button" class="btn btn-success"
-            style="padding: 0.2em 4em;">Alta</button>
-        </div>
-      </div>
+<div class="container-fluid p-0">
+  <div class="container-fluid mt-3">
 
       <!--TABLA-->
-      <div class="row mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive-sm">
+      <div class="container-fluid p-0 p-lg-1 mt-2 mb-2 min-vw-90 d-flex justify-content-center table-responsive">
 
         <table id="tabla" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover w-100">
           <thead class="table-dark">
@@ -54,7 +46,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="modalBorrar{{ miembro.id }}" tabindex="-1" role="dialog"
                   aria-labelledby="ModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="ModalLabel">Dar de baja</h5>
@@ -86,6 +78,6 @@
       <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
     </div>
 
-    <div class="row">
-      <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>
+    <div class="container-fluid p-0">
+      <app-footer class="col p-0"></app-footer>
     </div>
