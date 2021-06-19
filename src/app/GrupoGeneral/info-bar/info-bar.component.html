@@ -1,16 +1,17 @@
-<div class="container-fluid blue-bg-snowmasher d-flex">
-  <!-- <div style="background-color: cornsilk; width: 7em; height: 7em; margin: 10px; text-align: center; margin-left: 3em;">
-    <p>IMAGEN ASOCIACION</p>
-  </div> -->
-  <div style="width: auto; height: 10rem; margin: 1rem; display: flex; justify-content: center; align-content: center;">
-    <img class="img img-responsive img-thumbnail" style="max-height: 10rem; min-height: 8rem; margin: 1rem; margin-left: 3rem;" src="{{ asociacion.url_img }}">
+<div class="row blue-bg-snowmasher" style="max-width: inherit;">
+
+  <div class="col-sm-2 d-none d-sm-block" style="width: 16rem; height: 9rem; margin: 10px; text-align: center;">
+    <img *ngIf="asociacion.url_img" class="img img-responsive img-thumbnail"
+      style="max-height: 10rem; min-height: 8rem; margin: 1rem; margin-left: 3rem;" src="{{ asociacion.url_img }}">
   </div>
-  <div class="col" style="margin: 10px;">
-    <h4 class="text-white">{{ asociacion.nombre }}</h4>
-    <h6 class="text-white">ID Moderador: {{ asociacion.id_mod }}</h6>
+
+  <div class="col-12 col-sm-3" style="margin: 10px;">
+    <h4 class="text-white ml-4 ml-sm-1">{{ asociacion.nombre }}</h4>
   </div>
-  <div class="col w-70 d-flex justify-content-end" style="margin: 10px;">
+
+  <div class="col-12 col-sm-12 d-flex justify-content-end" style="margin: 10px;">
     <a class="btn info-btn-usr asoc-btn" routerLink="/principal">Publicaciones</a>
     <a class="btn info-btn-usr asoc-btn" routerLink="/principal/miembros">Miembros</a>
   </div>
+
 </div>

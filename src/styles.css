@@ -55,10 +55,8 @@ button, button[type="button"]{
   font-size: large;
 }
 
-/*userNavLink*/
-.userNavLink{
-  position: absolute;
-  right: 0px;
+.userNavLink:hover{
+  text-decoration: none;
 }
 
 .asoc-btn{
@@ -108,7 +106,6 @@ a, a[routerLink], a[class="btn"]{
   -moz-border-radius: 4px ;
   border-radius: 2px ;
   border-width: 2px 2px 2px 2px;
-  padding: 10px;
 }
 
 

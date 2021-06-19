@@ -55,8 +55,6 @@ import { NavbarComponent } from './GrupoGeneral/navbar/navbar.component';
 import { InfoBarComponent } from './GrupoGeneral/info-bar/info-bar.component';
 import { FooterComponent } from './GrupoGeneral/footer/footer.component';
 import { MiembrosComponent } from './GrupoPrincipal/miembros/miembros.component';
-import { ListaMiembrosComponent } from './GrupoPrincipal/lista-miembros/lista-miembros.component';
-import { ItemMiembroComponent } from './GrupoPrincipal/item-miembro/item-miembro.component';
 import { InfoBarUserComponent } from './GrupoGeneral/info-bar-user/info-bar-user.component';
 import { UserPanelComponent } from './GrupoPanelUsuario/user-panel/user-panel.component';
 import { ActionButtonsModComponent } from './GrupoPanelUsuario/action-buttons-mod/action-buttons-mod.component';
@@ -101,8 +99,6 @@ import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificaci
     InfoBarComponent,
     FooterComponent,
     MiembrosComponent,
-    ListaMiembrosComponent,
-    ItemMiembroComponent,
     InfoBarUserComponent,
     UserPanelComponent,
     ActionButtonsModComponent,

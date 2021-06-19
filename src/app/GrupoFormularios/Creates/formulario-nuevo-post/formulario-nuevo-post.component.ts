@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
 import { UserService } from 'src/app/services/Usuario/user.service';
 
@@ -16,6 +17,8 @@ export class FormularioNuevoPostComponent implements OnInit {
   constructor(
     private postService: PublicacionService,
     private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,24 @@ export class FormularioNuevoPostComponent implements OnInit {
       url_img: '',
       contenido: ''
     });
+
+    const myId: number = +localStorage.getItem('id_user')!;
+    //Subscribe para restringir la entrada
+    this.userService.getData(myId).subscribe(
+      (result: any) => {
+        for (const i of JSON.parse(JSON.stringify(result))) {
+          if (
+            i.rol !== 'M' && i.rol !== 'A'
+          ) {
+            this.router.navigate(['/panel']);
+          }
+        }
+      },
+      (error) => {
+        console.log('error');
+        console.log(error);
+      }
+    );
   }
 
   onSubmit(): void {

@@ -1,15 +1,26 @@
-.modAdmAction{
-  height: 40em;
-  width: 40em;
+.modAdmAction {
+  height: 25rem;
+  width: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   color: var(--blue);
   border: 2px solid var(--blue);
+  padding: 2rem;
 }
 
-.modAdmAction:hover{
+.modAdmAction:hover {
   text-decoration: none;
   color: var(--blue);
+  background-color: rgba(0, 0, 0, 0.09);
+  box-shadow: inset 0px 0px 5px #272727;
 }
+
+.modAdmAction:active {
+  text-decoration: none;
+  color: var(--blue);
+  background-color: rgba(0, 0, 0, 0.09);
+  box-shadow: inset 0px 0px 5px #272727;
+}
+
