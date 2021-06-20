@@ -51,6 +51,13 @@ export class LoginComponent implements OnInit {
       (error) => {
         console.log('error');
         console.log(error);
+
+        $('.alert-danger').fadeIn();
+
+        setTimeout(
+          () => $('.alert-danger').fadeOut(),
+          4000
+        );
       }
     );
   }

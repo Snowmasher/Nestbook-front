@@ -76,4 +76,9 @@ export class PostSelectedComponent implements OnInit {
     );
   }
 
+  abrirImagen(url: string){
+    window.open(url, '_blank');
+    return false;
+  }
+
 }

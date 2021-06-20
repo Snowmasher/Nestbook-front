@@ -63,7 +63,7 @@ export class UpdatePostComponent implements OnInit {
               (result: any) => {
                 for (const i of JSON.parse(JSON.stringify(result))) {
                   if (
-                    i.rol !== 'M' ||
+                    (i.rol !== 'M' && i.rol !== 'A') ||
                     i.id_asociacion !== p.id_asociacion
                   ) {
                     this.router.navigate(['/panel']);

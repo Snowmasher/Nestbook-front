@@ -29,6 +29,8 @@ import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notifi
 import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tabla-canario-user.component';
 import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificacion/info-notificacion.component';
 import { TablaCanariosComponent } from './GrupoCanario/tabla-canarios/tabla-canarios.component';
+import { ConfigComponent } from './GrupoPanelUsuario/config/config.component';
+import { ManualComponent } from './GrupoPanelUsuario/manual/manual.component';
 
 const routes: Routes = [
 
@@ -49,6 +51,8 @@ const routes: Routes = [
 
   // Paneles ----------------
   {path: 'panel', component: UserPanelComponent},
+  {path: 'panel/config', component: ConfigComponent},
+  {path: 'panel/config/manual', component: ManualComponent},
 
   // Moderadores
   {path: 'panel/adminMod', component: TablaModeradoresComponent},

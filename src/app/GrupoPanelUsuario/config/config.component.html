@@ -1,0 +1,63 @@
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
+</div>
+<div class="container-fluid p-0">
+  <app-info-bar-user class="col p-0"></app-info-bar-user>
+</div>
+<!--Formulario-->
+<div *ngIf="user.rol !== 'A'" class="container-fluid mh-50 h-50 d-flex justify-content-center align-center" style="margin-top: 2rem;">
+  <div class="col-10 d-flex flex-column justify-content-center">
+
+    <div class="alert alert-success" style="display: none;" role="alert">
+      Usuario editado con exito
+    </div>
+    <div class="alert alert-danger" style="display: none;" role="alert">
+      ¡Ha ocurrido un error!
+    </div>
+
+    <div>
+      <h3>Editar Usuario</h3>
+    </div>
+    <!--Campos del formulario-->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
+      <div class="mb-3">
+        <input class="form-control" formControlName="name" [(ngModel)]="user.name" type="text" placeholder="Nombre de usuario..." value="{{ user.name }}">
+        <div *ngIf="form.get('name')!.invalid && form.get('name')!.errors && (form.get('name')!.dirty || form.get('name')!.touched)">
+          <small class="text-danger" *ngIf="form.get('name')!.hasError('required')">Debe indicar un nombre</small>
+          <small class="text-danger" *ngIf="form.get('name')!.hasError('maxlength')">El nombre debe tener menos de 20 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('name')!.hasError('minlength')">El nombre debe tener al menos 4 caracteres</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <input class="form-control" formControlName="password" type="password" placeholder="Contraseña...">
+        <div *ngIf="form.get('password')!.invalid && form.get('password')!.errors && (form.get('password')!.dirty || form.get('password')!.touched)">
+          <small class="text-danger" *ngIf="form.get('password')!.hasError('required')">Debe indicar la contraseña</small>
+          <small class="text-danger" *ngIf="form.get('password')!.hasError('minlength')">La contraseña debe tener al menos 8 caracteres</small>
+        </div>
+      </div>
+      <div class="mb-3 d-flex justify-content-between">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Añadir</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--Boton Manual-->
+<div class="container-fluid mh-50 h-50 d-flex justify-content-center align-center" style="margin-top: 2rem;">
+  <div class="col-10 d-flex flex-column justify-content-center">
+    <div>
+      <h3 *ngIf="user.rol === 'A'">Manual de Administrador</h3>
+      <h3 *ngIf="user.rol === 'M'">Manual de Moderador</h3>
+      <h3 *ngIf="user.rol === 'U'">Manual de Usuario</h3>
+
+      <a routerLink="./manual" class="btn info-btn-usr w-100" type="button">Ir al Manual</a>
+    </div>
+  </div>
+</div>
+
+<div class="col w-70 d-flex justify-content-center" style="margin-top: 3rem;">
+  <a routerLink="/panel" class="btn info-btn-usr" type="button">Atrás</a>
+</div>
+<div class="footer container-fluid p-0 ">
+  <app-footer class="col p-0"></app-footer>
+</div>

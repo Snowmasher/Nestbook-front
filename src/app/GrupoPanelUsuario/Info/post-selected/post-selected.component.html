@@ -1,11 +1,11 @@
-<div class="row min-vw-100 d-flex justify-content-center">
-  <app-navbar class="col p-0" style="max-height: 4em; margin-bottom: 1em"></app-navbar>
+<div class="container-fluid mb-3 p-0">
+  <app-navbar class="col p-0" style="max-height: 4em;"></app-navbar>
 </div>
-<div class="row">
-  <app-info-bar-user class="min-vw-100 d-flex justify-content-center"></app-info-bar-user>
+<div class="container-fluid p-0">
+  <app-info-bar-user class="col p-0"></app-info-bar-user>
 </div>
 
-<div class="row">
+<div class="container-fluid">
   <div class="container mt-4 border darkblue-border-snowmasher" style="min-height: 20em">
     <div class="row darkblue-bg-snowmasher text-light p-2" style="min-height: 5em">
       <div class="col-6 d-flex flex-column">
@@ -26,20 +26,15 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6 p-4">
+    <div class="container-fluid p-0">
+      <div class="col col-sm-6 p-4">
         <p style="word-wrap: break-word">{{ post.contenido }}</p>
       </div>
-      <div class="col-6 p-4">
+      <div class="col col-sm-6 p-4" *ngIf="post.url_img">
         <div>
-          <div style="
-              background-color: cornsilk;
-              width: 28em;
-              height: 24em;
-              margin: 10px;
-              text-align: center;
-            ">
-            <p>IMAGEN POST</p>
+          <div style="width: auto; height: 20rem; margin: 1rem; display: flex; justify-content: center; align-content: center; flex-direction: column;">
+            <img class="img img-fluid img-thumbnail" style="max-width: 70%; max-height: 70%; width: auto; height: auto; align-self: center;" src="{{ post.url_img }}">
+            <button class="btn orange-bg-snowmasher text-white mt-1" style="max-width: 50%; align-self: center;" (click)="abrirImagen(post.url_img)">Ver imagen</button>
           </div>
         </div>
       </div>
@@ -73,6 +68,6 @@ aria-hidden="true">
   <a routerLink="/panel/adminPost" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
 
-<div class="row">
-  <app-footer class="min-vw-100 d-flex justify-content-center"></app-footer>
+<div class="footer container-fluid p-0 ">
+  <app-footer class="col p-0"></app-footer>
 </div>

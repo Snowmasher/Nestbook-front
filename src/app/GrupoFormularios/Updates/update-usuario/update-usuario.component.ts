@@ -38,10 +38,7 @@ export class UpdateUsuarioComponent implements OnInit {
         Validators.minLength(4),
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-      ])
+      password: new FormControl('')
     });
 
     const id = this.rutaActiva.snapshot.params.id;

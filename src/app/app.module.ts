@@ -87,6 +87,12 @@ import { LoaderComponent } from './loader/loader.component';
 import { TablaNotificacionesComponent } from './GrupoNotificaciones/tabla-notificaciones/tabla-notificaciones.component';
 import { TablaCanarioUserComponent } from './GrupoCanario/tabla-canario-user/tabla-canario-user.component';
 import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificacion/info-notificacion.component';
+import { ActionButtonsUsrComponent } from './GrupoPanelUsuario/action-buttons-usr/action-buttons-usr.component';
+import { ConfigComponent } from './GrupoPanelUsuario/config/config.component';
+import { ManualComponent } from './GrupoPanelUsuario/manual/manual.component';
+import { UserComponent } from './GrupoPanelUsuario/manual/user/user.component';
+import { ModComponent } from './GrupoPanelUsuario/manual/mod/mod.component';
+import { AdminComponent } from './GrupoPanelUsuario/manual/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +133,13 @@ import { InfoNotificacionComponent } from './GrupoNotificaciones/info-notificaci
     LoaderComponent,
     TablaNotificacionesComponent,
     TablaCanarioUserComponent,
-    InfoNotificacionComponent
+    InfoNotificacionComponent,
+    ActionButtonsUsrComponent,
+    ConfigComponent,
+    ManualComponent,
+    UserComponent,
+    ModComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
