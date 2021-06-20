@@ -23,14 +23,27 @@
       <div class="mb-3">
         <label for="num_anilla">Nº de anilla</label>
         <input class="form-control" id="num_anilla" formControlName="num_anilla" type="text" placeholder="Nº de anilla">
+        <div *ngIf="form.get('num_anilla')!.invalid && form.get('num_anilla')!.errors && (form.get('num_anilla')!.dirty || form.get('num_anilla')!.touched)">
+          <small class="text-danger" *ngIf="form.get('num_anilla')!.hasError('required')">Debe indicar un número de anilla</small>
+          <small class="text-danger" *ngIf="form.get('num_anilla')!.hasError('maxlength')">El número de anilla debe de tener 12 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('num_anilla')!.hasError('minlength')">El número de anilla debe de tener 12 caracteres</small>
+        </div>
       </div>
       <div class="mb-3">
         <label for="num_anilla_padre">Nº de anilla padre</label>
         <input class="form-control" id="num_anilla_padre" formControlName="num_anilla_padre" type="text" placeholder="Nº de anilla padre">
+        <div *ngIf="form.get('num_anilla_padre')!.invalid && form.get('num_anilla_padre')!.errors && (form.get('num_anilla_padre')!.dirty || form.get('num_anilla_padre')!.touched)">
+          <small class="text-danger" *ngIf="form.get('num_anilla_padre')!.hasError('maxlength')">El número de anilla debe de tener 12 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('num_anilla_padre')!.hasError('minlength')">El número de anilla debe de tener 12 caracteres</small>
+        </div>
       </div>
       <div class="mb-3">
         <label for="num_anilla">Nº de anilla madre</label>
         <input class="form-control" id="num_anilla_madre" formControlName="num_anilla_madre" type="text" placeholder="Nº de anilla madre">
+        <div *ngIf="form.get('num_anilla_madre')!.invalid && form.get('num_anilla_madre')!.errors && (form.get('num_anilla_madre')!.dirty || form.get('num_anilla_madre')!.touched)">
+          <small class="text-danger" *ngIf="form.get('num_anilla_madre')!.hasError('maxlength')">El número de anilla debe de tener 12 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('num_anilla_madre')!.hasError('minlength')">El número de anilla debe de tener 12 caracteres</small>
+        </div>
       </div>
       <div class="mb-3">
         <label for="url_img">URL de imagen</label>
@@ -47,9 +60,12 @@
       <div class="mb-3">
         <label for="fecha_nacimiento">Fª de Nacimiento</label>
         <input class="form-control" id="fecha_nacimiento" formControlName="fecha_nacimiento" type="date">
+        <div *ngIf="form.get('fecha_nacimiento')!.invalid && form.get('fecha_nacimiento')!.errors && (form.get('fecha_nacimiento')!.dirty || form.get('fecha_nacimiento')!.touched)">
+          <small class="text-danger" *ngIf="form.get('fecha_nacimiento')!.hasError('required')">Debe indicar una fecha de nacimiento</small>
+        </div>
       </div>
       <div class="mb-3 d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Añadir</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Añadir</button>
       </div>
     </form>
   </div>
@@ -59,6 +75,6 @@
   <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
 
-<div class="container-fluid p-0">
+<div class="footer container-fluid p-0 ">
   <app-footer class="col p-0"></app-footer>
 </div>

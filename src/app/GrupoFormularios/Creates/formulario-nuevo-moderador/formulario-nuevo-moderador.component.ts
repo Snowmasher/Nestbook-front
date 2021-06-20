@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/Usuario/user.service';
 
@@ -19,11 +24,21 @@ export class FormularioNuevoModeradorComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: '',
-      real_name: '',
-      id_asociacion: '',
-      email: '',
-      password: '',
+      name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+        Validators.minLength(6),
+      ]),
+      real_name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(50),
+        Validators.minLength(6),
+      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ])
     });
 
     const myId: number = +localStorage.getItem('id_user')!;

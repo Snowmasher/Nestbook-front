@@ -49,6 +49,9 @@ export class NavbarComponent implements OnInit {
 
     this.loggedIn = this.userService.isUserLoggedIn();
     console.log('isLogged', this.loggedIn);
+    if(!this.loggedIn){
+      this.router.navigate(['/login']);
+    }
 
     const id: number = +localStorage.getItem('id_user')!;
     this.userService.getData(id).subscribe(

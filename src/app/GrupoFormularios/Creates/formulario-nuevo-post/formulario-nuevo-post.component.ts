@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { PublicacionService } from 'src/app/services/Publicacion/publicacion.service';
 import { UserService } from 'src/app/services/Usuario/user.service';
@@ -23,10 +28,23 @@ export class FormularioNuevoPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      id_asociacion: '',
       titulo: '',
       url_img: '',
       contenido: ''
+    });
+
+    this.form = this.fb.group({
+      titulo: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(100),
+        Validators.minLength(6),
+      ]),
+      contenido: new FormControl('', [
+        Validators.required,
+        Validators.minLength(50),
+        Validators.maxLength(5000),
+      ]),
+      url_img: new FormControl('')
     });
 
     const myId: number = +localStorage.getItem('id_user')!;

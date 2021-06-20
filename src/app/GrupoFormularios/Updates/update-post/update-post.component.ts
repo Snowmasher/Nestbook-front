@@ -26,9 +26,17 @@ export class UpdatePostComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.fb.group({
-      titulo: new FormControl('', [Validators.required]),
-      contenido: new FormControl('', [Validators.required]),
-      url_img: new FormControl('', [Validators.required])
+      titulo: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(100),
+        Validators.minLength(6),
+      ]),
+      contenido: new FormControl('', [
+        Validators.required,
+        Validators.minLength(50),
+        Validators.maxLength(5000),
+      ]),
+      url_img: new FormControl('')
     });
 
     const id = this.rutaActiva.snapshot.params.id;

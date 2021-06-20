@@ -30,12 +30,22 @@ export class FormularioNuevoUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: new FormControl('', [Validators.required]),
-      real_name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+        Validators.minLength(4),
+      ]),
+      real_name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(50),
+        Validators.minLength(4),
+      ]),
       id_asociacion: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      password_confirmation: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ])
     });
 
     this.asociacionService.getAll().subscribe(
@@ -68,19 +78,10 @@ export class FormularioNuevoUsuarioComponent implements OnInit {
           id_asociacion: formData.id_asociacion,
           email: formData.email,
           password: formData.password,
-          password_confirmation: formData.password_confirmation,
         },
       },
     ];
 
-    // const data = [{
-    //   name: formData.name,
-    //   real_name: formData.real_name,
-    //   id_asociacion: formData.id_asociacion,
-    //   email: formData.email,
-    //   password: formData.password,
-    //   password_confirmation: formData.password_confirmation,
-    // }];
 
     this.notificacionService.enviarRegistroUser(data).subscribe(
       (result: any) => {

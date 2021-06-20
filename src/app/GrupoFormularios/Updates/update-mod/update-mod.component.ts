@@ -24,10 +24,20 @@ export class UpdateModComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.fb.group({
-      name: new FormControl('', [Validators.required]),
-      real_name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+        Validators.minLength(4),
+      ]),
+      real_name: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(50),
+        Validators.minLength(4),
+      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.minLength(8),
+      ])
     });
 
     const id = this.rutaActiva.snapshot.params.id;

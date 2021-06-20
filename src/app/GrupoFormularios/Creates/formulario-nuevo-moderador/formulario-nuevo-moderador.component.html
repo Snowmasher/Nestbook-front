@@ -21,23 +21,58 @@
 
     <!--Campos del formulario-->
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
+      <!-- Input name -->
       <div class="mb-3">
-        <input class="form-control" formControlName="name" type="text" placeholder="Nombre de moderador...">
+        <input class="form-control" name="name" formControlName="name" type="text" placeholder="Nombre de usuario...">
+
+        <div
+          *ngIf="form.get('name')!.invalid && form.get('name')!.errors && (form.get('name')!.dirty || form.get('name')!.touched)">
+          <small class="text-danger" *ngIf="form.get('name')!.hasError('required')">Debe indicar un nombre</small>
+          <small class="text-danger" *ngIf="form.get('name')!.hasError('maxlength')">El nombre debe tener menos de 20
+            caracteres</small>
+          <small class="text-danger" *ngIf="form.get('name')!.hasError('minlength')">El nombre debe tener al menos 4
+            caracteres</small>
+        </div>
       </div>
+      <!-- Input real_name -->
       <div class="mb-3">
         <input class="form-control" formControlName="real_name" type="text" placeholder="Nombre real...">
+        <div
+          *ngIf="form.get('real_name')!.invalid && form.get('real_name')!.errors && (form.get('real_name')!.dirty || form.get('real_name')!.touched)">
+          <small class="text-danger" *ngIf="form.get('real_name')!.hasError('required')">Debe indicar un nombre
+            real</small>
+          <small class="text-danger" *ngIf="form.get('real_name')!.hasError('maxlength')">El nombre debe tener menos de
+            50 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('real_name')!.hasError('minlength')">El nombre debe tener al menos
+            4 caracteres</small>
+        </div>
       </div>
+      <!-- Input Email -->
       <div class="mb-3">
         <input class="form-control" formControlName="email" type="text" placeholder="E-mail...">
+
+        <div
+          *ngIf="form.get('email')!.invalid && form.get('email')!.errors && (form.get('email')!.dirty || form.get('email')!.touched)">
+          <small class="text-danger" *ngIf="form.get('email')!.hasError('required')">Debe indicar una dirección de
+            email</small>
+          <small class="text-danger" *ngIf="form.get('email')!.errors?.email">Debe indicar una dirección de email
+            válido</small>
+        </div>
       </div>
+      <!-- Input Password -->
       <div class="mb-3">
-        <input class="form-control" formControlName="password" type="password" placeholder="Confirme la contraseña...">
-      </div>
-      <div class="mb-3">
-        <input class="form-control" formControlName="password_confirmation" type="password" placeholder="Repita la contraseña...">
+        <input class="form-control" formControlName="password" type="password" placeholder="Contraseña...">
+
+        <div
+          *ngIf="form.get('password')!.invalid && form.get('password')!.errors && (form.get('password')!.dirty || form.get('password')!.touched)">
+          <small class="text-danger" *ngIf="form.get('password')!.hasError('required')">Debe indicar la
+            contraseña</small>
+          <small class="text-danger" *ngIf="form.get('password')!.hasError('minlength')">La contraseña debe tener al
+            menos 8 caracteres</small>
+        </div>
       </div>
       <div class="mb-3 d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Añadir</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Añadir</button>
       </div>
     </form>
   </div>
@@ -47,6 +82,6 @@
   <a routerLink="../" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
 
-<div class="container-fluid p-0">
+<div class="footer container-fluid p-0 ">
   <app-footer class="col p-0"></app-footer>
 </div>

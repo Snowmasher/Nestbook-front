@@ -23,6 +23,11 @@
       <div class="mb-3">
         <label for="titulo">Título:</label>
         <input class="form-control" id="titulo" formControlName="titulo" [(ngModel)]="post.titulo" type="text" placeholder="Título..." value="{{ post.titulo }}">
+        <div *ngIf="form.get('titulo')!.invalid && form.get('titulo')!.errors && (form.get('titulo')!.dirty || form.get('titulo')!.touched)">
+          <small class="text-danger" *ngIf="form.get('titulo')!.hasError('required')">Debe indicar un título</small>
+          <small class="text-danger" *ngIf="form.get('titulo')!.hasError('maxlength')">El título debe tener menos de 100 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('titulo')!.hasError('minlength')">El título debe tener al menos 6 caracteres</small>
+        </div>
       </div>
       <div class="mb-3">
         <input class="form-control" formControlName="url_img" [(ngModel)]="post.url_img" type="text" placeholder="URL de imagen"  value="{{ post.url_img }}">
@@ -30,9 +35,14 @@
       <div class="mb-3">
         <label for="contenido">Contenido:</label>
         <textarea class="form-control rounded-0" rows="10" id="contenido" formControlName="contenido" [(ngModel)]="post.contenido" placeholder="Contenido..."  value="{{ post.contenido }}"></textarea>
+        <div *ngIf="form.get('contenido')!.invalid && form.get('contenido')!.errors && (form.get('contenido')!.dirty || form.get('contenido')!.touched)">
+          <small class="text-danger" *ngIf="form.get('contenido')!.hasError('required')">Debe indicar un contenido</small>
+          <small class="text-danger" *ngIf="form.get('contenido')!.hasError('minlength')">El contenido debe tener al menos 50 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('contenido')!.hasError('maxlength')">El contenido debe tener menos de 5000 caracteres</small>
+        </div>
       </div>
       <div class="mb-3 d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Editar</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Editar</button>
       </div>
     </form>
   </div>
@@ -41,6 +51,6 @@
 <div class="col w-70 d-flex justify-content-center" style="margin-top: 1em;">
   <a routerLink="../../" class="btn info-btn-usr" type="button">Atrás</a>
 </div>
-<div class="container-fluid p-0">
+<div class="footer container-fluid p-0 ">
   <app-footer class="col p-0"></app-footer>
 </div>

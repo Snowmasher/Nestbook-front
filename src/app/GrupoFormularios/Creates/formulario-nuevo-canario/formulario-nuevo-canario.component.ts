@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CanarioService } from 'src/app/services/Canario/canario.service';
 import { UserService } from 'src/app/services/Usuario/user.service';
@@ -23,13 +28,22 @@ export class FormularioNuevoCanarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      num_anilla: '',
-      num_anilla_padre: '',
-      num_anilla_madre: '',
-      id_usuario: '',
-      sexo: '',
-      fecha_nacimiento: '',
-      url_img: '',
+      num_anilla: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(12),
+        Validators.minLength(12),
+      ]),
+      num_anilla_padre: new FormControl('', [
+        Validators.maxLength(12),
+        Validators.minLength(12),
+      ]),
+      num_anilla_madre: new FormControl('', [
+        Validators.maxLength(12),
+        Validators.minLength(12),
+      ]),
+      sexo: new FormControl(''),
+      fecha_nacimiento: new FormControl('', [Validators.required]),
+      url_img: new FormControl('')
     });
 
     const myId: number = +localStorage.getItem('id_user')!;

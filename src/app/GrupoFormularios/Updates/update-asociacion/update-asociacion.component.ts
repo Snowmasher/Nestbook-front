@@ -32,9 +32,15 @@ export class UpdateAsociacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      nombre: new FormControl('', [Validators.required]),
-      id_mod: new FormControl('', [Validators.required]),
-      url_img: new FormControl('', [Validators.required])
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+        Validators.minLength(6),
+      ]),
+      id_mod: new FormControl('', [
+        Validators.required
+      ]),
+      url_img: new FormControl('')
     });
 
     const id = this.rutaActiva.snapshot.params.id;

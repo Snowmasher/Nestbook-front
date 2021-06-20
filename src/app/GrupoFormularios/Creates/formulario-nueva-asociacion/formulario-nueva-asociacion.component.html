@@ -22,6 +22,11 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center">
       <div class="mb-3">
         <input class="form-control" formControlName="nombre" type="text" placeholder="Nombre de asociación...">
+        <div *ngIf="form.get('nombre')!.invalid && form.get('nombre')!.errors && (form.get('nombre')!.dirty || form.get('nombre')!.touched)">
+          <small class="text-danger" *ngIf="form.get('nombre')!.hasError('required')">Debe indicar un nombre</small>
+          <small class="text-danger" *ngIf="form.get('nombre')!.hasError('maxlength')">El nombre debe tener menos de 20 caracteres</small>
+          <small class="text-danger" *ngIf="form.get('nombre')!.hasError('minlength')">El nombre debe tener al menos 6 caracteres</small>
+        </div>
       </div>
       <div class="mb-3">
         <input class="form-control" formControlName="url_img" type="text" placeholder="URL de imagen...">
@@ -31,9 +36,12 @@
           <option selected="selected">ID Moderador</option>
           <option *ngFor="let mod of moderadores" value="{{ mod.id }}">{{ mod.id }} {{mod.name}}</option>
         </select>
+        <div *ngIf="form.get('id_mod')!.invalid && form.get('id_mod')!.errors && (form.get('id_mod')!.dirty || form.get('id_mod')!.touched)">
+          <small class="text-danger" *ngIf="form.get('id_mod')!.hasError('required')">Debe indicar un ID de asociación</small>
+        </div>
       </div>
       <div class="mb-3 d-flex justify-content-between">
-        <button type="submit" class="btn btn-primary">Añadir</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Añadir</button>
       </div>
     </form>
   </div>

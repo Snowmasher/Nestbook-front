@@ -32,10 +32,8 @@ export class UpdateCanarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: new FormControl('', [Validators.required]),
-      id_usuario: new FormControl('', [Validators.required]),
-      sexo: new FormControl('', [Validators.required]),
-      url_img: new FormControl('', [Validators.required]),
+      sexo: new FormControl(''),
+      url_img: new FormControl(''),
     });
 
     const id = this.rutaActiva.snapshot.params.id;
